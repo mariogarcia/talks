@@ -1,0 +1,9 @@
+== Why ASTTs anyway ?
+
+[%step]
+* Save a lot of code
+* Extend the language
+* It should be very powerful because...
+
+=== Your favourite library is already using them:
+image:grails.png[width=100] image:spock.png[width=100] image:swissknife.png[width=100,height=100] image:griffon.png[width=100]

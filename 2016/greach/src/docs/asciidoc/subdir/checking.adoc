@@ -1,0 +1,49 @@
+== Is everything alright ?
+
+Sometime developing ASTTs is a chaos, I love
+what **Spock** does to testing:
+
+image::spock.png[with=200]
+
+=== Wouldn't be nice... ?
+
+[source, groovy]
+----
+@CompileStatic
+@LocalTransformation(A.PHASE_LOCAL.INSTRUCTION_SELECTION)
+class SerializableImpl extends
+    LocalTransformationImpl<Serializable, ClassNode> {
+    @Override
+    void doVisit(AnnotationNode annotation,
+                 ClassNode classNode,
+                 SourceUnit source) {
+        check: 'package starts with asteroid'
+        classNode.packageName.startsWith('asteroid')
+
+        check: 'there are at most 2 methods'
+        classNode.methods.size() < 3
+
+        then: 'make it implements Serializable and Cloneable'
+        addInterfaces(classNode, java.io.Serializable, Cloneable)
+    }
+}
+----
+
+* Use Groovy assertions in your ASTs
+
+=== This is not available...YET...but
+
+=== ASTTest
+
+* **groovy.transform.ASTTest**
+* Meant to help debugging other AST transformations or the Groovy
+compiler itself
+
+=== Example
+
+[source,groovy]
+----
+include::{groovyTest}/greach/builder/EvenCheckerTest.groovy[tags=asttestbody,indent=0]
+----
+
+* Checks the class node only has properties of type **Integer**

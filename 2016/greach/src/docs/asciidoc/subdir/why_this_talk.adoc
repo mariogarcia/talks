@@ -1,0 +1,10 @@
+== Why this talk ?
+:data-background: images/feelings.gif
+
+[%step]
+* To explain basic concepts
+* To share pitfalls and wins
+* To receive feedback from others...sometimes I fell like....
+
+=== +++<span class="feelings"></span>+++
+:data-background:

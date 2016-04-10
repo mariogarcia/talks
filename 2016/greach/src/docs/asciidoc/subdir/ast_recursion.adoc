@@ -1,0 +1,53 @@
+== The ASTs recursion
+:data-background: images/brainfck.gif
+
+If I'm capable of reducing code in my apps with my ASTTs why not
+reducing code when creating my ASTTs ?
+
+=== +++<span class="recur"></span>+++
+:data-background:
+
+=== Reduce Java code
+
+Remember...we had to mix both Groovy and Java meta-annotations ?
+
+[source,groovy]
+----
+include::{groovyMain}/greach/builder/EvenCheckerJava.groovy[]
+----
+
+=== Create your own conventions:
+
+[source,groovy]
+----
+include::{groovyMain}/greach/builder/EvenChecker.groovy[]
+----
+
+[%step]
+* This produces the same as before
+* **Convention**: if no element specified then the annotation it's
+  supposed to be applied to classes (to type)
+
+=== Create new transformations combining old ones
+
+=== @AnnotationCollector
+
+Lets say we had **@ToJson** and **@ToString**...
+
+=== Voila!!
+
+[source,groovy]
+----
+include::{groovyMain}/greach/meta/ToEverything.groovy[indent=0]
+----
+
+=== And use it
+
+[source,groovy]
+----
+include::{groovyTest}/greach/meta/ToEverythingTest.groovy[tags=body,indent=0]
+----
+
+[%step]
+* No ASTT skills required
+* It's SUPER-AWESOME !!!

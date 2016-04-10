@@ -1,0 +1,45 @@
+= Creating ASTT’s the painful truth?
+@marioggar
+2016-04-09
+:revnumber: {project-version}
+:example-caption!:
+:data-background: images/me.png
+ifndef::imagesdir[:imagesdir: images]
+ifndef::groovyMain[:groovyMain: ../../../main/groovy]
+ifndef::groovyTest[:groovyTest: ../../../test/groovy]
+
+include::subdir/about.adoc[]
+
+include::subdir/why_this_talk.adoc[]
+
+include::subdir/why_astts.adoc[]
+
+include::subdir/theory_101.adoc[]
+
+include::subdir/theory_101_what.adoc[]
+
+include::subdir/theory_101_when.adoc[]
+
+include::subdir/theory_101_how.adoc[]
+
+include::subdir/what.adoc[]
+
+include::subdir/tools.adoc[]
+
+include::subdir/local_transformations.adoc[]
+
+include::subdir/going_faster.adoc[]
+
+include::subdir/abstractions.adoc[]
+
+include::subdir/ast_recursion.adoc[]
+
+include::subdir/checking.adoc[]
+
+include::subdir/testing.adoc[]
+
+include::subdir/future.adoc[]
+
+include::subdir/thanks.adoc[]
+
+include::subdir/references.adoc[]

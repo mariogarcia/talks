@@ -1,0 +1,132 @@
+== Abstractions, abstractions, abstractions
+
+Do you want to do this checking everytime ?
+
+=== Local ASTs
+
+[source, groovy]
+----
+@GroovyASTTransformation(phase=CompilePhase.INSTRUCTION_SELECTION)
+class PlayAst extends ExceptionFriendlyAst{
+
+	static final PLAY_METHOD_NAME = "play"
+	static final PLAY_METHOD_PARAM_NAME = "params"
+
+ /* We need to inject a DataFlows instance in a variable called "flow" */
+	void processNodes(ASTNode[] astNodes,SourceUnit sourceUnit){
+	 /* Checking constraints */
+		if (!astNodes) return
+		if (!astNodes[0] || !astNodes[1]) return
+		if (!(astNodes[0] instanceof AnnotationNode)) return
+		if (astNodes[0].classNode?.name != Play.class.name) return
+		if (!(astNodes[1] instanceof MethodNode)) return
+----
+
+=== Create abstraction classes
+
+I want this test to pass:
+
+[source, groovy]
+----
+include::{groovyTest}/greach/builder/ToMD5Test.groovy[tags=abstractions,indent=0]
+----
+
+* And I wanted to add a method for every property producing the MD5
+  value for every one of them ...it would be nice...
+
+=== Abstraction
+
+[source, groovy]
+----
+include::{groovyMain}/greach/builder/ToMD5Impl.groovy[tags=abstractions,indent=0]
+----
+
+* If I'm telling what annotation (**ToMD5**) and which type of node
+(**ClassNode**) it shouldn't be neccessary to check that anymore.
+
+=== Global ASTs
+
+
+[source, groovy]
+----
+@GroovyASTTransformation(phase = CompilePhase.CANONICALIZATION)
+class MacroExpandAst extends AbstractASTTransformation {
+
+    void visit(ASTNode[] nodes, SourceUnit sourceUnit) {
+        sourceUnit.AST.classes.each { ClassNode classNode ->
+            new MacroExpandTransformer().visitClass(classNode)
+        }
+    }
+
+}
+----
+
+* Most of the time we're calling the AST and apply transformers to it
+* Passing *SourceUnit* to the transformer
+
+=== Transformers
+
+Classes used to transform existen expressions or modify certain nodes:
+
+=== In the Groovy API:
+
+* org.codehaus.groovy.ast.expr.**ExpressionTransformer**
+* org.codehaus.groovy.ast.**ClassCodeExpressionTransformer**
+
+=== Transformer: Same pitfalls
+
+[source, groovy]
+----
+class MacroExpandTransformer extends ClassCodeExpressionTransformer {
+
+    private SourceUnit sourceUnit
+
+    MacroExpandTransformer(SourceUnit sourceUnit) {
+        // PASSING SOURCE UNIT
+        this.sourceUnit = sourceUnit
+    }
+
+    public Expression transform(Expression expression) {
+        // CHECKING AGAIN
+        if (expression instanceof MethodCallExpression && expression.methodAsString == 'let') {
+            // CASTINGS
+            MethodCallExpression methodCallExpression = (MethodCallExpression) expression
+----
+
+=== Focus on **when**
+
+Then consider a Global transformation a set of transformations applied
+to the AST:
+
+[source, groovy]
+----
+@GlobalTransformation(A.PHASE_GLOBAL.SEMANTIC)
+class AddTransformation extends GlobalTransformationImpl {
+
+    List<Class<Transformer>> getTransformers() {
+        return [AddPropertyTransformer, AddMethodTransformer]
+    }
+}
+----
+
+=== Focus on **what**
+
+And the focus on what the transformer should do:
+
+[source, groovy]
+----
+class ChangeTripleXToPlusOne extends
+    ExpressionTransformer<MethodCallExpression> {
+
+    ChangeTripleXToPlusOne(final SourceUnit sourceUnit) {
+        super(sourceUnit, methodCallByNameEq('xxx'))
+    }
+
+    Expression transformExpression(final MethodCallExpression target) {
+        return A.EXPR.constX(1)
+    }
+}
+----
+[%step]
+* Transformer only interested in **method calls** with name **xxx**.
+* Those calls will be replaced by a constant expression 1

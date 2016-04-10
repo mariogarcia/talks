@@ -1,0 +1,32 @@
+== When
+:data-background: images/when.gif
+
+=== +++<span class="theory_101_when"></span>+++
+:data-background:
+
+=== When can I modify/change the AST ?
+
+[%step]
+* Depends on type of transformation (Local vs Global)
+* Depends on the **Compilation Phase** you need to target
+
+=== Compilation Phases
+
+* Initialization, Parsing, Conversion, Semantic, Canonicalization,
+Instruction, Class, Output, Finalization
+
+* link::http://groovy-lang.org/metaprogramming.html#_compilation_phases_guide[Groovy Reference]
+
+=== Bottom line
+
+* **Semantic Analysis**
+* **Canonicalization**
+* **Instruction**
+
+[%step]
+* Before that you have no types/scopes/imports...
+* After that you better know *ByteCode-Kunfu*
+
+=== Local transformation limit:
+
+Local transformations can not use any compilation phase ealier than **SEMANTIC_ANALYSIS**.

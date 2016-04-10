@@ -1,0 +1,26 @@
+== How
+
+=== How can I change/check the AST ?
+:data-background: images/matrix.gif
+
+Well like everything in life you have to choose
+
+=== +++<span class="matrix"></span>+++
+:data-background:
+
+=== Local
+
+* Relative to the context they are applied to.
+* That context is marked (annotation)
+* Compilation phases are limited
+
+=== Global
+
+* Global AST transformations are applied to all source code
+* Compilation phases are less limited
+* Need an extra descriptor file
+
+=== BTW
+:data-background: images/wtf.gif
+
+You can actually use both in your projects :)

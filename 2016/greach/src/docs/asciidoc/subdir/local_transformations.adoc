@@ -1,0 +1,99 @@
+== Local transformations
+
+A lot of them in the Groovy language.
+
+=== Example
+
+[source,groovy]
+----
+include::{groovyTest}/greach/local/WithLoggingExplainedTest.groovy[tags=testWithLoggingExplained,indent=0]
+----
+
+=== What to do:
+
+[%step]
+* Do **println "Start/End..."**
+* Create a **method call** before and after the existent **staments**
+*in the **annotated** *method block**.
+
+=== What do I need ?
+
+[%step]
+* A marker or annotation (@WithLogging)
+* An implementation (WithLoggingExplainedTransformation)
+
+=== Annotation
+
+[source,groovy]
+----
+include::{groovyMain}/greach/local/WithLoggingExplained.groovy[]
+----
+<1> Java meta-annotations
+<2> Groovy meta-annotation
+
+
+=== Implementation
+
+=== Imports
+
+[source,groovy]
+.expressions
+----
+include::{groovyMain}/greach/local/WithLoggingExplainedTransformation.groovy[tags=importexpressions]
+----
+
+[source,groovy]
+.statements
+----
+include::{groovyMain}/greach/local/WithLoggingExplainedTransformation.groovy[tags=importstatements]
+----
+
+[source,groovy]
+.nodes
+----
+include::{groovyMain}/greach/local/WithLoggingExplainedTransformation.groovy[tags=importnodes]
+----
+
+[source,groovy]
+.transformation
+----
+include::{groovyMain}/greach/local/WithLoggingExplainedTransformation.groovy[tags=importtransform]
+----
+
+=== Declaring and annotating class
+
+[source,groovy]
+----
+include::{groovyMain}/greach/local/WithLoggingExplainedTransformation.groovy[tags=classdef]
+----
+
+[%step]
+* To **mark** this class as a transformation implementation
+* To **set** in which compile phase will be applied
+* At least should implement **ASTTransformation#visit** method
+
+=== Method "visit"
+
+[source,groovy]
+----
+include::{groovyMain}/greach/local/WithLoggingExplainedTransformation.groovy[tags=visit]
+----
+
+=== Things to improve
+
+[%step]
+* Using array index to select node
+* Java-like castings
+
+=== Create "println"
+
+[source,groovy]
+----
+include::{groovyMain}/greach/local/WithLoggingExplainedTransformation.groovy[tags=expressionstatement]
+----
+
+=== Thinks to improve
+
+[%step]
+* Too verbose
+* Javadoc doesn't help

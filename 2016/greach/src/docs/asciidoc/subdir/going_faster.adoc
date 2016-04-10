@@ -1,0 +1,86 @@
+== Writing elements faster
+:data-background: images/fast.gif
+
+=== +++<span class="going_faster"></span>+++
+:data-background:
+
+=== GeneralUtils
+
+**GeneralUtils** reduces the amount of code to create expressions and statements.
+
+=== GeneralUtils
+
+[source,groovy]
+----
+include::{groovyMain}/greach/local/WithLoggingGETransformation.groovy[tags=import]
+----
+
+=== General Utils
+
+[%step]
+* **expressions**: The **X** methods: constX(..), propX(..)
+* **statements**: the **S** methods: returnS(..)
+
+=== Before
+
+[source,groovy]
+----
+include::{groovyMain}/greach/local/WithLoggingExplainedTransformation.groovy[tags=expressionstatement]
+----
+
+=== After
+
+[source,groovy]
+----
+include::{groovyMain}/greach/local/WithLoggingGETransformation.groovy[tags=expressionstatement]
+----
+
+=== Comparison
+
+[source,groovy]
+.before
+----
+include::{groovyMain}/greach/local/WithLoggingExplainedTransformation.groovy[tags=expressionstatement]
+----
+
+[source,groovy]
+.after
+----
+include::{groovyMain}/greach/local/WithLoggingGETransformation.groovy[tags=expressionstatement]
+----
+
+=== AstBuilder
+:data-background: images/spoiler.gif
+
+* org.codehaus.groovy.ast.builder.**AstBuilder**
+* Controversial. Use with caution and wait to...
+
+=== +++<span class="spoiler"></span>+++
+:data-background:
+
+=== buildFromCode
+
+[source,groovy]
+----
+include::{groovyMain}/greach/builder/EvenCheckerImpl.groovy[tags=buildFromCode]
+----
+
+* Just code
+* Difficult to combine with variables
+* Perfect for standalone code not depending on state
+* Returns **ASTNodes[]**
+
+=== buildFromString
+
+[source,groovy]
+----
+include::{groovyMain}/greach/builder/ToMD5Impl.groovy[tags=buildFromString]
+----
+
+* String
+* You can use it as template
+* Returns **ASTNodes[]**
+
+=== buildFromSpec
+
+* Not recommended

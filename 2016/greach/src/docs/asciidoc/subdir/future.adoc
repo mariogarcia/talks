@@ -1,0 +1,71 @@
+== What's ahead!
+:data-background: images/ahead.gif
+
+=== +++<span class="ahead"></span>+++
+:data-background:
+
+=== Talking with Cedric this morning...
+
+=== Forget about I said before :P
+
+=== Groovy Macro
+
+[source, groovy]
+----
+BlockStatement result = macro(true) {
+  println "foo"
+}
+----
+
+=== Groovy Macro
+
+[source,groovy]
+----
+BlockStatement result = macro(true) {
+  println "foo"
+}
+
+// VS
+
+def expected = block(stmt(callThisX("println", args(constX("foo")))))
+
+// CHECKED BY
+AstAssert.assertSyntaxTree([expected], [result]);
+----
+
+[%step]
+* Safer
+* Shorter
+* It returns the expected type
+
+=== ASTMatcher
+
+Remember creating abstractions to match certain expressions, statements or
+nodes...
+
+=== Booooom!!!
+
+Not needed anymore?
+
+[source,groovy]
+----
+ void testClosureExpression() {
+        def ast1 = macro { {-> a } }
+        def ast2 = macro { {-> a } }
+        def ast3 = macro { {-> b } }
+        def ast4 = macro { { a -> a } }
+        def ast5 = macro { { a -> a } }
+        def ast6 = macro { { a,b -> a } }
+        def ast7 = macro { { int a -> a } }
+        assert ASTMatcher.matches(ast1, ast1)
+        assert ASTMatcher.matches(ast1, ast2)
+        assert ASTMatcher.matches(ast2, ast1)
+        assert !ASTMatcher.matches(ast1, ast3)
+        assert !ASTMatcher.matches(ast1, ast4)
+        assert ASTMatcher.matches(ast4, ast5)
+        assert !ASTMatcher.matches(ast5, ast6)
+        assert !ASTMatcher.matches(ast5, ast7)
+    }
+----
+
+=== Will be available in 2.5.0-beta

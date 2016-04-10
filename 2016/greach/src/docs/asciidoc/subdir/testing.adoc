@@ -1,0 +1,36 @@
+== Testing
+
+=== Good tips
+
+* Separate your application code from transformation code
+* If using **maven** or **gradle** create a module to create your ASTs
+  and another to test them
+
+=== GroovyTestCase
+
+[source,groovy]
+----
+include::{groovyTest}/greach/builder/ToMD5Test.groovy[tags=classdeclaration,indent=0]
+----
+
+[%step]
+* No imports needed
+* **assertScript** and **shouldFail**
+
+=== assertScript
+
+[source,groovy]
+----
+include::{groovyTest}/greach/builder/ToMD5Test.groovy[tags=assertscript,indent=0]
+----
+
+=== shouldFail
+
+[source,groovy]
+----
+include::{groovyTest}/greach/builder/ToMD5Test.groovy[tags=shouldFail,indent=0]
+----
+
+=== Spock and TransformTestHelper
+
+* org.codehaus.groovy.tools.ast.**TransformTestHelper**

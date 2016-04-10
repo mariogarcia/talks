@@ -1,0 +1,8 @@
+== Theory 101
+
+Basic theory to understand the Groovy AST API.
+
+[%step]
+* **WHAT** transformations can do
+* **WHEN** to apply those transformations
+* **HOW** to implement them

@@ -1,0 +1,22 @@
+== References
+
+=== Groovy AST docs
+
+Groovy: http://groovy-lang.org/metaprogramming.html
+
+=== Groovy Macro repository
+
+Groovy Macro: https://github.com/apache/groovy/tree/master/subprojects/groovy-macro
+
+=== Source ideas about Groovy Macros
+
+Groovy Methods: https://github.com/bsideup/groovy-macro-methods
+
+=== AST checking libraries
+
+GContracts: https://github.com/andresteingress/gcontracts
+Codenarc: http://codenarc.sourceforge.net/
+
+=== Idas about how to abstract AST transformations
+
+Asteroid: https://github.com/grooviter/asteroid

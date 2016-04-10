@@ -1,0 +1,208 @@
+== What
+:data-background: images/what.gif
+
+=== +++<span class="101_what"></span>+++
+:data-background:
+
+=== What could an AST Transformation do ?
+
+[%step]
+* Transform the **Abstract Syntax Tree** by adding, or removing
+  elements from it
+* Check the structure, or semantics of the **Abstract Syntax Tree** and do
+something about it
+
+=== Examples of **adding / removing**
+
+* **Groovy**: (@ToString, @Immutable...
+* **Spock**: transforms label statements
+* **Swissknife**: reduces boilerplate code in Android dev
+* **Grails**: also saves you from typical web boilerplate code
+
+image:grails.png[width=100] image:spock.png[width=100] image:swissknife.png[width=100,height=100] image:griffon.png[width=100]
+
+=== Examples of **checking**
+
+* **GContracts**: programming by contract
+* **Codenarc**: Static Analysis
+
+image:codenarc.png[height=100]
+
+=== Abstract Syntax Tree
+
+The compiler needs a tree representation of your code:
+
+[ditaa]
+....
+                     +------------+
+                     |            |
+                     |   ASTNode  |
+                     |            |
+                     +-----+------+
+                           ^
+                           |
+                is a       |      is a
+               +-----------+----------+
+               |                      |
+               |                      |
+               |                      |
+          +----+-------+       +------+------+
+    has   |            |  has  |             | has
+  +-------+ Expression |<------+  Statement  +-------+
+  :       |            |       |             |       :
+  |       +------------+       +-------------+       |
+  |            ^                      ^              |
+  |            |                      |              |
+  +------------+                      +--------------+
+....
+
+=== Expressions
+
+An **expression** is a **combination** of one or more explicit
+**values, constants, variables, operators, and functions** that the
+programming language interprets and computes **to produce another
+value**.
+
+=== Binary => Boolean
+
+[source,groovy]
+.BinaryExpression
+----
+1 == 1
+----
+
+[ditaa]
+....
+      +-------+
+      | Token |
+      +---+---+
+          |
+          |
+   +------+------+
+   |             |
++--+--+       +--+--+
+|  1  |       |  1  |
++-----+       +-----+
+....
+
+[%step]
+* **constant** expression __1__
+* **token** __==__
+* **constant** expression __1__
+
+=== Variable => Constant => Call
+
+[source,groovy]
+----
+ref.myMethod(3)
+----
+
+[ditaa]
+....
+                  +----------------------+
+                  | MethodCallExpression |
+                  +-----------+----------+
+                              |
+        +---------------------+-----------------------+
+        |                     |                       |
+ +------+-----+    +----------+---------+       +-----+-----+
+ |  varX(ref) |    | constX("myMethod") |       |  param(3) |
+ +------------+    +--------------------+       +-----------+
+....
+
+[%step]
+* **variable** expression __ref__
+* **constant** __myMethod__
+* **param** expression __3__
+
+=== Statements
+
+In computer programming, a statement is the **smallest standalone
+element** of an imperative programming language that **expresses some
+action to be carried out**. A statement may have **expressions**.
+
+=== If statement
+
+[source, groovy]
+----
+if(booleanExpression) {
+ println "hello" // statement
+}
+----
+
+[%step]
+* **expression** to evaluate
+* **statement** to be executed if the boolean expression evaluates to true
+
+=== Block Statement
+
+[source, groovy]
+----
+public void main(String[] args) { // block starts
+  // this is inside a block statement
+} // block ends
+----
+
+[%step]
+* A block statement is easily recognized by **curly braces**
+* It is built from other **statements** containing **expressions**
+
+=== Block Statement (cont.)
+
+[source, groovy]
+----
+public String greetings() {
+    return "Hello Greach"
+}
+----
+
+This block statement contains a **return** statement receiving a constant
+expression **Hello Greach**.
+
+=== Nodes
+
+"A ring to rule them all"
+-- Lord of the Rings
+
+=== Nodes (cont.)
+
+**How our program is structured**. They group statements and expressions:
+
+[%step]
+* **classes**
+* **methods**
+* **fields**
+* **properties**
+* ...
+
+=== A Class node
+
+[source,groovy]
+----
+class A { // ClassNode
+   String greetings // FieldNode
+
+   String hello() { // MethodNode
+
+   }
+}
+----
+
+* **ClassNode** may contain: methods, fields...
+* **MethodNode** may contain statements, and expressions
+* ...
+
+=== Therefore
+
+[source,groovy]
+----
+class A { // ClassNode
+
+   String hello() // MethodNode
+   { // blockStatement {
+
+       return "Hello" // returnStatement(constantExpression)
+
+    } // }
+}
+----

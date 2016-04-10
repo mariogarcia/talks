@@ -1,0 +1,23 @@
+== Tools
+
+=== Groovy Console
+
+image::groovyconsole.png[]
+
+=== Groovy Console (AST Viewer)
+
+image::groovyconsole_astview.png[]
+
+* CTRL-T
+
+=== Groovy Web AST console
+
+https://github.com/bsideup/groovyastconsole
+
+=== IDE
+
+[%step]
+
+* Specially at the beginning
+* Great when debugging
+* Sometimes is just that or leave it!
