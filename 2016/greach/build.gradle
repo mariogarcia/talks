@@ -29,7 +29,7 @@ ext {
 repositories {
     jcenter()
     maven {
-        url  "http://dl.bintray.com/januslynd/maven"
+        url  "http://dl.bintray.com/grooviter/maven"
     }
 }
 
@@ -40,7 +40,8 @@ dependencies {
 
     compile "org.codehaus.groovy:groovy:2.4.4"
     compile "org.codehaus.groovy:groovy-json:2.4.4"
-    compile 'com.github.januslynd:asteroid:0.1.4'
+    compile 'com.github.grooviter:asteroid:0.1.5'
+
     testCompile "org.codehaus.groovy:groovy-test:2.4.4"
 }
 
