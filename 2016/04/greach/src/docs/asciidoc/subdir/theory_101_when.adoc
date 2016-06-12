@@ -15,7 +15,7 @@
 * Initialization, Parsing, Conversion, Semantic, Canonicalization,
 Instruction, Class, Output, Finalization
 
-* link::http://groovy-lang.org/metaprogramming.html#_compilation_phases_guide[Groovy Reference]
+* http://groovy-lang.org/metaprogramming.html#_compilation_phases_guide[Groovy Reference]
 
 === Bottom line
 
