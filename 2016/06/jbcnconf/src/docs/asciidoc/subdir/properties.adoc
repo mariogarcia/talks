@@ -1,0 +1,61 @@
+== Properties
+
+[%step]
+* They specify **what you expect** of your program and can be executed
+against the program to ensure that it conforms to the spec
+* **Executable specifications** which means...
+* ...**a function that holds** for a set of values **using the program (function or set of functions) you want to test**.
+
+=== A simple function
+
+[source,groovy]
+.SimpleProperty.java
+----
+include::{javaMain}/properties/SimpleProperty.java[tags=sum]
+----
+
+=== Spock first
+
+[source,groovy]
+.SumCheckCodeSpec.groovy
+----
+include::{groovyTest}/properties/SumCheckCodeSpec.groovy[tags=commutative]
+----
+
+=== But...
+
+[%step]
+- Some key test numbers may be wrong or missing
+- ...and they are
+- But the more cases I add the more verbose the test becomes
+- There's no clear what are the properties the function **SUM** must hold
+
+=== A property
+
+[%step]
+* **Commutative property**:
+* **when**: 'two numbers are added,'
+* **then**: 'the sum is the same'
+* **and**:  'regardless of the order of the addends'
+
+=== Spock first...property
+
+[source,groovy]
+.SumCheckPropertiesSpec.groovy
+----
+include::{groovyTest}/properties/SumCheckPropertiesSpec.groovy[tags=commutative]
+----
+
+=== Nice
+
+[%step]
+* The property defined is perfectly clear
+* I'm removing unnecessary test logic
+
+=== But
+
+[%step]
+* Some numbers could be still missing
+* I can't be adding a 100 numbers on each test right ?
+* ...or can I ?
+* It would be nice to have those numbers generated :)

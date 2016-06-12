@@ -1,0 +1,20 @@
+== Generators
+:data-background: images/generators.gif
+
+=== +++<span class="generators"></span>+++
+:data-background:
+
+=== What I'd like from a generator ?
+
+[%step]
+* Generate a lot of random values
+* Finite
+* Extreme cases
+
+=== Spock Generative
+
+[source,groovy]
+.SumCheckGenerativeSpec.groovy
+----
+include::{groovyTest}/generators/SumCheckGenerativeSpec.groovy[tags=commutative]
+----

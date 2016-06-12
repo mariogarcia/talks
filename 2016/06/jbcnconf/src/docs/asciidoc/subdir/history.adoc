@@ -1,0 +1,40 @@
+== Where do we come from ?
+
+=== When there was no test...
+:data-background: images/history_there_was_nothing.gif
+
+=== +++<span class="no_tests"></span>+++
+:data-background:
+
+=== No tests
+
+[%step]
+- Dark ages
+- Living on the edge
+- Fixing on production... YeeHaw!!!!
+
+=== Then TDD...
+:data-background: images/history_too_much_work.gif
+
+=== +++<span class="no_tests"></span>+++
+:data-background:
+
+=== TDD...
+:data-background: images/history_hidden_broken.gif
+
+[%step]
+* Was really the beginning on testing ("testing-boom" era)
+* The important thing was to do testing...
+* ...a lot!!
+* And specially "how" to do testing
+* But little effort done on "what" to test
+
+=== +++<span class="hidden_broken"></span>+++
+:data-background:
+
+=== We should be come up with something:
+
+[%step]
+* More effective
+* With "less" effort -> automated ?
+* Easier to maintain

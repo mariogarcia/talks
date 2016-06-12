@@ -1,0 +1,25 @@
+= Generative testing with Spock
+@marioggar
+2016-04-09
+:revnumber: {project-version}
+:example-caption!:
+:data-background: images/me.jpg
+ifndef::imagesdir[:imagesdir: images]
+ifndef::javaMain[:javaMain: ../../../main/java]
+ifndef::groovyTest[:groovyTest: ../../../test/groovy]
+
+include::subdir/about.adoc[]
+
+include::subdir/what.adoc[]
+
+include::subdir/history.adoc[]
+
+include::subdir/quickcheck.adoc[]
+
+include::subdir/properties.adoc[]
+
+include::subdir/generators.adoc[]
+
+include::subdir/feedback.adoc[]
+
+include::subdir/references.adoc[]

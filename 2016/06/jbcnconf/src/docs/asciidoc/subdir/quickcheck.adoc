@@ -1,0 +1,24 @@
+== Until...
+
+That's what Koen Claessen and John Hughes thought in 2000 when they
+published...
+
+=== QuickCheck
+
+**A Lightweight Tool for Random Testing of Haskell Programs**
+
+=== Facts they observed:
+
+[%step]
+* Around the 50% of the software development was dedicated to testing.
+* That was a huge cost and mostly due to the fact that it was done
+  almost manually.
+* The goal was to reduce that percentage by automating testing.
+
+=== Ideas:
+
+[%step]
+- Don't just test code, check properties
+- Don't create values, generate them
+- Feedback, feedback, feedback
+- Tell me how to refute the test
