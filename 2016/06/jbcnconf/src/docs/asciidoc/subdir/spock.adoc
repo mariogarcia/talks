@@ -1,0 +1,20 @@
+== Spock
+:data-background: images/spock_background.gif
+
+=== +++<span class="no_tests"></span>+++
+:data-background:
+
+=== What is Spock ?
+
+[%step]
+- Testing and specification framework
+- JUnit runner based (IDE friendly)
+- A highly expressive specification language
+- http://spockframework.github.io/spock/docs/
+
+=== What has to do Spock with this ?
+
+[%step]
+- Helps you to +++<u>define properties</u>+++
+- Keeps data and properties separated, that favors the use of +++<u>data generators</u>+++
+- It has a +++<u>template system</u>+++ to give you feedback

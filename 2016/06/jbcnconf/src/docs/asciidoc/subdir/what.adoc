@@ -2,11 +2,10 @@
 :data-background: images/feelings.gif
 
 [%step]
-* A brief introduction to Property based testing
-* A brief introduction to data-driven testing
-* A brief introduction to Generative testing
 * A brief introduction to Spock
-* ...In a very short time
+* A brief introduction to data-driven testing
+* A brief introduction to Property based testing
+* ...at the speed of light!!
 
-=== +++<span class="feelings"></span>+++
+=== But first a little bit of history...
 :data-background:

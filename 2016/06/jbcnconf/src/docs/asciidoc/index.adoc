@@ -1,20 +1,20 @@
-= Generative testing with Spock
+= Property based testing with Spock
 @marioggar
 2016-04-09
 :revnumber: {project-version}
 :example-caption!:
-:data-background: images/me.jpg
+:data-background: images/spock_background.png
 ifndef::imagesdir[:imagesdir: images]
 ifndef::javaMain[:javaMain: ../../../main/java]
 ifndef::groovyTest[:groovyTest: ../../../test/groovy]
-
-include::subdir/about.adoc[]
 
 include::subdir/what.adoc[]
 
 include::subdir/history.adoc[]
 
 include::subdir/quickcheck.adoc[]
+
+include::subdir/spock.adoc[]
 
 include::subdir/properties.adoc[]
 

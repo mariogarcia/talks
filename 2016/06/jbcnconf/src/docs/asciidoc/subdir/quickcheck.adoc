@@ -4,21 +4,34 @@ That's what Koen Claessen and John Hughes thought in 2000 when they
 published...
 
 === QuickCheck
+:data-background: images/quickcheck_amazed.gif
 
 **A Lightweight Tool for Random Testing of Haskell Programs**
+
+=== +++<span class="no_tests"></span>+++
+:data-background:
 
 === Facts they observed:
 
 [%step]
-* Around the 50% of the software development was dedicated to testing.
-* That was a huge cost and mostly due to the fact that it was done
-  almost manually.
-* The goal was to reduce that percentage by automating testing.
+* Around the +++<u>50% of the software</u>+++ development was dedicated to +++<u>testing</u>+++.
+* That was a +++<u>huge cost</u>+++ and mostly due to the fact that it was done
+  almost +++<u>manually</u>+++.
+* The goal was to +++<u>reduce</u>+++ that percentage +++<u>by automating</u>+++ testing.
 
 === Ideas:
 
 [%step]
-- Don't just test code, check properties
-- Don't create values, generate them
-- Feedback, feedback, feedback
-- Tell me how to refute the test
+- Don't just test code, +++<u>check properties</u>+++
+- Don't create values, +++<u>generate them</u>+++
+- +++<u>Feedback</u>+++, feedback, feedback
+- Tell me +++<u>how to refute</u>+++ the test
+
+=== QuickCheck in Java ?
+
+[%step]
+* **Frege**: https://github.com/Frege/
+* **JUnit-QuickCheck**: https://github.com/pholser/junit-quickcheck
+* **Javaslang**: https://github.com/javaslang/ (test-module)
+
+=== Then why is this talk about Spock ?

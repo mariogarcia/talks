@@ -8,11 +8,9 @@ import static spock.genesis.Gen.getInteger
 
 import spock.genesis.generators.values.NullGenerator
 
-//import spock.lang.Unroll
 import spock.lang.Ignore
 import spock.lang.Specification
 
-//@Ignore
 class SumCheckGenerativeSpec extends Specification {
 
     static final Integer LIMIT = 100
