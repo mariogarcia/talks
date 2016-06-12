@@ -29,6 +29,7 @@ ext {
 
 repositories {
     jcenter()
+    mavenCentral()
     maven {
         url  "http://dl.bintray.com/grooviter/maven"
     }
@@ -44,6 +45,9 @@ dependencies {
     compile 'com.github.grooviter:asteroid:0.1.5'
 
     testCompile "com.nagternal:spock-genesis:0.4.0"
+    testCompile 'com.pholser:junit-quickcheck-core:0.6'
+    testCompile 'com.pholser:junit-quickcheck-generators:0.6'
+
 }
 
 task download << {
