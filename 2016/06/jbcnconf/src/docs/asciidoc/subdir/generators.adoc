@@ -11,7 +11,7 @@
 * Finite
 * Extreme cases
 
-=== Spock Data-Driven-Testing
+=== Spock && Data-Driven-Testing
 
 === Spock: Data pipes
 
@@ -53,13 +53,14 @@ include::{groovyTest}/generators/SumCheckDataPipesSpec.groovy[tags=distributive]
 [%step]
 * Out of the box
 * Really flexible
-* Could be dependant
+* Could create dependant variables
 
 === Spock: Data pipes (CONS)
 
 [%step]
 * Basic generators
-* You have to code too much
+* If you create something **more complex**...
+* ...I'm sure you're coding **too much**...
 
 === And I'm lazy
 :data-background: images/lazy.gif

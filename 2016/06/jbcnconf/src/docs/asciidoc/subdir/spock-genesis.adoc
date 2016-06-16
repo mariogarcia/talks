@@ -4,7 +4,7 @@
 == Spock-Genesis
 
 [%step]
-* Mostly lazy data generators for property based testing using the Spock test framework
+* **Lazy data generators** for property based testing using the Spock test framework
 ** https://github.com/Bijnagte/spock-genesis
 
 === Entry Point
@@ -80,10 +80,9 @@ include::{groovyTest}/genesis/SimpleTypesSpec.groovy[tags=stringpattern]
 === Any
 
 [%step]
-* Value from any of some values
-* Combining generators to generate values
-* I may want to set some important values
-* The rest I don't care
+* Generate **+++<u>any</u>+++** value from a specific set
+* I may want to set **some** important values
+* I may want to combine generators to **generate the rest**
 
 === Any
 
@@ -96,7 +95,7 @@ include::{javaMain}/genesis/ValidationService.java[tags=validate]
 === Any
 
 [source,groovy]
-.Data provider
+.With a data provider
 ----
 include::{groovyTest}/genesis/ValidationServiceSpec.groovy[tags=validate]
 ----
@@ -117,9 +116,39 @@ include::{groovyTest}/genesis/ValidationServiceSpec.groovy[tags=validate2]
 === Complex types
 
 [%step]
-* What if we want to feed our test with **more complex** objects/data
-  structures ?
+* What if we wanted to feed our test with **more complex**
+  **objects/data structures** ?
 * **Different generators** for each object fields
+
+=== Gen.map
+
+[%step]
+* Generate **instances** of maps
+* Helps you to define a generator **for each key**
+
+=== Gen.map
+
+[source,java]
+.Validate a map
+----
+include::{javaMain}/genesis/ValidationService.java[tags=validateMap]
+----
+
+=== Gen.map
+
+[source,groovy]
+.Generate a map
+----
+include::{groovyTest}/genesis/ValidationServiceSpec.groovy[tags=mapGenerator]
+----
+
+=== Gen.map
+
+[source,groovy]
+.Check validator
+----
+include::{groovyTest}/genesis/ValidationServiceSpec.groovy[tags=validateMap]
+----
 
 === Gen.type
 

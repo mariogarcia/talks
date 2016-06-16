@@ -4,6 +4,7 @@ import static helios.Validators.inList;
 import static helios.Validators.required;
 import static helios.Helios.validate;
 
+import java.util.Map;
 import java.util.List;
 
 import helios.Helios;
@@ -41,4 +42,17 @@ public class ValidationService {
             (Person p) -> validate("age", p.age, required()));
     }
     // end::validatePerson[]
+
+
+    // tag::validateMap[]
+    public static List<ValidatorError> validateMap(final Map order) {
+        return validate("order", order,
+            (Map o) -> validate("id",
+                                o.get("id"),
+                                required()),
+            (Map o) -> validate("description",
+                                o.get("description"),
+                                required()));
+    }
+    // end::validateMap[]
 }

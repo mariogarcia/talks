@@ -66,6 +66,28 @@ class ValidationServiceSpec extends Specification {
     }
     // end::validateType[]
 
+    // tag::validateMap[]
+    void 'check map validation'() {
+        expect: """
+        No errors are produced when using a valid
+        set of map orders
+        """
+        ValidationService
+            .validateMap(order)
+            .isEmpty()
+
+        where: "generated orders are"
+        order << validOrders.take(100)
+    }
+    // end::validateMap[]
+
+    // tag::mapGenerator[]
+    Generator getValidOrders() {
+        return Gen.map(id: Gen.long,
+                       description: Gen.string)
+    }
+    // end::mapGenerator[]
+
     //tag::okGenerator[]
     Generator getValidPersonGenerator() {
         return Gen.type(Person,
