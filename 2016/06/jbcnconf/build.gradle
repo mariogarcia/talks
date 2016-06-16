@@ -40,11 +40,14 @@ dependencies {
     gems 'rubygems:thread_safe:0.3.5'
     gems 'rubygems:asciidoctor-diagram:1.4.0'
 
+    compile "com.github.mariogarcia:helios:0.1.1"
     compile "org.codehaus.groovy:groovy:2.4.4"
     compile "org.codehaus.groovy:groovy-json:2.4.4"
-    compile 'com.github.grooviter:asteroid:0.1.5'
 
+    //tag::spock-genesis[]
     testCompile "com.nagternal:spock-genesis:0.4.0"
+    //end::spock-genesis[]
+
     testCompile 'com.pholser:junit-quickcheck-core:0.6'
     testCompile 'com.pholser:junit-quickcheck-generators:0.6'
 

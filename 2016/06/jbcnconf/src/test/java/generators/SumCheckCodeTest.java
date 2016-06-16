@@ -2,7 +2,7 @@ package generators;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
-import static properties.SimpleProperty.SUM;
+import static properties.Functions.SUM;
 
 import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;

@@ -1,34 +1,26 @@
+== +++<span class="pre_properties"></span>+++
+:data-background:
+
 == Properties
+:data-background:
 
 [%step]
-* They specify **what you expect** of your program and can be executed
-against the program to ensure that it conforms to the spec
-* **Executable specifications** which means...
-* ...**a function that holds** for a set of values **using the program (function or set of functions) you want to test**.
+* **Theory**: Specify what you expect of your program
+* **Practice**: Is a **+++<u>function</u>+++** that holds for a set of values using the program you want to test
+** a.k.a "executable specifications"
+
+=== The dummy example
+
+Lets test the `SUM` function
 
 === A simple function
 
 [source,groovy]
-.SimpleProperty.java
 ----
-include::{javaMain}/properties/SimpleProperty.java[tags=sum]
-----
-
-=== Spock first
-
-[source,groovy]
-.SumCheckCodeSpec.groovy
-----
-include::{groovyTest}/properties/SumCheckCodeSpec.groovy[tags=commutative]
+include::{javaMain}/properties/Functions.java[tags=sum]
 ----
 
-=== But...
-
-[%step]
-- Some key test numbers may be wrong or missing
-- ...and they are
-- But the more cases I add the more verbose the test becomes
-- There's no clear what are the properties the function **SUM** must hold
+=== What properties ?
 
 === A property
 
@@ -38,7 +30,21 @@ include::{groovyTest}/properties/SumCheckCodeSpec.groovy[tags=commutative]
 * **then**: 'the sum is the same'
 * **and**:  'regardless of the order of the addends'
 
-=== Spock first...property
+=== Spock: define property
+
+[source,groovy]
+----
+include::{groovyTest}/properties/SumCheckFirstSpec.groovy[tags=commutative]
+----
+
+=== Spock Specification
+
+[%step]
+* A Spock test is a **spock.lang.Specification**
+* A specification has **features**
+* I'll be using **features** to check **properties**
+
+=== Spock: implement property
 
 [source,groovy]
 .SumCheckPropertiesSpec.groovy
@@ -49,13 +55,34 @@ include::{groovyTest}/properties/SumCheckPropertiesSpec.groovy[tags=commutative]
 === Nice
 
 [%step]
-* The property defined is perfectly clear
-* I'm removing unnecessary test logic
+* I can use a feature per property
+* The property is **nicely defined** thanks to Spock Dsl
 
 === But
 
 [%step]
-* Some numbers could be still missing
-* I can't be adding a 100 numbers on each test right ?
-* ...or can I ?
-* It would be nice to have those numbers generated :)
+* What if properties must hold together ?
+
+=== Combining properties
+
+[%step]
+* Sometimes you may want to check if a set of properties hold altogether
+* "Conjoin" function in QuickCheck
+
+=== You can use the same 'feature'
+[source,groovy]
+----
+include::{groovyTest}/properties/SumCheckPropertiesSpec.groovy[tags=conjoin1]
+----
+
+=== Nice
+
+[%step]
+* **Data tables** makes easier to see what values I'm passing
+
+=== But
+
+[%step]
+* Some numbers could be +++<u>still missing</u>+++
+* I +++<u>can't</u>+++ be adding **n** numbers on each test +++<u>manually</u>+++
+* It would be nice to have those numbers +++<u>generated</u>+++

@@ -1,0 +1,167 @@
+== +++<span class="generators"></span>+++
+:data-background:
+
+== Spock-Genesis
+
+[%step]
+* Mostly lazy data generators for property based testing using the Spock test framework
+** https://github.com/Bijnagte/spock-genesis
+
+=== Entry Point
+
+[source,groovy]
+.Gradle dependency
+----
+include::{gradle}/build.gradle[tags=spock-genesis]
+----
+
+[source,groovy]
+.Import
+----
+include::{groovyTest}/genesis/SimpleTypesSpec.groovy[tags=import]
+----
+
+=== Generators for basic types
+
+=== Integers
+
+=== Integers
+[source,groovy]
+.Gen.integer(min, max)
+----
+include::{groovyTest}/genesis/SimpleTypesSpec.groovy[tags=simpleinteger]
+----
+
+=== Integers
+
+[%step]
+* Gen.getInteger()
+* Gen.integer(min,max)
+* Gen.integer(range)
+
+=== Strings
+
+=== String
+
+[source,groovy]
+.Gen.string(min, max)
+----
+include::{groovyTest}/genesis/SimpleTypesSpec.groovy[tags=simplestring]
+----
+
+=== Strings
+
+[source,groovy]
+.Gen.string(pattern)
+----
+include::{groovyTest}/genesis/SimpleTypesSpec.groovy[tags=stringpattern]
+----
+
+=== String
+
+[%step]
+* Gen.string(maxLength)
+* Gen.string(potential characters)
+* Gen.string(pattern)
+
+=== More simple types
+
+[%step]
+* **Numbers**: long, doubles, bytes
+* **Characters**
+* **Strings**: strings by length, by potential characters...
+
+=== Combining generators
+:data-background: images/generators_combine_2.gif
+
+=== +++<span class="generators"></span>+++
+:data-background:
+
+=== Any
+
+[%step]
+* Value from any of some values
+* Combining generators to generate values
+* I may want to set some important values
+* The rest I don't care
+
+=== Any
+
+[source,java]
+.Code I want to test
+----
+include::{javaMain}/genesis/ValidationService.java[tags=validate]
+----
+
+=== Any
+
+[source,groovy]
+.Data provider
+----
+include::{groovyTest}/genesis/ValidationServiceSpec.groovy[tags=validate]
+----
+
+=== Any
+
+[%step]
+* Sorry if someone's eyes are bleeding :(
+* It's clear the **limitations** of data providers
+
+=== Any
+
+[source,groovy]
+----
+include::{groovyTest}/genesis/ValidationServiceSpec.groovy[tags=validate2]
+----
+
+=== Complex types
+
+[%step]
+* What if we want to feed our test with **more complex** objects/data
+  structures ?
+* **Different generators** for each object fields
+
+=== Gen.type
+
+[%step]
+* Generate **instances** of your objects
+* Helps you to define a generator **for each field**
+
+=== Gen.type (example)
+
+[source,java]
+.Validator
+----
+include::{javaMain}/genesis/ValidationService.java[tags=validatePerson]
+----
+
+=== Gen.type (example cont.)
+
+[%step]
+* We would like to validate **Person** instances
+* Different rules for each property
+
+=== Gen.type
+
+[source,groovy]
+.Generator
+----
+include::{groovyTest}/genesis/ValidationServiceSpec.groovy[tags=okGenerator]
+----
+
+=== Gen.type
+
+[source,groovy]
+.Specification
+----
+include::{groovyTest}/genesis/ValidationServiceSpec.groovy[tags=validateType]
+----
+
+=== Many more
+
+[%step]
+* Gen.tuple()
+* Gen.these()
+* Gen.list()
+* Gen.date()
+* ...

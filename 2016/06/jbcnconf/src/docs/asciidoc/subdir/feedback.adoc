@@ -1,3 +1,73 @@
 == Feedback
+:data-background: images/feedback.gif
 
-bla
+=== +++<span class="feedback"></span>+++
+:data-background:
+
+=== Ok something happened :(
+
+[%step]
+* What was the error ?
+* What was the context ?
+
+=== Spock ?
+
+[%step]
+* **Power assertions**
+** What happened and what was the context
+* **@Unroll**
+** Enrich the output of your failing tests
+
+=== Power assertions
+:data-background: images/feedback_power.gif
+
+=== +++<span class="generators"></span>+++
+:data-background:
+
+=== Power assertions
+
+[%step]
+* Coming from Groovy
+* It's nice to see what value created the error but...
+* It's even nicer to see the value and its context
+
+=== Power assertion
+
+[source, groovy]
+----
+include::{groovyTest}/feedback/ValidationServiceSpec.groovy[tags=powerassert]
+----
+
+=== Power assertion (reports)
+
+image::feedback_powerassert.png[]
+
+=== Power assertion (zoom)
+
+image::feedback_powerassert_zoom.png[]
+
+=== @Unroll
+
+[%step]
+* A method annotated with **@Unroll** will have its iterations
+  reported independently:
+* Helps you **customize** the output of your reports per each iteration
+* You will have **extra** information for each failing test
+
+=== Before @Unroll
+
+[source,groovy]
+----
+include::{groovyTest}/feedback/ValidationServiceSpec.groovy[tags=validperson]
+----
+
+=== After @Unroll
+
+[source,groovy]
+----
+include::{groovyTest}/feedback/ValidationServiceSpec.groovy[tags=unroll]
+----
+
+=== After @Unroll (report)
+
+image::feedback_unroll.png[]

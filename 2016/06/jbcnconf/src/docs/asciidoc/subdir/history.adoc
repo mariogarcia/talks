@@ -11,7 +11,7 @@
 [%step]
 - Dark ages
 - Living on the edge
-- Fixing on production... YeeHaw!!!!
+- Fixing in production... YeeHaw!!!!
 
 === Then TDD...
 :data-background: images/history_too_much_work.gif
@@ -26,13 +26,13 @@
 * Was really the beginning on testing ("testing-boom" era)
 * The important thing was to do testing...
 * ...a lot!!
-* And specially "how" to do testing
-* But little effort done on "what" to test
+* And specially **"how"** ... or **"when"** to do testing
+* But little effort done on **"what"** to test
 
 === +++<span class="hidden_broken"></span>+++
 :data-background:
 
-=== We should be come up with something:
+=== We should come up with something better:
 
 [%step]
 * More effective

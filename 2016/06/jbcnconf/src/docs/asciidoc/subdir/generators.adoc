@@ -7,14 +7,59 @@
 === What I'd like from a generator ?
 
 [%step]
-* Generate a lot of random values
+* Generate a lot of "random" values
 * Finite
 * Extreme cases
 
-=== Spock Generative
+=== Spock Data-Driven-Testing
+
+=== Spock: Data pipes
+
+** **Data Provider**: something that generates values
+** **Data Variable**: The variable inside the test that receives a new value for each iteration
+
+=== Spock: Data pipes (cont.)
+
+[%step]
+* A **Data Pipe** Connects a **data variable** to a **data provider**.
+* Indicated by the left-shift (<<) operator,
+* Any object that **Groovy knows how to iterate over** can be used as a data provider
+
+=== Spock: Data pipes
 
 [source,groovy]
-.SumCheckGenerativeSpec.groovy
+.Data pipes
 ----
-include::{groovyTest}/generators/SumCheckGenerativeSpec.groovy[tags=commutative]
+include::{groovyTest}/generators/SumCheckDataPipesSpec.groovy[tags=commutative]
 ----
+
+=== Spock: Data pipes (cont.)
+
+[source,groovy]
+----
+include::{groovyTest}/generators/SumCheckDataPipesSpec.groovy[tags=associative]
+----
+
+=== Spock: Data pipes (cont.)
+
+[source,groovy]
+.Multi-Variable Data Pipes
+----
+include::{groovyTest}/generators/SumCheckDataPipesSpec.groovy[tags=distributive]
+----
+
+=== Spock: Data pipes (PROS)
+
+[%step]
+* Out of the box
+* Really flexible
+* Could be dependant
+
+=== Spock: Data pipes (CONS)
+
+[%step]
+* Basic generators
+* You have to code too much
+
+=== And I'm lazy
+:data-background: images/lazy.gif

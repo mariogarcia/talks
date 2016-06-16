@@ -1,0 +1,14 @@
+== About me...
+:data-background: images/me.png
+
+=== +++<span class="me"></span>+++
+:data-background: images/spock_background.png
+
+[%step]
+* **Mario Garcia**
+** https://twitter.com/marioggar
+* Working at Kaleidos
+** http://kaleidos.net/
+* Working w/ Groovy, JDK_8
+* Playing with Frege
+* Playing Yamaha Pacifica

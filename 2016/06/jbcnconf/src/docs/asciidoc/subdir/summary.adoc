@@ -1,0 +1,19 @@
+== Summary
+:data-background: images/summary.gif
+
+=== +++<span class="summary"></span>+++
+:data-background:
+
+=== Summary
+:data-background: images/the_end.gif
+
+[%step]
+* It doesn't matter **when** you create your tests...
+* ...What it matters is to define the **properties** of your code
+* **Dont't write** anything if a **generator** can do it for you
+* Make your test talk!!
+
+=== +++<span class="summary"></span>+++
+:data-background:
+
+=== Q & A

@@ -3,10 +3,12 @@
 2016-04-09
 :revnumber: {project-version}
 :example-caption!:
-:data-background: images/spock_background.png
 ifndef::imagesdir[:imagesdir: images]
 ifndef::javaMain[:javaMain: ../../../main/java]
 ifndef::groovyTest[:groovyTest: ../../../test/groovy]
+ifndef::gradle[:gradle: ../../../..]
+
+include::subdir/me.adoc[]
 
 include::subdir/what.adoc[]
 
@@ -20,6 +22,10 @@ include::subdir/properties.adoc[]
 
 include::subdir/generators.adoc[]
 
+include::subdir/spock-genesis.adoc[]
+
 include::subdir/feedback.adoc[]
+
+include::subdir/summary.adoc[]
 
 include::subdir/references.adoc[]

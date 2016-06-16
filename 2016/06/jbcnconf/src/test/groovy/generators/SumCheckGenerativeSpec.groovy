@@ -1,6 +1,6 @@
 package generators
 
-import static SimpleProperty.SUM
+import static Functions.SUM
 
 import static spock.genesis.Gen.any
 import static spock.genesis.Gen.tuple

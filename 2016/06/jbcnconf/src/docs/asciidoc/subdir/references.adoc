@@ -1,8 +1,16 @@
-== References
+== References (I)
 
 * QuickCheck:
-* Spock: http://spockframework.github.io/spock/docs/1.0/index.html
-* Spock-Genesis: https://github.com/Bijnagte/spock-genesis
-* Groovy: http://groovy-lang.org/
-* Frege: https://github.com/Frege/
-* Javaslang Test: https://github.com/javaslang/javaslang/tree/master/javaslang-test
+* Spock:
+** http://spockframework.github.io/spock/docs/1.0/index.html
+* Spock-Genesis:
+** https://github.com/Bijnagte/spock-genesis
+* Groovy:
+** http://groovy-lang.org/
+
+== References (II)
+
+* Frege:
+** https://github.com/Frege/
+* Javaslang Test:
+** https://github.com/javaslang/javaslang/tree/master/javaslang-test

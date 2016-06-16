@@ -1,6 +1,6 @@
 package properties
 
-import static SimpleProperty.SUM
+import static Functions.SUM
 
 import static spock.genesis.Gen.tuple
 import static spock.genesis.Gen.integer
@@ -59,4 +59,26 @@ class SumCheckPropertiesSpec extends Specification {
           10   |  -1   |   0
           -1   |   0   |   3
     }
+
+    // tag::conjoin1[]
+    void 'check SUM properties (CONJOIN)'() {
+        expect: 'the sum is the same regardless of the order of...'
+        SUM(x, y) == SUM(y, x)
+
+        and: 'the sum is the same regardless of the grouping of...'
+        SUM(x, SUM(y, z)) == SUM(SUM(x,y), z)
+
+        and: 'the sum of any number and zero is the original number.'
+        SUM(x, 0) == x
+
+        and: """
+        The sum of two numbers times a third number is equal to the...
+        """
+        SUM(x, y) * z == SUM(x * z, y * z)
+
+        where: 'possible values are'
+           x   |   y   |   z
+           1   |   1   |   1
+    }
+    // end::conjoin1[]
 }
