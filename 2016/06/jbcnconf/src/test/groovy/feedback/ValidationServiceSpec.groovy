@@ -44,12 +44,12 @@ class ValidationServiceSpec extends Specification {
         return Gen.type(Person,
                         age: Gen.integer(0, 120),
                         name: Gen.string(51,100),
-                        address: Gen.string.then(Gen.once(null)))
+                        address: Gen.string)
     }
 
     @Ignore
     // tag::unroll[]
-    @Unroll("Check person [AGE: #person.age| NAME:#person.name]")
+    @Unroll("Check person [AGE: #person.age| NAME:#person.name | ADDR: #person.address]")
     void 'check type validation better extended'() {
     // end::unroll[]
         given: "an instance of validation service"
@@ -68,7 +68,7 @@ class ValidationServiceSpec extends Specification {
     Generator getInvalidPersonGenerator() {
         return Gen.type(Person,
                         age: Gen.integer(0, 120),
-                        name: Gen.these(0,51),
-                        address: Gen.string.then(Gen.once(null)))
+                        name: Gen.string(0, 51),
+                        address: Gen.string(0, 10))
     }
 }

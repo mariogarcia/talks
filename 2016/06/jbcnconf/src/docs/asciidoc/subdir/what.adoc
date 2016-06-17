@@ -2,11 +2,9 @@
 :data-background: images/feelings.gif
 
 [%step]
-* An introduction to Property based testing with Spock
+* An introduction to **Property based testing** with **Spock**
 * **Warning Note!**
-** Not an introduction to Spock
-** ...at the speed of light!!
-
+* Not an introduction to Spock
 
 === But first a little bit of history...
 :data-background:

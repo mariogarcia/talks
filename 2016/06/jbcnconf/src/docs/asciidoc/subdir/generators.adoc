@@ -15,6 +15,7 @@
 
 === Spock: Data pipes
 
+[%step]
 ** **Data Provider**: something that generates values
 ** **Data Variable**: The variable inside the test that receives a new value for each iteration
 

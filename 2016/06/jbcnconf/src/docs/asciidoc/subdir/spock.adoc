@@ -1,5 +1,6 @@
 == Spock
 :data-background: images/spock_background.gif
+* http://spockframework.github.io/spock/docs/
 
 === +++<span class="no_tests"></span>+++
 :data-background:
@@ -11,15 +12,13 @@
 * Do your app in Java/Groovy and do the testing in Groovy
 * JUnit runner based (IDE friendly)
 * A **highly expressive specification language**
-* http://spockframework.github.io/spock/docs/
 
-
-=== What Spock has to do Spock with this ?
+=== What Spock has to do with this ?
 
 [%step]
-- Helps you to define **+++<u>properties</u>+++**
-- Keeps data and properties separated, that favors the use of data **+++<u>generators</u>+++**
-- It has a **+++<u>template system</u>+++** to give you **+++<u>feedback</u>+++**
+- It will help you to define **+++<u>properties</u>+++**
+- It will help you to keep data and properties separated, that favors the use of data **+++<u>generators</u>+++**
+- It has a **+++<u>template system</u>+++** to give you extra **+++<u>feedback</u>+++**
 
 === Lets review these ideas with Spock
 :data-background: images/private_property.jpg

@@ -67,7 +67,7 @@ include::{groovyTest}/properties/SumCheckPropertiesSpec.groovy[tags=commutative]
 
 [%step]
 * Sometimes you may want to check if a set of properties hold altogether
-* "Conjoin" function in QuickCheck
+* **conjoin** function in QuickCheck
 
 === You can use the same 'feature'
 [source,groovy]
