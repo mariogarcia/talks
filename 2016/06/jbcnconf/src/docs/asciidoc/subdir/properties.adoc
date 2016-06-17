@@ -40,7 +40,7 @@ include::{groovyTest}/properties/SumCheckFirstSpec.groovy[tags=commutative]
 === Spock Specification
 
 [%step]
-* A Spock test is a **spock.lang.Specification**
+* A Spock test suite extends **spock.lang.Specification**
 * A specification has **features**
 * I'll be using **features** to check **properties**
 
