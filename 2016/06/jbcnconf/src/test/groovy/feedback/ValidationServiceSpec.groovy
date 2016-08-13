@@ -47,7 +47,7 @@ class ValidationServiceSpec extends Specification {
                         address: Gen.string)
     }
 
-    @Ignore
+        @Ignore
     // tag::unroll[]
     @Unroll("Check person [AGE: #person.age| NAME:#person.name | ADDR: #person.address]")
     void 'check type validation better extended'() {

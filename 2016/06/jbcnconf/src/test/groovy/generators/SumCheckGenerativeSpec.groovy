@@ -24,7 +24,7 @@ class SumCheckGenerativeSpec extends Specification {
 
         where: 'possible values are'
         [x, y] << tupleOfTwo.take(LIMIT)
-    }
+    }o
     //end::commutative[]
 
     void 'check associative property'() {

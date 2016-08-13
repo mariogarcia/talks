@@ -46,6 +46,9 @@ dependencies {
 
     //tag::spock-genesis[]
     testCompile "com.nagternal:spock-genesis:0.4.0"
+    testCompile("com.athaydes:spock-reports:1.2.12") {
+        transitive = false
+    }
     //end::spock-genesis[]
 
     testCompile 'com.pholser:junit-quickcheck-core:0.6'

@@ -21,7 +21,7 @@ class SimpleTypesSpec extends Specification {
         then: "there will be errors"
         !intErrors.isEmpty()
 
-        where:
+        where: "hey"
         number << Gen.integer(-100,0).take(100)
     }
     //end::simpleinteger[]

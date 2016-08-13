@@ -42,6 +42,10 @@ dependencies {
     compile "org.codehaus.groovy:groovy-json:2.4.4"
     compile 'com.github.grooviter:asteroid:0.1.5'
 
+    testCompile("com.athaydes:spock-reports:1.2.12") {
+        transitive = false
+    }
+
     testCompile "org.codehaus.groovy:groovy-test:2.4.4"
 }
 
