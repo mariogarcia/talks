@@ -1,0 +1,95 @@
+== Asteroid
+
+=== +++<span></span>+++
+[%notitle]
+image::better.gif[background, size=contain]
+
+=== Que es Asteroid
+
+[%step]
+- Es una biblioteca que Busca **reducir el codigo** de tus ASTs
+- http://grooviter.github.io/asteroid/
+
+=== Organizacion
+
+[%step]
+- **Abstracciones sobre transformaciones** Locales y Globales
+- Fluent API para crear expresiones, metodos y/o
+
+=== Ejemplo MD5
+
+=== Anotacion
+
+[source, groovy,indent=0]
+----
+include::{astsMain}/compile/old/local/md5/MD5.groovy[]
+----
+
+[source, groovy,indent=0]
+----
+include::{astsMain}/compile/gro/local/md5/MD5.groovy[]
+----
+
+=== Declaracion AST
+
+[source, groovy,indent=0]
+.antes
+----
+include::{astsMain}/compile/old/local/md5/MD5Transform.groovy[tags=transformation]
+----
+
+[source, groovy,indent=0]
+.ahora
+----
+include::{astsMain}/compile/gro/local/md5/MD5Transform.groovy[tags=declaration]
+----
+
+=== Declaracion AST (cont.)
+
+[%step]
+- No te equivocas de fase de compilacion
+- Declaras que **tipo de anotacion** va a procesar (MD5)
+- Declaras **sobre que tipo** se va a aplicar (ClassNode)
+
+=== Metodo doVisit
+
+[source, groovy,indent=0]
+.antes
+----
+include::{astsMain}/compile/old/local/md5/MD5Transform.groovy[tags=visit]
+----
+
+[source, groovy,indent=0]
+.ahora
+----
+include::{astsMain}/compile/gro/local/md5/MD5Transform.groovy[tags=dovisit]
+----
+
+=== Metodo doVisit (cont.)
+
+[%step]
+- Ya no hacen falta el horrible casting de tipos
+
+=== Creando metodo
+
+[source, groovy,indent=0]
+----
+include::{astsMain}/compile/gro/local/md5/MD5Transform.groovy[tags=createmethod]
+----
+
+[%step]
+- Los builders te guian si no conoces el API
+
+=== Crear metodo MD5
+
+[source, groovy,indent=0]
+----
+include::{astsMain}/compile/gro/local/md5/MD5Transform.groovy[tags=createblock]
+----
+
+=== Crear metodo MD5 (cont.)
+
+[%step]
+- Todo es codigo **compilado**
+- No pierdes dinamismo gracias a los **placeholders**
+- Aun asi, **necesitas saber** si necesitas una Expr. o un Stmt.

@@ -1,0 +1,24 @@
+== Cuando
+
+=== En que momentos puedo engancharme al compilador para cambiar el AST ?
+
+[%step]
+* Depends on type of transformation (Local vs Global)
+* Depends on the **Compilation Phase** you need to target
+
+=== Compilation Phases
+
+* Initialization, Parsing, Conversion, Semantic, Canonicalization,
+Instruction, Class, Output, Finalization
+
+* http://groovy-lang.org/metaprogramming.html#_compilation_phases_guide[Groovy Reference]
+
+=== Resumiendo
+
+* **Semantic Analysis**
+* **Canonicalization**
+* **Instruction**
+
+[%step]
+* Before that you have no types/scopes/imports...
+* After that you better know *ByteCode-Kunfu*

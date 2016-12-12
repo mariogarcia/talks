@@ -1,0 +1,11 @@
+== Sobre mi
+
+[%notitle]
+image::me.png[background, size=cover]
+
+[%step]
+* **Mario Garcia**
+** https://twitter.com/marioggar
+* Trabajo en Kaleidos
+** http://kaleidos.net/
+* Programo con Groovy, JDK_8

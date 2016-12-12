@@ -1,0 +1,4 @@
+rootProject.name = 'mgug-macros'
+
+include 'asts'
+include 'slides'

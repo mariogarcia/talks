@@ -1,0 +1,160 @@
+== Macros
+
+=== +++<span></span>+++
+[%notitle]
+image::control_power.gif[background, size=contain]
+
+=== Noveta!! noveta!! en 2.5.0
+
+[%step]
+- Gracias a **@bsideup** y **@melix**
+- http://docs.groovy-lang.org/docs/groovy-2.5.0-SNAPSHOT/
+
+=== Que es una macro ?
+
+"En programación, instrucción escrita en un lenguaje fuente que
+equivale a varias instrucciones de lenguaje máquina."
+-- Wikipedia
+
+=== Que es una macro ? (cont)
+
+En Groovy, una macro es una **funcion que representa un set de
+instrucciones**. En **tiempo de compilacion** se **sustituye** parte
+del codigo de tu aplicacion (marcadores) por el set de instrucciones
+que encapsulaban estas macros.
+
+=== Ejemplo ilustrativo
+[%step]
+- Tenemos **macroX** = "hombre muy alto"
+- Y **sustituimos** el **marcador** x en "John es un x" por el **contenido de la
+  macro**
+- Y tendriamos **"John es un hombre muy alto"**
+
+=== Que nos dan las macros
+
+[%step]
+- Nos dan **seguridad de tipos**
+- Nos permiten devolver **expressiones** o **statements**
+- Nos permiten **especificar el momento del compilador** en el que
+se procesara el codigo
+- Nos permiten **substituir variables**
+
+=== Como encapulamos el codigo ?
+
+=== `macro` method (I)
+
+[%step]
+- En realidad es una **meta-transformacion**
+- El codigo que encapsula **lo transforma a llamadas del API AST**
+- Puede crear tanto **Statements** como **Expresiones**
+
+=== `macro` method (II)
+
+[source,groovy]
+----
+MethodCallExpression expression = macro { println "hey" }
+
+MethodCallExpression expression =
+    callThisX('println', param(constX('hey')))
+----
+
+[source,groovy]
+----
+ConstantExpression expression = macro { 42 }
+
+ConstantExpression expression = new ConstantExpression(42)
+----
+
+[source,groovy]
+----
+ReturnStatement statement = macro(true) { return 1 + 1 }
+
+ReturnStatement statement =
+ new ReturnStatement(
+    new BinaryExpression(
+        new ConstantExpression(42...
+----
+
+=== `macro` method (III)
+
+[source, groovy]
+----
+macro(boolean) { /* ...CODE... */}
+----
+
+[%step]
+- **true** si quieres que devuelva un **Statement**
+- **false** si quieres que devuelva un **Expression**
+
+=== Ejemplo
+
+[source, groovy]
+----
+@Add
+class A {
+
+}
+
+assert new A().getMessage() == 42
+----
+
+[%step]
+- **@Add** aggrega el metodo **getMessage()**
+- **getMessage()** devolvera siempre 42
+
+=== Sin macros
+
+[source, groovy,indent=0]
+----
+include::{astsMain}/compile/old/local/add/AddTransform.groovy[tags=macroSimple]
+----
+
+=== Con macros
+
+[source, groovy,indent=0]
+----
+include::{astsMain}/compile/mod/local/add/AddTransform.groovy[tags=macroSimple]
+----
+
+=== `macro` method (cont.)
+
+[source, groovy]
+----
+macro(CompilePhase, boolean) { /* ...CODE... */}
+----
+
+[%step]
+- Fase de compilacion en el que quieras que se procese el codigo
+- Puedes tambien indicar si devuelve un **Statement** o un **Expression**
+
+=== MD5 revisited
+
+[source, groovy]
+----
+include::{astsMain}/compile/old/local/md5/MD5Transform.groovy[tags=hell]
+----
+
+=== Con macros
+
+[source, groovy,indent=0]
+----
+include::{astsMain}/compile/mod/local/md5/MD5Transform.groovy[tags=macroStatement]
+----
+
+=== ahora...
+
+[%step]
+- **Es codigo** normal, no un string o llamadas al API de AST
+- Se puede **compilar estaticamente**
+- Puedes **sustituir variables**
+
+=== Y crear el metodo entero ?
+
+[%step]
+- MacroClass
+- Necesita @CompileDynamic
+- http://docs.groovy-lang.org/docs/groovy-2.5.0-SNAPSHOT/html/documentation/#_macroclass
+
+=== Aun asi...
+
+- Las ASTs siguen teniendo mucha ceremonia

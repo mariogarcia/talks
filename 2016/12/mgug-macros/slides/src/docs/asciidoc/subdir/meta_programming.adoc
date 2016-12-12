@@ -1,0 +1,105 @@
+== Meta Programacion
+
+=== +++<span></span>+++
+[%notitle]
+image::metallica.gif[background, size=contain]
+
+=== Que es ?
+
+"Metaprogramming bla bla blabla... It means that **a program could
+be designed to read, generate, analyse or transform other programs**,
+and **even modify itself while running**.bla blabla bla...blabla bla
+blablabla **minimize the number of lines of code** to express a
+solution ... y blablabla.
+-- https://en.wikipedia.org/wiki/Metaprogramming
+
+=== Resumiendo...
+
+[%step]
+
+- Leer, generar, analizar, transformar tu codigo
+- Trata de **expresar lo mismo con menos codigo**
+
+=== +++<span></span>+++
+[%notitle]
+image::chuck_approves.gif[background, size=contain]
+
+=== Dos sabores:
+
+- En tiempo de +++<u>EJECUCION</u>+++
+- En tiempo de +++<u>COMPILACION</u>+++
+
+=== Tiempo de ejecucion: PROS
+
+[%step]
+- Sencillo
+- Facil de testear
+
+=== Tiempo de ejecucion: CONS
+
+[%step]
+- **Dificil** de aplicar aisladamente
+- Problema de **polucion** del codigo
+- Te das cuenta de los **problemas** en tiempo de **ejecucion**
+
+=== Ejemplos: Quick Demo
+
+=== Tiempo de ejecucion: Tabla
+
+[cols="3*", options="header"]
+|===
+|Name
+|Category
+|Difficulty
+
+|invokeMethod
+|Runtime
+|Easy
+
+|method/propertyMissing
+|Runtime
+|Easy
+
+|MetaClass
+|Runtime
+|Easy/Tricky
+|===
+
+=== Tiempo de compilacion: PROS
+
+[%step]
+- Puedes controlar mejor como se aplican los cambios
+- Puedes crear nuevas formas de expresar tu codigo
+- Muchos problemas se detectan por el compilador
+
+=== Tiempo de compilacion: CONS
+
+[%step]
+- Hasta ahora curva de apredizaje parecida a...
+- Haskell ?
+- Desconocimiento del compilador de Groovy
+
+=== Tiempo de compilacion: Tabla
+
+[cols="3*", options="header"]
+|===
+|Name
+|Category
+|Difficulty
+
+|Traits
+|Compile time
+|Super-Easy
+
+|Extensions
+|Compile time
+|Easy
+
+|Local
+|Compile time
+|Hard
+
+|Global
+|Compile time
+|Hardcore
+|===

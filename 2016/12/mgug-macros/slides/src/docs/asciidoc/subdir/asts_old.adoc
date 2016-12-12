@@ -1,0 +1,132 @@
+== Por que son necesarias las macros ?
+
+== En parte por...
+
+== La vieja transformacion AST
+
+=== +++<span></span>+++
+[%notitle]
+image::old_ast.gif[background, size=contain]
+
+=== Cosas que no cambian
+
+[%step]
+- Transformaciones +++<u>LOCALES</u>+++
+- Transformaciones +++<u>GLOBALES</u>+++
+
+== AST Locales
+
+=== Un "simple" ejemplo:
+
+=== Anotacion
+
+[source, groovy]
+----
+include::{astsMain}/compile/old/local/md5/MD5.groovy[]
+----
+
+=== Transformation
+
+[source,groovy]
+----
+import org.codehaus.groovy.ast.*
+import org.codehaus.groovy.control.*
+import org.codehaus.groovy.transform.*
+
+@GroovyASTTransformation(phase = CompilePhase.SEMANTIC_ANALYSIS)
+class MD5Transform extends AbstractASTTransformation {
+    @Override
+    void visit(ASTNode[] nodes, SourceUnit sourceUnit) {
+       //...
+    }
+}
+----
+
+=== Aplicacion
+
+[source, groovy]
+----
+include::{slidesMain}/compile/old/local/md5/Document.groovy[]
+----
+
+=== Veamos la transformacion...
+
+=== +++<span></span>+++
+[%notitle]
+image::suspicious.gif[background, size=contain]
+
+=== Transformacion (I)
+
+[source, groovy]
+.imports
+----
+include::{astsMain}/compile/old/local/md5/MD5Transform.groovy[tags=imports]
+----
+
+=== Transformacion (II)
+
+[source, groovy]
+.clase transformacion
+----
+include::{astsMain}/compile/old/local/md5/MD5Transform.groovy[tags=transformation]
+----
+
+=== Transformacion (III)
+
+[source, groovy]
+.visit method
+----
+include::{astsMain}/compile/old/local/md5/MD5Transform.groovy[tags=visit]
+----
+
+=== Transformacion (IV)
+
+[source, groovy]
+----
+include::{astsMain}/compile/old/local/md5/MD5Transform.groovy[tags=createMD5]
+----
+
+=== Transformacion (V)
+
+[source, groovy]
+----
+include::{astsMain}/compile/old/local/md5/MD5Transform.groovy[tags=hell]
+----
+
+=== +++<span></span>+++
+[%notitle]
+image::hell.gif[background, size=contain]
+
+=== Que esta mal en el ejemplo ?
+
+=== Aggregar un simple metodo...
+[%step]
+- Requiere **conocer bastante** el API de AST
+- Requiere saber **como se construye** el AST
+- Requiere **un monton de codigo** :(
+
+=== Se podria haber hecho "mejor" ?
+
+=== AstBuilder.buildFromCode
+
+[%step]
+- **AstBuilder.buildFromCode** es el abuelo de las macros
+- El codigo que genera es buggy
+- Vamos que no lo uses!
+- Si tienes que usar alguno, usa...
+
+=== AstBuilder.buildFromString
+
+[%step]
+- **AstBuilder.buildFromString**
+- No tendras chequeo estatico de codigo pero...
+- El codigo sera compatible a futuro
+
+=== AstBuilder.buildFromString
+
+[source,groovy]
+----
+include::{astsMain}/compile/old/build/md5/MD5Transform.groovy[tags=buildFromString]
+----
+
+=== Quiero esto mismo...pero bien!

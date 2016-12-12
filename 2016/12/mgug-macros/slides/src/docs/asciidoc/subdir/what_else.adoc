@@ -1,0 +1,24 @@
+== Que no he visto y que merezca la pena ?
+
+[%step]
+- MacroClass
+- http://docs.groovy-lang.org/docs/groovy-2.5.0-SNAPSHOT/html/documentation/#_macroclass
+- ASTMatcher
+- http://docs.groovy-lang.org/docs/groovy-2.5.0-SNAPSHOT/html/documentation/#_astmatcher
+
+=== De todas maneras
+
+[%step]
+- Las ASTs con o sin macros **no son el mejor sitio por donde empezar**
+- **en serio**
+- Traits, extension modules, ASTs es el camino mas recomendado
+- Revisar la documentacion de Groovy
+
+=== :)
+
+[%notitle]
+image::thanks.gif[background, size=contain]
+
+=== Q & A
+
+=== Raffle

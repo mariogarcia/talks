@@ -1,0 +1,180 @@
+== Que
+
+=== Abstract Syntax Tree
+
+El compilador necesita una representacion de tu codigo:
+
+[ditaa]
+....
+                     +------------+
+                     |            |
+                     |   ASTNode  |
+                     |            |
+                     +-----+------+
+                           ^
+                           |
+                is a       |      is a
+               +-----------+----------+
+               |                      |
+               |                      |
+               |                      |
+          +----+-------+       +------+------+
+    has   |            |  has  |             | has
+  +-------+ Expression |<------+  Statement  +-------+
+  :       |            |       |             |       :
+  |       +------------+       +-------------+       |
+  |            ^                      ^              |
+  |            |                      |              |
+  +------------+                      +--------------+
+....
+
+=== Expressions
+
+Una **expresion** es una **combinacion** de uno o mas **valores,
+constantes variables, operadores, y funciones** que el lenguage de
+programacion interpreta y ejecuta para producir otro valor.
+
+=== Binary => Boolean
+
+[source,groovy]
+.BinaryExpression
+----
+1 == 1
+----
+
+[ditaa]
+....
+      +-------+
+      | Token |
+      +---+---+
+          |
+          |
+   +------+------+
+   |             |
++--+--+       +--+--+
+|  1  |       |  1  |
++-----+       +-----+
+....
+
+[%step]
+* **constant** expression __1__
+* **token** __==__
+* **constant** expression __1__
+
+=== Variable => Constant => Call
+
+[source,groovy]
+----
+ref.myMethod(3)
+----
+
+[ditaa]
+....
+                  +----------------------+
+                  | MethodCallExpression |
+                  +-----------+----------+
+                              |
+        +---------------------+-----------------------+
+        |                     |                       |
+ +------+-----+    +----------+---------+       +-----+-----+
+ |  varX(ref) |    | constX("myMethod") |       |  param(3) |
+ +------------+    +--------------------+       +-----------+
+....
+
+[%step]
+* **variable** expression __ref__
+* **constant** __myMethod__
+* **param** expression __3__
+
+=== Sentencias
+
+En programacion, una **sentencia** es la parte mas pequena de un
+lenguage de programacion imperativo que expresa una accion que se debe
+llevar a cabo. Una **sentencia** puede tener **expresiones**.
+
+=== If statement
+
+[source, groovy]
+----
+if(booleanExpression) {
+ println "hello" // statement
+}
+----
+
+[%step]
+* **expression** to evaluate
+* **statement** to be executed if the boolean expression evaluates to true
+
+=== Block Statement
+
+[source, groovy]
+----
+public void main(String[] args) { // block starts
+  // this is inside a block statement
+} // block ends
+----
+
+[%step]
+* A block statement is easily recognized by **curly braces**
+* It is built from other **statements** containing **expressions**
+
+=== Block Statement (cont.)
+
+[source, groovy]
+----
+public String greetings() {
+    return "Hello Greach"
+}
+----
+
+This block statement contains a **return** statement receiving a constant
+expression **Hello Greach**.
+
+=== Nodes
+
+"A ring to rule them all"
+-- Lord of the Rings
+
+=== Nodes (cont.)
+
+**Como esta estructurado nuestro programa**. Agrupana **sentencia** y
+  **expressions**.
+
+[%step]
+* **classes**
+* **methods**
+* **fields**
+* **properties**
+* ...
+
+=== A Class node
+
+[source,groovy]
+----
+class A { // ClassNode
+   String greetings // FieldNode
+
+   String hello() { // MethodNode
+
+   }
+}
+----
+
+* **ClassNode** may contain: methods, fields...
+* **MethodNode** may contain statements, and expressions
+* ...
+
+=== Por lo tanto
+
+[source,groovy]
+----
+class A { // ClassNode
+
+   String hello() // MethodNode
+   { // blockStatement {
+
+       return "Hello" // returnStatement(constantExpression)
+
+    } // }
+}
+----

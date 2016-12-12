@@ -1,0 +1,3 @@
+moduleName=Module to add
+moduleVersion=1.0-test
+extensionClasses=compile.extension.ListExtension

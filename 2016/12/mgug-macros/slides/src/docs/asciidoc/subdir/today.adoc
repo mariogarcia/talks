@@ -1,0 +1,6 @@
+== De que voy a hablar ?
+
+[%step]
+* Meta programacion
+* Macros
+* Asteroid

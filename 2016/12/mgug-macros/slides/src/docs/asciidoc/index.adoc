@@ -1,0 +1,31 @@
+= Macro macro, burrito burrito
+@marioggar
+2016-12-13
+:revnumber: {project-version}
+:example-caption!:
+:source-autofit:
+ifndef::imagesdir[:imagesdir: images]
+ifndef::astsMain[:astsMain: ../../../../../asts/src/main/groovy]
+ifndef::slidesMain[:slidesMain: ../../../../../slides/src/main/groovy]
+ifndef::groovyTest[:groovyTest: ../../../test/groovy]
+ifndef::gradle[:gradle: ../../../..]
+
+include::subdir/me.adoc[]
+
+include::subdir/today.adoc[]
+
+include::subdir/theory_101.adoc[]
+
+include::subdir/theory_101_what.adoc[]
+
+include::subdir/theory_101_when.adoc[]
+
+include::subdir/meta_programming.adoc[]
+
+include::subdir/asts_old.adoc[]
+
+include::subdir/macro.adoc[]
+
+include::subdir/asteroid.adoc[]
+
+include::subdir/what_else.adoc[]
