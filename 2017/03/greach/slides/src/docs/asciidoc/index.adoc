@@ -1,0 +1,31 @@
+= GraphQL and Groovy
+@marioggar
+2017-03-30
+:revnumber: {project-version}
+:example-caption!:
+:source-autofit:
+ifndef::imagesdir[:imagesdir: images]
+ifndef::astsMain[:astsMain: ../../../../../asts/src/main/groovy]
+ifndef::slidesMain[:slidesMain: ../../../../../slides/src/main/groovy]
+ifndef::groovyTest[:groovyTest: ../../../test/groovy]
+ifndef::gradle[:gradle: ../../../..]
+
+include::subdir/me.adoc[]
+
+include::subdir/rest.adoc[]
+
+include::subdir/graphql_overview.adoc[]
+
+include::subdir/graphql_vs_rest.adoc[]
+
+include::subdir/relay.adoc[]
+
+include::subdir/relay_groovy.adoc[]
+
+include::subdir/beyond_relay.adoc[]
+
+include::subdir/beyond_relay_groovy.adoc[]
+
+include::subdir/conclusions.adoc[]
+
+include::subdir/qna.adoc[]
