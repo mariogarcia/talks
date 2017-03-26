@@ -81,3 +81,22 @@ http://facebook.github.io/graphql/
 [%step]
 - 1. **lastFilm**: Is the **query** I'm interested in
 - 2. **title**: Is a specific **field** in the return type (Film)
+
+=== Validation
+
+[source, json]
+.title is mandatory
+----
+type Film {
+  title: !String
+  year: Int
+}
+----
+
+[source, json]
+.invalid query
+----
+{
+  lastFilm
+}
+----
