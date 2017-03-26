@@ -2,3 +2,10 @@ include 'slides'
 include 'gql'
 include 'domain'
 include 'relayr'
+
+rootProject.name = 'graphql-greach'
+
+rootProject.children.each { project ->
+    project.buildFileName = "${project.name}.gradle"
+    assert project.buildFile.isFile()
+}

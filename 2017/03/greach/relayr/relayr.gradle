@@ -3,18 +3,12 @@ buildscript {
     classpath pluginslib.cobertura
     classpath pluginslib.shadow
     classpath pluginslib.ratpack
-    classpath pluginslib.artifactory
-    classpath pluginslib.git
   }
 }
 
 apply plugin: "codenarc"
-apply plugin: "maven"
-apply plugin: "maven-publish"
-apply plugin: "com.jfrog.artifactory"
 apply plugin: "net.saliman.cobertura"
 apply plugin: "io.ratpack.ratpack-groovy"
-apply plugin: 'org.ajoberstar.grgit'
 apply plugin: "com.github.johnrengelman.shadow"
 
 dependencies {
