@@ -1,19 +1,15 @@
 buildscript {
     dependencies {
-        classpath 'org.ysb33r.gradle:vfs-gradle-plugin:1.0-beta8'
         classpath 'commons-httpclient:commons-httpclient:3.1'
     }
 }
 
 plugins {
+  id 'groovy'
   id 'org.asciidoctor.convert' version '1.5.3'
   id 'com.github.jruby-gradle.base' version '1.2.1'
+  id 'org.ysb33r.vfs' version '1.0'
 }
-
-apply plugin: 'com.github.jruby-gradle.base'
-apply plugin: 'org.ysb33r.vfs'
-apply plugin: 'java'
-apply plugin: 'org.asciidoctor.convert'
 
 version = '1.0.0-SNAPSHOT'
 
