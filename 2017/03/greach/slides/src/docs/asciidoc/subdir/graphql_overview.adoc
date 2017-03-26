@@ -1,1 +1,19 @@
 == GraphQL Overview
+
+[%notitle]
+image::graphql.png[background, size=50%]
+
+=== What is GraphQL
+
+[%step]
+- Is a **query language**
+- Is also a **server-side runtime** spec
+- It uses a **type system** to define those queries
+
+=== What is **NOT** GraphQL
+
+[%step]
+- Is not a framework
+- Is not about HTTP
+- And of course that leads me to...
+- **GraphQL is not REST**

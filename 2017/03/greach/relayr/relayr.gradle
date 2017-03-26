@@ -1,0 +1,50 @@
+buildscript {
+  dependencies {
+    classpath pluginslib.cobertura
+    classpath pluginslib.shadow
+    classpath pluginslib.ratpack
+    classpath pluginslib.artifactory
+    classpath pluginslib.git
+  }
+}
+
+apply plugin: "codenarc"
+apply plugin: "maven"
+apply plugin: "maven-publish"
+apply plugin: "com.jfrog.artifactory"
+apply plugin: "net.saliman.cobertura"
+apply plugin: "io.ratpack.ratpack-groovy"
+apply plugin: 'org.ajoberstar.grgit'
+apply plugin: "com.github.johnrengelman.shadow"
+
+dependencies {
+  compile ratpack.dependency("rx")
+  compile ratpack.dependency("guice")
+
+  compile project(":gql")
+  compile project(":domain")
+
+  compile libs.helios
+  compile libs.javaslang
+  runtime libs.slf4j_api
+  runtime libs.logback
+
+  testCompile libs.spock_genesis
+  testCompile libs.objenesis
+  testCompile libs.cglib_nodep
+  testCompile libs.spock_guice
+}
+
+/**
+ * COBERTURA: code coverage
+ */
+cobertura {
+  coverageFormats = ['html', 'xml']
+}
+
+// Necessary for Akka to work inside a fatJar
+shadowJar {
+  transform(com.github.jengelman.gradle.plugins.shadow.transformers.AppendingTransformer) {
+    resource = 'reference.conf'
+  }
+}

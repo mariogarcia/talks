@@ -1,0 +1,13 @@
+== Let me tell you why you're here...
+
+[%step]
+- I've heard GraphQL is the next big thing
+- If I do one more REST app I'll kill myself
+- I didn't find any other interesting talk
+- Whatever it is...
+
+[%notitle]
+== Now...seriously
+
+[%notitle]
+image::relax.gif[background, size=cover]

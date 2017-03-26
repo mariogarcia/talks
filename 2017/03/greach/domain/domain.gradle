@@ -1,0 +1,22 @@
+apply plugin: 'groovy'
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  compile project(':gql')
+  compile 'org.codehaus.groovy:groovy-all:2.4.7'
+  compile 'com.graphql-java:graphql-java:2.3.0'
+
+  testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+  testCompile 'junit:junit:4.12'
+}
+
+task('console', dependsOn:'classes', type: JavaExec) {
+  group = 'help'
+  description 'starts a Groovy console with the classpath of the current project'
+  main='groovy.ui.Console'
+  project.dependencies.add("compile", 'org.codehaus.groovy:groovy-console:2.4.4')
+  classpath = sourceSets.main.runtimeClasspath
+}

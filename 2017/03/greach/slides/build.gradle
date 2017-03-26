@@ -1,9 +1,8 @@
 buildscript {
-	dependencies {
+    dependencies {
         classpath 'org.ysb33r.gradle:vfs-gradle-plugin:1.0-beta8'
-		classpath 'commons-httpclient:commons-httpclient:3.1'
-        classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.11'
-	}
+        classpath 'commons-httpclient:commons-httpclient:3.1'
+    }
 }
 
 plugins {
@@ -13,53 +12,49 @@ plugins {
 
 apply plugin: 'com.github.jruby-gradle.base'
 apply plugin: 'org.ysb33r.vfs'
-apply plugin: 'groovy'
-apply plugin: 'jacoco'
-apply plugin: 'application'
+apply plugin: 'java'
 apply plugin: 'org.asciidoctor.convert'
 
 version = '1.0.0-SNAPSHOT'
 
 ext {
-	revealjsVersion = '3.3.0'
-	asciidoctorBackendVersion = 'master'
-	downloadDir = new File(buildDir,'download')
-	templateDir = new File(downloadDir,'templates')
-	revealjsDir   = new File(downloadDir,'reveal.js')
+    revealjsVersion           = '3.2.0'
+    asciidoctorBackendVersion = 'master'
+    downloadDir               = new File(buildDir,'download')
+    templateDir               = new File(downloadDir,'templates')
+    revealjsDir               = new File(downloadDir,'reveal.js')
 }
 
 repositories {
     jcenter()
-    mavenCentral()
-    maven { url "https://oss.jfrog.org/oss-snapshot-local" }
-    maven { url  "http://dl.bintray.com/grooviter/maven" }
 }
 
 dependencies {
     gems 'rubygems:slim:3.0.6'
     gems 'rubygems:thread_safe:0.3.5'
-    gems 'rubygems:asciidoctor-diagram:1.4.0'
-
-    //tag::groovy-macros[]
-    compile "org.codehaus.groovy:groovy:2.5.0-SNAPSHOT"
-    compile "org.codehaus.groovy:groovy-json:2.5.0-SNAPSHOT"
-    //end::groovy-macros[]
 }
 
-task download << {
-	mkdir downloadDir
-	vfs {
-		cp "zip:https://github.com/asciidoctor/asciidoctor-reveal.js/archive/${asciidoctorBackendVersion}.zip!asciidoctor-reveal.js-${asciidoctorBackendVersion}",
-				templateDir, recursive:true, overwrite:true
-		cp "zip:https://github.com/hakimel/reveal.js/archive/${revealjsVersion}.zip!reveal.js-${revealjsVersion}",
-                revealjsDir, recursive:true, overwrite:true
-	}
+task(download){
+    doLast {
+        mkdir downloadDir
+        vfs {
+            cp("zip:https://github.com/asciidoctor/asciidoctor-reveal.js/archive/${asciidoctorBackendVersion}.zip!asciidoctor-reveal.js-${asciidoctorBackendVersion}",
+               templateDir,
+               recursive:true,
+               overwrite:true)
+
+            cp("zip:https://github.com/hakimel/reveal.js/archive/${revealjsVersion}.zip!reveal.js-${revealjsVersion}",
+               revealjsDir,
+               recursive:true,
+               overwrite:true)
+        }
+    }
 }
 
 download {
-	description "Download extra revealjs resources"
-	outputs.dir templateDir
-	outputs.dir revealjsDir
+    description "Download extra revealjs resources"
+    outputs.dir templateDir
+    outputs.dir revealjsDir
 }
 
 asciidoctorj {
@@ -68,7 +63,7 @@ asciidoctorj {
 
 asciidoctor {
 
-    dependsOn jrubyPrepare
+    dependsOn jrubyPrepare, download
 
 	sources {
 		include 'index.adoc'
@@ -83,7 +78,7 @@ asciidoctor {
 		}
 	}
 
-	backends    'revealjs', 'pdf'
+    backends 'revealjs'
 
 	attributes	'build-gradle': file('build.gradle'),
 				'sourcedir': project.sourceSets.main.java.srcDirs[0],
@@ -102,19 +97,4 @@ asciidoctor {
 				'revealjs_slideNumber': 'true'
 
 	options template_dirs : [new File(templateDir,'templates/slim').absolutePath ]
-
-	dependsOn download
-
-    requires = ['asciidoctor-diagram']
-    gemPath = jrubyPrepare.outputDir
 }
-
-task('console', dependsOn:'classes', type: JavaExec) {
-    group = 'help'
-    description 'starts a Groovy console with the classpath of the current project'
-    main='groovy.ui.Console'
-    project.dependencies.add("compile", 'org.codehaus.groovy:groovy-console:2.4.4')
-    classpath = sourceSets.main.runtimeClasspath
-}
-
-mainClassName = 'compile.old.local.ms.RaffleService'

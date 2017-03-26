@@ -1,0 +1,44 @@
+== Query language
+
+[%notitle]
+image::languages.jpg[background, size=50%]
+
+=== First example
+
+[source, json]
+.**query**: "give me the **name** of one **hero**"
+----
+{
+  hero {
+    name
+  }
+}
+----
+
+[source, json]
+.**result**: "R2-D2"
+----
+{
+  "data": {
+    "hero": {
+      "name": "R2-D2"
+    }
+  }
+}
+----
+
+=== Little bit closer
+
+[source, json]
+.query
+----
+{
+  hero { // <1>
+    name // <2>
+  }
+}
+----
+
+[%step]
+- 1. **type**:  dataset I'm interested in
+- 2. **field**: specific field inside that dataset

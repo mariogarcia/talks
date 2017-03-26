@@ -1,1 +1,25 @@
-== Rest
+== Why we could want to move to GraphQL ?
+
+== REST
+
+[%step]
+- Why we want to move to GraphQL ?
+- What really is GraphQL ?
+- What can we use it for ?
+
+image::rest.jpg[background, size=cover]
+
+https://en.wikipedia.org/wiki/Representational_state_transfer
+
+=== Pros
+
+- URI
+- Cacheable
+-
+
+=== Cons
+
+- More limited views
+- Back end is the King
+
+=== Best example of REST

@@ -5,16 +5,19 @@
 :example-caption!:
 :source-autofit:
 ifndef::imagesdir[:imagesdir: images]
-ifndef::astsMain[:astsMain: ../../../../../asts/src/main/groovy]
 ifndef::slidesMain[:slidesMain: ../../../../../slides/src/main/groovy]
+ifndef::gql[:slidesMain: ../../../../../gql/src/main/groovy]
+ifndef::relayr[:slidesMain: ../../../../../relayr/src/main/groovy]
 ifndef::groovyTest[:groovyTest: ../../../test/groovy]
 ifndef::gradle[:gradle: ../../../..]
 
 include::subdir/me.adoc[]
 
-include::subdir/rest.adoc[]
+include::subdir/joke.adoc[]
 
 include::subdir/graphql_overview.adoc[]
+
+include::subdir/graphql_language.adoc[]
 
 include::subdir/graphql_vs_rest.adoc[]
 
