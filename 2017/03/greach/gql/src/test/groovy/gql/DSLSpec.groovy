@@ -2,8 +2,10 @@ package gql
 
 import spock.lang.Specification
 
+import graphql.GraphQLError
 import graphql.schema.GraphQLSchema
 import graphql.schema.GraphQLObjectType
+import graphql.validation.ValidationError
 
 import gql.test.util.Queries
 
@@ -168,6 +170,49 @@ class DSLSpec extends Specification {
         lastFilm {
           title
         }
+      }
+    '''
+  }
+
+  void 'validate mandatory field'() {
+    when: 'building the type'
+    GraphQLObjectType filmType = DSL.type('film') {
+      fields {
+        field('title') {
+          description 'title of the film'
+          nonNullType GraphQLString
+        }
+      }
+    }
+
+    and: 'building the schema'
+    GraphQLSchema schema = DSL.schema {
+      queries {
+        type('lastBondFilm') {
+          description'get last Bond film'
+          fields {
+            field('lastFilm') {
+              description'last film'
+              type filmType
+              fetcher Queries.&findLastFilm
+            }
+          }
+        }
+      }
+    }
+
+    and: 'executing a query against that schema'
+    List<GraphQLError> errors = DSL
+      .execute(schema, query)
+      .errors
+
+    then: 'we should get the expected name'
+    errors.find() instanceof ValidationError
+
+    where: 'executed query is'
+    query = '''
+      {
+        lastFilm
       }
     '''
   }
