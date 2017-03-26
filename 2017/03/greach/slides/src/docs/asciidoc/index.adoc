@@ -5,11 +5,8 @@
 :example-caption!:
 :source-autofit:
 ifndef::imagesdir[:imagesdir: images]
-ifndef::slidesMain[:slidesMain: ../../../../../slides/src/main/groovy]
-ifndef::gql[:slidesMain: ../../../../../gql/src/main/groovy]
-ifndef::relayr[:slidesMain: ../../../../../relayr/src/main/groovy]
-ifndef::groovyTest[:groovyTest: ../../../test/groovy]
-ifndef::gradle[:gradle: ../../../..]
+ifndef::slidesMain[:slidesMain: ../../../../../slides]
+ifndef::gql[:gql: ../../../../../gql]
 
 include::subdir/me.adoc[]
 

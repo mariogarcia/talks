@@ -3,25 +3,64 @@
 [%notitle]
 image::languages.jpg[background, size=50%]
 
+=== Steps to execute a query
+
+[%step]
+- Define **SCHEMA** types
+- Define **QUERY** types
+- **EXECUTE queries** against schema
+
 === First example
 
+[%notitle]
+image::bond.gif[background, size=cover]
+
+=== First example: SCHEMA
+
+[source, groovy]
+----
+type Film {
+  title: !String
+  year: Int
+}
+
+type Queries {
+   lastFilm: Film
+   filmByYear(year: Int): Film
+}
+
+schema {
+ query: Queries
+}
+----
+
+http://facebook.github.io/graphql/
+
+=== First example: SCHEMA
+
+[%step]
+- Client **CAN** add/omit as many optional fields as it wants
+- Client **MUST** add mandatory fields in the query
+
+=== First example : QUERY
+
 [source, json]
-.**query**: "give me the **name** of one **hero**"
+.**query**: "give me the last James Bond film with its **title**
 ----
 {
-  hero {
-    name
+  lastFilm {
+    title
   }
 }
 ----
 
 [source, json]
-.**result**: "R2-D2"
+.**result**: "SPECTRE"
 ----
 {
   "data": {
-    "hero": {
-      "name": "R2-D2"
+    "lastFilm": {
+      "title": "SPECTRE"
     }
   }
 }
@@ -33,12 +72,12 @@ image::languages.jpg[background, size=50%]
 .query
 ----
 {
-  hero { // <1>
-    name // <2>
+  lastFilm { // <1>
+    title    // <2>
   }
 }
 ----
 
 [%step]
-- 1. **type**:  dataset I'm interested in
-- 2. **field**: specific field inside that dataset
+- 1. **lastFilm**: Is the **query** I'm interested in
+- 2. **title**: Is a specific **field** in the return type (Film)
