@@ -3,6 +3,8 @@ package gql
 import gql.dsl.SchemaBuilder
 import gql.dsl.ObjectTypeBuilder
 
+import graphql.GraphQL
+import graphql.ExecutionResult
 import graphql.schema.GraphQLSchema
 import graphql.schema.GraphQLObjectType
 
@@ -77,5 +79,47 @@ final class DSL {
     SchemaBuilder builderResult = builderSource.with(clos) ?: builderSource
 
     return builderResult.build()
+  }
+
+  /**
+   * Executes the query against the underlying schema
+   * <br/>
+   * <pre><code class="groovy">
+   * GraphQLObjectType filmType = DSL.type('film') {
+   *   fields {
+   *     field('title') {
+   *       description 'title of the film'
+   *       type GraphQLString
+   *     }
+   *   }
+   * }
+   *
+   * GraphQLSchema schema = DSL.schema {
+   *   queries {
+   *     type('lastBondFilm') {
+   *       description'get last Bond film'
+   *       fields {
+   *         field('lastFilm') {
+   *           description'last film'
+   *           type filmType
+   *           fetcher Queries.&findLastFilm
+   *         }
+   *       }
+   *     }
+   *   }
+   * }
+   *
+   * Map<String,Map> dataMap = DSL
+   *  .execute(schema, '{ lastFilm { title } }')
+   *  .data
+   * </code></pre>
+   *
+   * @param schema the schema defining the query
+   * @param query the query string
+   * @return an instance of {@link ExecutionResult}
+   * @since 0.1.0
+   */
+  static ExecutionResult execute(GraphQLSchema schema, String query) {
+    return new GraphQL(schema).execute(query)
   }
 }

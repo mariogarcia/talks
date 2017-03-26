@@ -2,7 +2,10 @@ package gql
 
 import spock.lang.Specification
 
+import graphql.schema.GraphQLSchema
 import graphql.schema.GraphQLObjectType
+
+import gql.test.util.Queries
 
 /**
  * @since 0.1.0
@@ -96,5 +99,76 @@ class DSLSpec extends Specification {
       'type of the droid',
       'age of the droid',
     ]
+  }
+
+  void 'execute query with static value'() {
+    when: 'building the type'
+    GraphQLSchema schema = DSL.schema {
+      queries {
+        type('helloQuery') {
+          description'simple droid'
+          fields {
+            field('hello') {
+              description'name of the droid'
+              type GraphQLString
+              staticValue 'world'
+            }
+          }
+        }
+      }
+    }
+
+    and: 'executing a query against that schema'
+    Map<String,Map> dataMap = DSL
+      .execute(schema, '{ hello }')
+      .data
+
+    then: 'we should get the expected name'
+    dataMap.hello == 'world'
+  }
+
+  void 'execute query with fetcher'() {
+    when: 'building the type'
+    GraphQLObjectType filmType = DSL.type('film') {
+      fields {
+        field('title') {
+          description 'title of the film'
+          type GraphQLString
+        }
+      }
+    }
+
+    and: 'building the schema'
+    GraphQLSchema schema = DSL.schema {
+      queries {
+        type('lastBondFilm') {
+          description'get last Bond film'
+          fields {
+            field('lastFilm') {
+              description'last film'
+              type filmType
+              fetcher Queries.&findLastFilm
+            }
+          }
+        }
+      }
+    }
+
+    and: 'executing a query against that schema'
+    Map<String,Map> dataMap = DSL
+      .execute(schema, query)
+      .data
+
+    then: 'we should get the expected name'
+    dataMap.lastFilm.title == 'SPECTRE'
+
+    where: 'executed query is'
+    query = '''
+      {
+        lastFilm {
+          title
+        }
+      }
+    '''
   }
 }

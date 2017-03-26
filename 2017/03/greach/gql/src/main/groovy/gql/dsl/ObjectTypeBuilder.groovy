@@ -1,10 +1,12 @@
 package gql.dsl
 
+import graphql.Scalars
+import graphql.schema.DataFetcher
+import graphql.schema.GraphQLOutputType
 import graphql.schema.GraphQLObjectType
 import graphql.schema.GraphQLInterfaceType
 import graphql.schema.GraphQLFieldDefinition
 import graphql.schema.GraphQLScalarType
-import graphql.Scalars
 
 /**
  * @since 0.1.0
@@ -154,6 +156,30 @@ class ObjectTypeBuilder {
      */
     FieldBuilder type(GraphQLScalarType type) {
       builder.type(type)
+      return this
+    }
+
+    /**
+     * @since 0.1.0
+     */
+    FieldBuilder type(GraphQLOutputType type) {
+      builder.type = type
+      return this
+    }
+
+    /**
+     * @since 0.1.0
+     */
+    FieldBuilder fetcher(Closure<Object> fetcher) {
+      builder.dataFetcher(fetcher as DataFetcher)
+      return this
+    }
+
+    /**
+     * @since 0.1.0
+     */
+    FieldBuilder fetcher(DataFetcher fetcher) {
+      builder.dataFetcher(fetcher)
       return this
     }
 
