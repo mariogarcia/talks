@@ -1,4 +1,4 @@
-== Sobre mi
+== About me
 
 [%notitle]
 image::me.png[background, size=cover]
@@ -6,6 +6,6 @@ image::me.png[background, size=cover]
 [%step]
 * **Mario Garcia**
 ** https://twitter.com/marioggar
-* Trabajo en Kaleidos
+* Currently working at Kaleidos
 ** http://kaleidos.net/
-* Programo con Groovy, JDK_8
+* Languages: Groovy, JDK_8...
