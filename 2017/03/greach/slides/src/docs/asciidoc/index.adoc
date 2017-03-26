@@ -12,6 +12,8 @@ include::subdir/me.adoc[]
 
 include::subdir/joke.adoc[]
 
+include::subdir/summary.adoc[]
+
 include::subdir/graphql_overview.adoc[]
 
 include::subdir/graphql_language.adoc[]
