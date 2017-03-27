@@ -100,3 +100,59 @@ type Film {
   lastFilm
 }
 ----
+
+[%notitle]
+=== SHUT UP AND SHOW ME CODE!
+
+image::showmecode.gif[background, size=cover]
+
+=== JVM Libraries out there!
+
+[%step]
+* GraphQL-Java
+** https://github.com/graphql-java/graphql-java
+
+=== First example revisited: SCHEMA
+
+TODO
+
+=== First example revisited: QUERY EXECUTION
+
+TODO
+
+=== Too much Java code...
+
+[%notitle]
+=== Groovy Time
+
+image::groovy-time.gif[background, size=cover]
+
+=== GraphQL DSL (GQL)
+
+[%step]
+* DSL over GraphQL-Java
+** http://github.com/grooviter/gql
+* Still alpha
+** Feeback is very welcome :)
+
+=== Groovy time: SCHEMA
+
+[source, groovy]
+.imports
+----
+include::{relayr}/src/main/groovy/helthix/relayr/Schema.groovy[tags=schema_imports]
+----
+
+[source, groovy]
+.schema
+----
+include::{relayr}/src/main/groovy/helthix/relayr/Schema.groovy[tags=filmType, indent=0]
+----
+
+=== Groovy time: SCHEMA (y II)
+
+TODO
+
+=== Groovy time: QUERY EXECUTION
+
+TODO

@@ -3,6 +3,5 @@
 [%step]
 - GraphQL overview
 - GraphQL types query language
-- GraphQL + JVM
-- GraphQL + HTTP
+- GraphQL + JVM + HTTP
 - Beyond HTTP

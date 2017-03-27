@@ -23,11 +23,11 @@ class GraphQLModule  extends AbstractModule {
   GraphQLSchema getSchema() {
     return DSL.schema {
       queries {
-        type('helloWorldQuery') {
+        type('lastFilm') {
           fields {
-            field('hello') {
-              type GraphQLString
-              staticValue 'world'
+            field('lastFilm') {
+              type Schema.FilmType
+              fetcher Queries.&findLastFilm
             }
           }
         }

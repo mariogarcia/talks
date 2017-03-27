@@ -13,7 +13,7 @@ image::graphql.png[background, size=50%]
 === What is **NOT** GraphQL
 
 [%step]
-- Is not a framework
+- Is not a web framework
 - Is not about HTTP
-- And of course that leads me to...
+- And definitely, definitely, definitely...
 - **GraphQL is not REST**
