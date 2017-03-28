@@ -1,6 +1,17 @@
-== Why we could want to move to GraphQL ?
+== +++<span style="color:white;">Http + GraphQL</span>+++
 
-== REST
+[%notitle]
+image::languages.jpg[background, size=cover]
+
+
+== GraphQL vs Rest
+
+[%notitle]
+image::rest.jpg[background, size=cover]
+
+=== Why we could want to move to GraphQL ?
+
+=== REST
 
 [%step]
 - Why we want to move to GraphQL ?

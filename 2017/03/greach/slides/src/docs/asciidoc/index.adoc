@@ -4,10 +4,13 @@
 :revnumber: {project-version}
 :example-caption!:
 :source-autofit:
+:docinfo:
+:docinfodir: _shared
 ifndef::imagesdir[:imagesdir: images]
 ifndef::slidesMain[:slidesMain: ../../../../../slides]
 ifndef::gql[:gql: ../../../../../gql]
 ifndef::relayr[:relayr: ../../../../../relayr]
+ifndef::relays[:relays: ../../../../../relays]
 
 include::subdir/me.adoc[]
 
@@ -19,15 +22,9 @@ include::subdir/graphql_overview.adoc[]
 
 include::subdir/graphql_language.adoc[]
 
-include::subdir/graphql_vs_rest.adoc[]
+include::subdir/graphql_http.adoc[]
 
-include::subdir/relay.adoc[]
-
-include::subdir/relay_groovy.adoc[]
-
-include::subdir/beyond_relay.adoc[]
-
-include::subdir/beyond_relay_groovy.adoc[]
+include::subdir/beyond_http.adoc[]
 
 include::subdir/conclusions.adoc[]
 

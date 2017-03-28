@@ -1,7 +1,8 @@
-== GraphQL Overview
+[background-color=black]
+== +++<span style="color:white;">GraphQL Overview</span>+++
 
 [%notitle]
-image::graphql.png[background, size=50%]
+image::atomium.jpg[background, size=cover]
 
 === What is GraphQL
 

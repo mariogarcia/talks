@@ -1,1 +1,4 @@
 == Conclusions
+
+[%notitle]
+image::languages.jpg[background, size=cover]

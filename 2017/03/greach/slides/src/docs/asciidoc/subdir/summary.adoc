@@ -1,4 +1,10 @@
-== Summary
+== +++<span style="color:white;">Summary</span>+++
+
+[%notitle]
+image::languages.jpg[background, size=cover]
+
+[%notitle]
+=== Index
 
 [%step]
 - GraphQL overview

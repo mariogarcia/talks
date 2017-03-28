@@ -4,8 +4,16 @@
 image::me.png[background, size=cover]
 
 [%step]
-* **Mario Garcia**
+* **Name**
+** Mario Garcia
+* **You can find me**:
 ** https://twitter.com/marioggar
-* Currently working at Kaleidos
-** http://kaleidos.net/
-* Languages: Groovy, JDK_8...
+** https://github.com/mariogarcia
+
+=== Working at Kaleidos
+
+image::kaleidos.jpg[]
+
+=== Proud member of...
+
+image::madrid_gug.png[]

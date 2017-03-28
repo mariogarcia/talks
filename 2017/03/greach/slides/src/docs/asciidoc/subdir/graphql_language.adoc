@@ -1,16 +1,17 @@
-== Query language
+== +++<span style="color:white;">Query language</span>+++
 
 [%notitle]
-image::languages.jpg[background, size=50%]
+image::languages.jpg[background, size=cover]
 
 === Steps to execute a query
 
 [%step]
-- Define **SCHEMA** types
-- Define **QUERY** types
-- **EXECUTE queries** against schema
+- Define +++<span class="fragment" style="font-weight:bold;">TYPES</span>+++
+- Define +++<span class="fragment" style="font-weight:bold;">QUERIES</span>+++
+- Execute queries against schema
 
-=== First example
+[transition=zoom, %notitle]
+=== +++<span style="color:white;">First example</span>+++
 
 [%notitle]
 image::bond.gif[background, size=cover]
@@ -36,13 +37,35 @@ schema {
 
 http://facebook.github.io/graphql/
 
-=== First example: SCHEMA
+=== First example: TYPES
+
+[source, groovy]
+----
+type Film {
+  title: !String
+  year: Int
+}
+----
 
 [%step]
 - Client **CAN** add/omit as many optional fields as it wants
 - Client **MUST** add mandatory fields in the query
 
-=== First example : QUERY
+=== First example : QUERIES
+
+[source, groovy]
+----
+type Queries {
+   lastFilm: Film
+   filmByYear(year: Int): Film
+}
+----
+
+[%step]
+- Queries always use types or scalars
+- Queries may have arguments
+
+=== First example : EXECUTE QUERY
 
 [source, json]
 .**query**: "give me the last James Bond film with its **title**
@@ -112,13 +135,39 @@ image::showmecode.gif[background, size=cover]
 * GraphQL-Java
 ** https://github.com/graphql-java/graphql-java
 
-=== First example revisited: SCHEMA
+=== First example revisited: TYPES
 
-TODO
+[source, json]
+----
+type Film {
+  title: !String
+  year: Int
+}
+----
 
-=== First example revisited: QUERY EXECUTION
+[source, java]
+----
+include::{relays}/src/main/java/bond/schema/BondSchemaBuilder.java[tags=filmType, indent=0]
+----
 
-TODO
+=== First example revisited: QUERIES
+
+[source, json]
+----
+type Queries {
+   lastFilm: Film
+   filmByYear(year: Int): Film
+}
+
+schema {
+ query: Queries
+}
+----
+
+[source, java]
+----
+include::{relays}/src/main/java/bond/schema/BondSchemaBuilder.java[tags=queryType, indent=0]
+----
 
 === Too much Java code...
 
@@ -135,23 +184,65 @@ image::groovy-time.gif[background, size=cover]
 * Still alpha
 ** Feeback is very welcome :)
 
-=== Groovy time: SCHEMA
+=== Groovy time: TYPES
+
+[source, json]
+----
+type Film {
+  title: !String
+  year: Int
+}
+----
 
 [source, groovy]
-.imports
-----
-include::{relayr}/src/main/groovy/helthix/relayr/Schema.groovy[tags=schema_imports]
-----
-
-[source, groovy]
-.schema
 ----
 include::{relayr}/src/main/groovy/helthix/relayr/Schema.groovy[tags=filmType, indent=0]
 ----
 
-=== Groovy time: SCHEMA (y II)
+=== Groovy time: TYPES (II)
 
-TODO
+[source, java]
+----
+include::{relays}/src/main/java/bond/schema/BondSchemaBuilder.java[tags=filmType, indent=0]
+----
+
+[source, groovy]
+.vs
+----
+include::{relayr}/src/main/groovy/helthix/relayr/Schema.groovy[tags=filmType, indent=0]
+----
+
+=== Groovy time: QUERIES
+
+[source, json]
+----
+type Queries {
+   lastFilm: Film
+   filmByYear(year: Int): Film
+}
+
+schema {
+ query: Queries
+}
+----
+
+[source, groovy]
+----
+include::{relayr}/src/main/groovy/helthix/relayr/GraphQLModule.groovy[tags=queryType, indent=0]
+----
+
+=== Groovy time: QUERIES (II)
+
+[source, java]
+----
+include::{relays}/src/main/java/bond/schema/BondSchemaBuilder.java[tags=queryType, indent=0]
+----
+
+[source, groovy]
+.vs
+----
+include::{relayr}/src/main/groovy/helthix/relayr/GraphQLModule.groovy[tags=queryType, indent=0]
+----
 
 === Groovy time: QUERY EXECUTION
 
