@@ -14,9 +14,22 @@ import graphql.schema.GraphQLNonNull
 /**
  * @since 0.1.0
  */
+@SuppressWarnings('PropertyName')
 class ObjectTypeBuilder {
 
   GraphQLObjectType.Builder type = GraphQLObjectType.newObject()
+
+  GraphQLScalarType GraphQLInt = Scalars.GraphQLInt
+  GraphQLScalarType GraphQLString = Scalars.GraphQLString
+  GraphQLScalarType GraphQLLong = Scalars.GraphQLLong
+  GraphQLScalarType GraphQLShort = Scalars.GraphQLShort
+  GraphQLScalarType GraphQLByte = Scalars.GraphQLByte
+  GraphQLScalarType GraphQLFloat = Scalars.GraphQLFloat
+  GraphQLScalarType GraphQLBigInteger = Scalars.GraphQLBigInteger
+  GraphQLScalarType GraphQLBigDecimal = Scalars.GraphQLBigDecimal
+  GraphQLScalarType GraphQLBoolean = Scalars.GraphQLBoolean
+  GraphQLScalarType GraphQLID = Scalars.GraphQLID
+  GraphQLScalarType GraphQLChar = Scalars.GraphQLChar
 
   /**
    * @since 0.1.0
@@ -65,12 +78,35 @@ class ObjectTypeBuilder {
   /**
    * @since 0.1.0
    */
-  ObjectTypeBuilder fields(@DelegatesTo(FieldsBuilder) Closure<FieldsBuilder> fields) {
-    Closure<FieldsBuilder> clos = fields.clone() as Closure<FieldsBuilder>
-    FieldsBuilder builderSource = new FieldsBuilder()
-    FieldsBuilder builderResult = builderSource.with(clos) ?: builderSource
+  ObjectTypeBuilder field(String name, @DelegatesTo(FieldBuilder) Closure<FieldBuilder> dsl) {
+    Closure<FieldBuilder> clos = dsl.clone() as Closure<FieldBuilder>
+    FieldBuilder builderSource = new FieldBuilder().name(name)
+    FieldBuilder builderResult = builderSource.with(clos) ?: builderSource
 
-    this.type = type.fields(builderResult.build())
+    this.type = type.field(builderResult.build())
+    return this
+  }
+
+  /**
+   * @since 0.1.0
+   */
+  ObjectTypeBuilder field(String name, GraphQLScalarType fieldType) {
+    FieldBuilder builderSource = new FieldBuilder()
+      .name(name)
+      .description("description of field $name")
+      .type(fieldType)
+
+    this.type = type.field(builderSource.build())
+    return this
+  }
+
+  ObjectTypeBuilder field(String name, GraphQLOutputType fieldType) {
+    FieldBuilder builderSource = new FieldBuilder()
+      .name(name)
+      .description("description of field $name")
+      .type(fieldType)
+
+    this.type = type.field(builderSource.build())
     return this
   }
 
@@ -91,50 +127,7 @@ class ObjectTypeBuilder {
   /**
    * @since 0.1.0
    */
-  static class FieldsBuilder {
-
-    /**
-     * @since 0.1.0
-     */
-    List<GraphQLFieldDefinition> fields = []
-
-    /**
-     * @since 0.1.0
-     */
-    FieldsBuilder field(String name, @DelegatesTo(FieldBuilder) Closure<FieldBuilder> dsl) {
-      Closure<FieldBuilder> clos = dsl.dehydrate().clone() as Closure<FieldBuilder>
-      FieldBuilder builderSource = new FieldBuilder().name(name)
-      FieldBuilder builderResult = builderSource.with(clos) ?: builderSource
-
-      fields << builderResult.build()
-      return this
-    }
-
-    /**
-     * @since 0.1.0
-     */
-    List<GraphQLFieldDefinition> build() {
-      return fields
-    }
-  }
-
-  /**
-   * @since 0.1.0
-   */
-  @SuppressWarnings('PropertyName')
   static class FieldBuilder {
-
-    GraphQLScalarType GraphQLInt = Scalars.GraphQLInt
-    GraphQLScalarType GraphQLString = Scalars.GraphQLString
-    GraphQLScalarType GraphQLLong = Scalars.GraphQLLong
-    GraphQLScalarType GraphQLShort = Scalars.GraphQLShort
-    GraphQLScalarType GraphQLByte = Scalars.GraphQLByte
-    GraphQLScalarType GraphQLFloat = Scalars.GraphQLFloat
-    GraphQLScalarType GraphQLBigInteger = Scalars.GraphQLBigInteger
-    GraphQLScalarType GraphQLBigDecimal = Scalars.GraphQLBigDecimal
-    GraphQLScalarType GraphQLBoolean = Scalars.GraphQLBoolean
-    GraphQLScalarType GraphQLID = Scalars.GraphQLID
-    GraphQLScalarType GraphQLChar = Scalars.GraphQLChar
 
     GraphQLFieldDefinition.Builder builder = GraphQLFieldDefinition.newFieldDefinition()
 
@@ -166,7 +159,7 @@ class ObjectTypeBuilder {
      * @since 0.1.0
      */
     FieldBuilder type(GraphQLOutputType type) {
-      builder.type = type
+      builder.type(type)
       return this
     }
 

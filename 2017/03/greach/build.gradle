@@ -17,7 +17,9 @@ ext{
         objenesis: 'org.objenesis:objenesis:2.4',
         joda: 'joda-time:joda-time:2.7',
         spock_guice: "org.spockframework:spock-guice:1.0-groovy-2.4",
-        flyway: 'org.flywaydb:flyway-core:4.0.3'
+            flyway: 'org.flywaydb:flyway-core:4.0.3',
+            graphql_java: 'com.graphql-java:graphql-java:2.3.0',
+            spark_java: "com.sparkjava:spark-core:2.5.5"
     ]
 
     pluginslib = [

@@ -43,7 +43,7 @@ final class DSL {
    */
   static GraphQLObjectType type(String name, @DelegatesTo(ObjectTypeBuilder) Closure<ObjectTypeBuilder> dsl) {
     Closure<ObjectTypeBuilder> clos = dsl.clone() as Closure<ObjectTypeBuilder>
-    ObjectTypeBuilder builderSource = new ObjectTypeBuilder().name(name)
+    ObjectTypeBuilder builderSource = new ObjectTypeBuilder().name(name).description("description of $name")
     ObjectTypeBuilder builderResult = builderSource.with(clos) ?: builderSource
 
     return builderResult.build()

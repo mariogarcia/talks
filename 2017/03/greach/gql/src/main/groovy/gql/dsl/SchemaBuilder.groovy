@@ -42,19 +42,14 @@ class SchemaBuilder {
    * @return
    * @since 0.1.0
    */
-  SchemaBuilder queries(@DelegatesTo(QueriesBuilder) Closure<QueriesBuilder> dsl) {
-    Closure<QueriesBuilder> clos = dsl.clone() as Closure<QueriesBuilder>
-    QueriesBuilder builderSource = new QueriesBuilder()
-    QueriesBuilder builderResult = builderSource.with(clos) ?: builderSource
-    List<GraphQLObjectType> qurs = builderResult.build()
+  SchemaBuilder query(String name, @DelegatesTo(ObjectTypeBuilder) Closure<ObjectTypeBuilder> dsl) {
+    Closure<ObjectTypeBuilder> clos = dsl.dehydrate().clone() as Closure<ObjectTypeBuilder>
+    ObjectTypeBuilder builderSource = new ObjectTypeBuilder().name(name)
+    ObjectTypeBuilder builderResult = builderSource.with(clos) ?: builderSource
+    GraphQLObjectType qurs = builderResult.build()
 
-    qurs.each(addQueryToBuilder(builder))
-
+    builder.query(qurs)
     return this
-  }
-
-  private Closure<GraphQLSchema.Builder> addQueryToBuilder(GraphQLSchema.Builder builder) {
-    return { GraphQLObjectType type -> builder.query(type) }
   }
 
   /**
@@ -65,49 +60,5 @@ class SchemaBuilder {
    */
   GraphQLSchema build() {
     return builder.build()
-  }
-
-  /**
-   * This builder acts as a proxy for:
-   *
-   * <ul>
-   *   <li>{@link ObjectTypeBuilder}</li>
-   * </ul>
-   *
-   * This way the api user will have DSL autodiscovery for types,
-   * fields...etc from the {@link gql.DSL#schema} method.
-   *
-   * @since 0.1.0
-   */
-  static class QueriesBuilder {
-
-    List<GraphQLObjectType> queries = []
-
-    /**
-     * Creates a new type within the underlying schema
-     *
-     * @param name name of the type
-     * @param dsl the type dsl definition
-     * @return the current builder instance
-     * @since 0.1.0
-     */
-    QueriesBuilder type(String name, @DelegatesTo(ObjectTypeBuilder) Closure<ObjectTypeBuilder> dsl) {
-      Closure<ObjectTypeBuilder> clos = dsl.dehydrate().clone() as Closure<ObjectTypeBuilder>
-      ObjectTypeBuilder builderSource = new ObjectTypeBuilder().name(name)
-      ObjectTypeBuilder builderResult = builderSource.with(clos) ?: builderSource
-
-      queries << builderResult.build()
-      return this
-    }
-
-    /**
-     * Return the list of types defined in this fragment of the dsl
-     *
-     * @return a list of defined types of type {@link GraphQLObjectType}
-     * @since 0.1.0
-     */
-    List<GraphQLObjectType> build() {
-      return queries
-    }
   }
 }

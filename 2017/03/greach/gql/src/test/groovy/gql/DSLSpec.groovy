@@ -49,11 +49,9 @@ class DSLSpec extends Specification {
     when: 'building the type'
     GraphQLObjectType type = DSL.type('Droid') {
       description'simple droid'
-      fields {
-        field('name') {
-          description'name of the droid'
-          type GraphQLString
-        }
+      field('name') {
+        description'name of the droid'
+        type GraphQLString
       }
     }
 
@@ -69,19 +67,17 @@ class DSLSpec extends Specification {
     when: 'building the type'
     GraphQLObjectType type = DSL.type('Droid') {
       description'simple droid'
-      fields {
-        field('name') {
-          description'name of the droid'
-          type GraphQLString
-        }
-        field('type') {
-          description'type of the droid'
-          type GraphQLString
-        }
-        field('age') {
-          description 'age of the droid'
-          type GraphQLInt
-        }
+      field('name') {
+        description'name of the droid'
+        type GraphQLString
+      }
+      field('type') {
+        description'type of the droid'
+        type GraphQLString
+      }
+      field('age') {
+        description 'age of the droid'
+        type GraphQLInt
       }
     }
 
@@ -103,19 +99,41 @@ class DSLSpec extends Specification {
     ]
   }
 
+  void 'build a simple type with more than one field (shortest version)'() {
+    when: 'building the type'
+    GraphQLObjectType type = DSL.type('Droid') {
+      field 'age' , GraphQLInt
+      field 'name', GraphQLString
+      field 'type', GraphQLString
+    }
+
+    then: 'the type should have the name and desc'
+    type.name == 'Droid'
+    type.description == 'description of Droid'
+
+    and: 'there should be two fields'
+    type.fieldDefinitions.size() == 3
+
+    and: 'we should expect some field names'
+    type.fieldDefinitions*.name == ['age', 'name', 'type']
+
+    and: 'some descriptions'
+    type.fieldDefinitions*.description == [
+      'description of field age',
+      'description of field name',
+      'description of field type',
+    ]
+  }
+
   void 'execute query with static value'() {
     when: 'building the type'
     GraphQLSchema schema = DSL.schema {
-      queries {
-        type('helloQuery') {
-          description'simple droid'
-          fields {
-            field('hello') {
-              description'name of the droid'
-              type GraphQLString
-              staticValue 'world'
-            }
-          }
+      query('helloQuery') {
+        description'simple droid'
+        field('hello') {
+          description'name of the droid'
+          type GraphQLString
+          staticValue 'world'
         }
       }
     }
@@ -132,40 +150,34 @@ class DSLSpec extends Specification {
   void 'execute query with fetcher'() {
     when: 'building the type'
     GraphQLObjectType filmType = DSL.type('film') {
-      fields {
-        field('title') {
-          description 'title of the film'
-          type GraphQLString
-        }
+      field('title') {
+        description 'title of the film'
+        type GraphQLString
       }
     }
 
     and: 'building the schema'
     GraphQLSchema schema = DSL.schema {
-      queries {
-        type('lastBondFilm') {
-          description'get last Bond film'
-          fields {
-            field('lastFilm') {
-              description'last film'
-              type filmType
-              fetcher Queries.&findLastFilm
-            }
-          }
+      query('QueryRoot') {
+        description'queries over James Bond'
+        field('lastFilm') {
+          description'last film'
+          type filmType
+          fetcher Queries.&findLastFilm
         }
       }
     }
 
     and: 'executing a query against that schema'
     Map<String,Map> dataMap = DSL
-      .execute(schema, query)
+      .execute(schema, queryString)
       .data
 
     then: 'we should get the expected name'
     dataMap.lastFilm.title == 'SPECTRE'
 
     where: 'executed query is'
-    query = '''
+    queryString = '''
       {
         lastFilm {
           title
@@ -177,40 +189,34 @@ class DSLSpec extends Specification {
   void 'validate mandatory field'() {
     when: 'building the type'
     GraphQLObjectType filmType = DSL.type('film') {
-      fields {
-        field('title') {
-          description 'title of the film'
-          nonNullType GraphQLString
-        }
+      field('title') {
+        description 'title of the film'
+        nonNullType GraphQLString
       }
     }
 
     and: 'building the schema'
     GraphQLSchema schema = DSL.schema {
-      queries {
-        type('lastBondFilm') {
-          description'get last Bond film'
-          fields {
-            field('lastFilm') {
-              description'last film'
-              type filmType
-              fetcher Queries.&findLastFilm
-            }
-          }
+      query('QueryRoot') {
+        description'queries over James Bond'
+        field('lastFilm') {
+          description'last film'
+          type filmType
+          fetcher Queries.&findLastFilm
         }
       }
     }
 
     and: 'executing a query against that schema'
     List<GraphQLError> errors = DSL
-      .execute(schema, query)
+      .execute(schema, queryString)
       .errors
 
     then: 'we should get the expected name'
     errors.find() instanceof ValidationError
 
     where: 'executed query is'
-    query = '''
+    queryString = '''
       {
         lastFilm
       }
