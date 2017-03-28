@@ -31,26 +31,29 @@ dependencies {
 }
 
 task(download){
-    doLast {
-        mkdir downloadDir
-        vfs {
-            cp("zip:https://github.com/asciidoctor/asciidoctor-reveal.js/archive/${asciidoctorBackendVersion}.zip!asciidoctor-reveal.js-${asciidoctorBackendVersion}",
-               templateDir,
-               recursive:true,
-               overwrite:true)
+  doLast {
+    mkdir downloadDir
+    vfs {
+      cp("zip:https://github.com/asciidoctor/asciidoctor-reveal.js/archive/${asciidoctorBackendVersion}.zip!asciidoctor-reveal.js-${asciidoctorBackendVersion}",
+         templateDir,
+         recursive:true,
+         overwrite:true)
 
-            cp("zip:https://github.com/hakimel/reveal.js/archive/${revealjsVersion}.zip!reveal.js-${revealjsVersion}",
-               revealjsDir,
-               recursive:true,
-               overwrite:true)
-        }
+      cp("zip:https://github.com/hakimel/reveal.js/archive/${revealjsVersion}.zip!reveal.js-${revealjsVersion}",
+         revealjsDir,
+         recursive:true,
+         overwrite:true)
     }
+  }
 }
 
 download {
-    description "Download extra revealjs resources"
-    outputs.dir templateDir
-    outputs.dir revealjsDir
+  group 'documentation'
+  description "Download extra revealjs resources"
+
+  inputs.files downloadDir
+  outputs.dir templateDir
+  outputs.dir revealjsDir
 }
 
 asciidoctorj {
@@ -59,7 +62,7 @@ asciidoctorj {
 
 asciidoctor {
 
-    dependsOn jrubyPrepare, download
+  dependsOn jrubyPrepare, download
 
 	sources {
 		include 'index.adoc'
