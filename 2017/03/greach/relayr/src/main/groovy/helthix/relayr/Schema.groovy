@@ -7,16 +7,15 @@ import graphql.schema.GraphQLObjectType
 
 class Schema {
 
-  // tag::filmType[]
+
   static final GraphQLObjectType FilmType =
-    DSL.type('film') {
-      fields {
-        field('title') {
-          nonNullType GraphQLString
-        }
-        field('year') {
-          type GraphQLInt
-        }
+  // tag::filmType[]
+    DSL.type('Film') {
+      field('title') {
+        nonNullType GraphQLString
+      }
+      field('year') {
+        type GraphQLInt
       }
     }
   // end::filmType[]

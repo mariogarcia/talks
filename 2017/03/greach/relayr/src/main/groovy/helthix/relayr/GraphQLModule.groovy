@@ -21,17 +21,15 @@ class GraphQLModule  extends AbstractModule {
   @Provides
   @Singleton
   GraphQLSchema getSchema() {
+    // tag::queryType[]
     return DSL.schema {
-      queries {
-        type('lastFilm') {
-          fields {
-            field('lastFilm') {
-              type Schema.FilmType
-              fetcher Queries.&findLastFilm
-            }
-          }
+      query('Queries') {
+        field('lastFilm') {
+          type Schema.FilmType
+          fetcher Queries.&findLastFilm
         }
       }
     }
+    // end::queryType[]
   }
 }
