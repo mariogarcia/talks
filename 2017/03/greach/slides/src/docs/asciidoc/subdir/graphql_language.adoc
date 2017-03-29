@@ -169,6 +169,20 @@ schema {
 include::{relays}/src/main/java/bond/schema/BondSchemaBuilder.java[tags=queryType, indent=0]
 ----
 
+=== First example revisited: EXECUTION
+
+[source, java]
+----
+include::{relays}/src/test/groovy/bond/schema/BondQueryExecutionSpec.groovy[tags=executeSimpleQuery, indent=0]
+----
+
+[%step]
+- 1. **schema**: query + types definition
+- 2. **query**: query string
+- 3. **context**: helpful for add metadata (e.g. authorization)
+- 4. **variables**: if the query has any
+
+
 === Too much Java code...
 
 [%notitle]

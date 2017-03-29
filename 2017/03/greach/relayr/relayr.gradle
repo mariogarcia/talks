@@ -16,6 +16,7 @@ dependencies {
   compile ratpack.dependency("guice")
 
   compile project(":gql")
+  compile project(":bonddb")
   compile project(":domain")
 
   compile libs.helios

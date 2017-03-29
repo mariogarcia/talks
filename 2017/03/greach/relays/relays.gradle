@@ -1,0 +1,12 @@
+apply plugin: 'groovy'
+apply plugin: 'jacoco'
+
+dependencies {
+  compile project(':bonddb')
+
+  compile libs.groovy_all
+  compile libs.graphql_java
+  compile libs.spark_java
+
+  testCompile libs.spock_genesis
+}
