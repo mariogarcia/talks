@@ -22,12 +22,10 @@ final class DSL {
    * <br/>
    * <pre><code class="groovy">
    * GraphQLObjectType helloQuery = DSL.type('helloWorldQuery') {
-   *     fields {
-   *         field('hello') {
-   *             type GraphQLString
-   *             staticValue 'world'
-   *         }
-   *     }
+   *   field('hello') {
+   *       type GraphQLString
+   *       staticValue 'world'
+   *   }
    * }
    * </code></pre>
    * <br/>
@@ -55,16 +53,12 @@ final class DSL {
    * <br/>
    * <pre><code class="groovy">
    * GraphQLSchema schema = DSL.schema {
-   *     queries {
-   *         type('helloWorldQuery') {
-   *             fields {
-   *                 field('hello') {
-   *                     type GraphQLString
-   *                     staticValue 'world'
-   *                 }
-   *             }
-   *         }
+   *   query('QueryRoot') {
+   *     field('hello') {
+   *         type GraphQLString
+   *         staticValue 'world'
    *     }
+   *   }
    * }
    * </code></pre>
    *
@@ -86,25 +80,19 @@ final class DSL {
    * <br/>
    * <pre><code class="groovy">
    * GraphQLObjectType filmType = DSL.type('film') {
-   *   fields {
-   *     field('title') {
-   *       description 'title of the film'
-   *       type GraphQLString
-   *     }
+   *   field('title') {
+   *     description 'title of the film'
+   *     type GraphQLString
    *   }
    * }
    *
    * GraphQLSchema schema = DSL.schema {
-   *   queries {
-   *     type('lastBondFilm') {
-   *       description'get last Bond film'
-   *       fields {
-   *         field('lastFilm') {
-   *           description'last film'
-   *           type filmType
-   *           fetcher Queries.&findLastFilm
-   *         }
-   *       }
+   *   query('QueryRoot') {
+   *     description 'application queries'
+   *     field('lastFilm') {
+   *       description 'find last film'
+   *       type filmType
+   *       fetcher Queries.&findLastFilm
    *     }
    *   }
    * }
@@ -121,5 +109,50 @@ final class DSL {
    */
   static ExecutionResult execute(GraphQLSchema schema, String query) {
     return new GraphQL(schema).execute(query)
+  }
+
+  /**
+   * Executes the query against the underlying schema
+   * <br/>
+   * <pre><code class="groovy">
+   * GraphQLObjectType filmType = DSL.type('film') {
+   *   field 'year' , GraphQLString
+   *   field 'title', GraphQLString
+   * }
+   *
+   * GraphQLSchema schema = DSL.schema {
+   *   query('QueryRoot') {
+   *     field('byYear') {
+   *       type filmType
+   *       fetcher Queries.&findLastFilm
+   *       argument('year') {
+   *         type GraphQLString
+   *       }
+   *     }
+   *   }
+   * }
+   *
+   * String queryString = '''
+   *   query FinBondFilmByYear($year: String){
+   *     byYear(year: $year) {
+   *        title
+   *        year
+   *     }
+   *   }
+   * '''
+   *
+   * Map<String,Map> dataMap = DSL
+   *  .execute(schema, queryString, [year: "1962"])
+   *  .data
+   * </code></pre>
+   *
+   * @param schema the schema defining the query
+   * @param query the query string
+   * @param
+   * @return an instance of {@link ExecutionResult}
+   * @since 0.1.0
+   */
+  static ExecutionResult execute(GraphQLSchema schema, String query, Map<String,Object> arguments) {
+    return new GraphQL(schema).execute(query, null, arguments)
   }
 }

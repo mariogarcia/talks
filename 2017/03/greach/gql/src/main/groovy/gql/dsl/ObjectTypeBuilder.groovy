@@ -3,6 +3,7 @@ package gql.dsl
 import graphql.Scalars
 import graphql.schema.GraphQLType
 import graphql.schema.DataFetcher
+import graphql.schema.GraphQLArgument
 import graphql.schema.GraphQLOutputType
 import graphql.schema.GraphQLObjectType
 import graphql.schema.GraphQLInterfaceType
@@ -184,6 +185,21 @@ class ObjectTypeBuilder {
      */
     FieldBuilder fetcher(Closure<Object> fetcher) {
       builder.dataFetcher(fetcher as DataFetcher)
+      return this
+    }
+
+    /**
+     * @since 0.1.0
+     */
+    FieldBuilder argument(String name, Closure<GraphQLArgument.Builder> dsl) {
+      Closure<GraphQLArgument.Builder> clos = dsl.clone() as Closure<GraphQLArgument.Builder>
+      GraphQLArgument.Builder builderSource = GraphQLArgument
+        .newArgument()
+        .name(name)
+        .description(name)
+      GraphQLArgument.Builder builderResult = builderSource.with(clos) ?: builderSource
+
+      builder.argument(builderResult.build())
       return this
     }
 

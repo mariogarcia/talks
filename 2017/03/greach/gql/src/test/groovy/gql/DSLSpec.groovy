@@ -63,6 +63,20 @@ class DSLSpec extends Specification {
     type.fieldDefinitions.first().description == 'name of the droid'
   }
 
+  void 'build a simple type with one field (shortest)'() {
+    when: 'building the type'
+    GraphQLObjectType type = DSL.type('Droid') {
+      field 'name', GraphQLString
+    }
+
+    then: 'the type should have the expected features'
+    type.name == 'Droid'
+    type.description == 'description of Droid'
+    type.fieldDefinitions.size() == 1
+    type.fieldDefinitions.first().name == 'name'
+    type.fieldDefinitions.first().description == 'description of field name'
+  }
+
   void 'build a simple type with more than one field'() {
     when: 'building the type'
     GraphQLObjectType type = DSL.type('Droid') {
@@ -219,6 +233,94 @@ class DSLSpec extends Specification {
     queryString = '''
       {
         lastFilm
+      }
+    '''
+  }
+
+  void 'execute parametrized query'() {
+    when: 'building the type'
+    GraphQLObjectType filmType = DSL.type('film') {
+      field('title') {
+        description 'title of the film'
+        type GraphQLString
+      }
+      field('year') {
+        description 'title of the film'
+        type GraphQLString
+      }
+    }
+
+    and: 'building the schema'
+    GraphQLSchema schema = DSL.schema {
+      query('QueryRoot') {
+        field('byYear') {
+          type filmType
+          fetcher Queries.&findByYear
+          argument('year') {
+            type GraphQLString
+          }
+        }
+      }
+    }
+
+    and: 'executing a query against that schema'
+    def result = DSL.execute(schema, queryString, [year: "1962"])
+
+    then: 'we should get the expected name'
+    !result.errors
+    result.data.byYear.title == 'DR. NO'
+
+    where: 'executed query is'
+    queryString = '''
+      query FindBondByYear($year: String) {
+        byYear(year: $year) {
+          year
+          title
+        }
+      }
+    '''
+  }
+
+  void 'execute parametrized query embedding args'() {
+    when: 'building the type'
+    GraphQLObjectType filmType = DSL.type('film') {
+      field('title') {
+        description 'title of the film'
+        type GraphQLString
+      }
+      field('year') {
+        description 'title of the film'
+        type GraphQLString
+      }
+    }
+
+    and: 'building the schema'
+    GraphQLSchema schema = DSL.schema {
+      query('QueryRoot') {
+        field('byYear') {
+          type filmType
+          fetcher Queries.&findByYear
+          argument('year') {
+            type GraphQLString
+          }
+        }
+      }
+    }
+
+    and: 'executing a query against that schema'
+    def result = DSL.execute(schema, queryString)
+
+    then: 'we should get the expected name'
+    !result.errors
+    result.data.byYear.title == 'DR. NO'
+
+    where: 'executed query is'
+    queryString = '''
+      query FindBondByYear {
+        byYear(year: "1962") {
+          year
+          title
+        }
       }
     '''
   }
