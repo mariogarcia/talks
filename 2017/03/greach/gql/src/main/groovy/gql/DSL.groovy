@@ -76,43 +76,8 @@ final class DSL {
   }
 
   /**
-   * Executes the query against the underlying schema
-   * <br/>
-   * <pre><code class="groovy">
-   * GraphQLObjectType filmType = DSL.type('film') {
-   *   field('title') {
-   *     description 'title of the film'
-   *     type GraphQLString
-   *   }
-   * }
-   *
-   * GraphQLSchema schema = DSL.schema {
-   *   query('QueryRoot') {
-   *     description 'application queries'
-   *     field('lastFilm') {
-   *       description 'find last film'
-   *       type filmType
-   *       fetcher Queries.&findLastFilm
-   *     }
-   *   }
-   * }
-   *
-   * Map<String,Map> dataMap = DSL
-   *  .execute(schema, '{ lastFilm { title } }')
-   *  .data
-   * </code></pre>
-   *
-   * @param schema the schema defining the query
-   * @param query the query string
-   * @return an instance of {@link ExecutionResult}
-   * @since 0.1.0
-   */
-  static ExecutionResult execute(GraphQLSchema schema, String query) {
-    return new GraphQL(schema).execute(query)
-  }
-
-  /**
-   * Executes the query against the underlying schema
+   * Executes the query against the underlying schema without any
+   * specific context.
    * <br/>
    * <pre><code class="groovy">
    * GraphQLObjectType filmType = DSL.type('film') {
@@ -152,7 +117,13 @@ final class DSL {
    * @return an instance of {@link ExecutionResult}
    * @since 0.1.0
    */
-  static ExecutionResult execute(GraphQLSchema schema, String query, Map<String,Object> arguments) {
-    return new GraphQL(schema).execute(query, null, arguments)
+  static ExecutionResult execute(GraphQLSchema schema, String query, Map<String,Object> arguments = [:]) {
+    GraphQL graphql = new GraphQL(schema)
+
+    /* GraphQL java assumes arguments can't be empty if you're using
+       the method that allows arguments */
+    return arguments ?
+      graphql.execute(query, null, arguments) :
+      graphql.execute(query, null)
   }
 }
