@@ -15,6 +15,7 @@ class Schema {
         nonNullType GraphQLString
       }
       field('year') {
+        description 'release date'
         type GraphQLString
       }
     }

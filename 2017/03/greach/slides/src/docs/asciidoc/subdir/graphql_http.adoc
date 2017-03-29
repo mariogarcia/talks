@@ -4,33 +4,33 @@
 image::languages.jpg[background, size=cover]
 
 
-== GraphQL vs Rest
+=== GraphQL vs Rest
 
 [%notitle]
 image::rest.jpg[background, size=cover]
 
 === Why we could want to move to GraphQL ?
 
-=== REST
+=== REST : Pros
 
 [%step]
-- Why we want to move to GraphQL ?
-- What really is GraphQL ?
-- What can we use it for ?
-
-image::rest.jpg[background, size=cover]
+- An URI represents a single resource
+- Cacheable
 
 https://en.wikipedia.org/wiki/Representational_state_transfer
 
-=== Pros
-
-- URI
-- Cacheable
--
-
 === Cons
 
-- More limited views
-- Back end is the King
+[%step]
+* More limited views (Grails JSON views are great though!)
+* Back end is the king +++<span class="fragment">...and the bottleneck</span>+++
+* Oh, so you want a new endpoint/view to expose the same domain but
+different properties ?
+
+
+=== +++<span style="color:white;">No problem. I'll see what I can do</span>+++
+
+[%notitle]
+image::waiting.jpg[background, size=cover]
 
 === Best example of REST

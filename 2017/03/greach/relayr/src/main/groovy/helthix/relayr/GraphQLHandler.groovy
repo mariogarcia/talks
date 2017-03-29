@@ -2,31 +2,26 @@ package helthix.relayr
 
 import static ratpack.jackson.Jackson.json
 
+import javax.inject.Inject
 import ratpack.handling.Handler
 import ratpack.handling.Context
-
-import javax.inject.Inject
-
-import graphql.GraphQL
 import graphql.schema.GraphQLSchema
+
+import gql.DSL
 
 /**
  * @since 0.1.0
  */
 class GraphQLHandler implements Handler {
 
-  // Idea: authorization could be applied over schema visibility
-  // GraphQLSchema schema = schemaService.getSchemaForAuthorities(user.authorities)
   @Inject
   GraphQLSchema schema
 
   @Override
   void handle(final Context ctx) {
-    Map<String,Object> payload = ctx.get(Map)
-    Map<String,Object> results = new GraphQL(schema)
-      .execute("${payload.query}", null, "${payload.variables}")
-      .getData() as Map<String,Object>
+    def payload = ctx.get(Map)
+    def results = DSL.execute(schema, payload.query, payload.variables)
 
-    ctx.render json(results)
+    ctx.render json(results.errors ?: results.data)
   }
 }

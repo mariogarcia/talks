@@ -26,5 +26,9 @@ ratpack {
         all(createBindingHandler(Map))
         post(GraphQLHandler)
     }
+
+    files {
+      dir('static').indexFiles('index.html')
+    }
   }
 }
