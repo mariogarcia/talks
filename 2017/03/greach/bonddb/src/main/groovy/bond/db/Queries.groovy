@@ -22,4 +22,19 @@ class Queries {
 
     return lastFilm
   }
+
+  static Map<String,Object> findByYear(DataFetchingEnvironment env) {
+    def year = "${env.arguments.year}"
+    def datasetURL = SystemResources.classpathAsURL('/data/bond.json')
+    def inputStream = datasetURL.openStream()
+    def datasetData = new JsonSlurper().parse(inputStream) as List<Map>
+    def filmByYear = datasetData.find(byYear(year))
+
+    println filmByYear
+    return filmByYear
+  }
+
+  static Closure<Boolean> byYear(String year) {
+    return { Map<String,Object> m -> m.year == year } as Closure<Boolean>
+  }
 }

@@ -260,4 +260,48 @@ include::{relayr}/src/main/groovy/helthix/relayr/GraphQLModule.groovy[tags=query
 
 === Groovy time: QUERY EXECUTION
 
-TODO
+[source, groovy]
+----
+include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=executeSimpleQuery, indent=0]
+----
+
+[source, json]
+.yields
+----
+{
+  lastFilm: {
+    year: 2015,
+    title: 'SPECTRE'
+  }
+}
+----
+
+=== Groovy time: QUERY EXECUTION (II)
+
+[source, java]
+----
+include::{relays}/src/test/groovy/bond/schema/BondQueryExecutionSpec.groovy[tags=executeSimpleQuery, indent=0]
+----
+
+[source, groovy]
+.vs
+----
+include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=executeSimpleQuery, indent=0]
+----
+
+=== +++<span style="color:white;">Queries with arguments</span>+++
+
+[%notitle]
+image::arguments.png[background, size=cover]
+
+=== Who knows the title of 1962 ?
+
+[source, groovy]
+----
+include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=parametrizedQuery, indent=0]
+----
+
+[source, groovy]
+----
+include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=parametrizedExecution, indent=0]
+----

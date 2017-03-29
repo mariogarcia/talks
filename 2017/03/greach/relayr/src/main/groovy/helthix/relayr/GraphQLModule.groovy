@@ -6,6 +6,7 @@ import com.google.inject.Provides
 import com.google.inject.Singleton
 
 import gql.DSL
+import bond.db.Queries
 import graphql.schema.GraphQLSchema
 
 /**
@@ -27,6 +28,13 @@ class GraphQLModule  extends AbstractModule {
         field('lastFilm') {
           type Schema.FilmType
           fetcher Queries.&findLastFilm
+        }
+        field('byYear') {
+          type Schema.FilmType
+          fetcher Queries.&findByYear
+          argument('year') {
+            type GraphQLString
+          }
         }
       }
     }

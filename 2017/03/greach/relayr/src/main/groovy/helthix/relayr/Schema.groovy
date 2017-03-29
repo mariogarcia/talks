@@ -15,7 +15,7 @@ class Schema {
         nonNullType GraphQLString
       }
       field('year') {
-        type GraphQLInt
+        type GraphQLString
       }
     }
   // end::filmType[]
