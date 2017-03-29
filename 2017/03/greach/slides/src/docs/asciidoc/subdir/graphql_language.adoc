@@ -297,11 +297,30 @@ image::arguments.png[background, size=cover]
 === Who knows the title of 1962 ?
 
 [source, groovy]
+.query
 ----
 include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=parametrizedQuery, indent=0]
 ----
 
 [source, groovy]
+.query execution
 ----
 include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=parametrizedExecution, indent=0]
 ----
+
+=== DR. NO
+
+image::drno.jpg[]
+
+[source, groovy,background-color=white]
+----
+[byYear: [
+    title: 'DR. NO',
+    year: "1962"
+  ]
+]
+----
+
+=== Now...
+
+=== Wouldn't it cool if I expose this to the world ?
