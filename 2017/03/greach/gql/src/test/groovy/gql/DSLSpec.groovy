@@ -205,7 +205,7 @@ class DSLSpec extends Specification {
     GraphQLObjectType filmType = DSL.type('film') {
       field('title') {
         description 'title of the film'
-        nonNullType GraphQLString
+        nonNull GraphQLString
       }
     }
 

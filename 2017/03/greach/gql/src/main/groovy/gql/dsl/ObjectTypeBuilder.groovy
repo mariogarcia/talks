@@ -167,7 +167,7 @@ class ObjectTypeBuilder {
     /**
      * @since 0.1.0
      */
-    FieldBuilder nonNullType(GraphQLType type) {
+    FieldBuilder nonNull(GraphQLType type) {
       builder.type = new GraphQLNonNull(type)
       return this
     }
@@ -175,7 +175,7 @@ class ObjectTypeBuilder {
     /**
      * @since 0.1.0
      */
-    FieldBuilder listType(GraphQLType type) {
+    FieldBuilder list(GraphQLType type) {
       builder.type = new GraphQLList(type)
       return this
     }
