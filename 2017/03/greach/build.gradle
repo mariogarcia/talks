@@ -58,7 +58,7 @@ subprojects {
     }
   }
 
-  tasks.withType(GroovyCompile) {
-    groovyOptions.configurationScript = new File(projectDir, 'src/conf/compiler.groovy')
-  }
+  //  tasks.withType(GroovyCompile) {
+  //    groovyOptions.configurationScript = new File(projectDir, 'src/conf/compiler.groovy')
+  //  }
 }

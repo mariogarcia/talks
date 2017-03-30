@@ -4,6 +4,7 @@ include 'domain'
 include 'relayr'
 include 'relays'
 include 'bonddb'
+include 'gorm'
 
 rootProject.name = 'graphql-greach'
 
