@@ -11,22 +11,23 @@ image::rest.jpg[background, size=cover]
 
 === Why we could want to move to GraphQL ?
 
-=== REST : Pros
+=== First of all
 
 [%step]
-- An URI represents a single resource
-- Cacheable
+- While REST is an architectural concept
+- GraphQL is just a query language
 
-https://en.wikipedia.org/wiki/Representational_state_transfer
-
-=== Cons
+=== Differences
 
 [%step]
-* More limited views (Grails JSON views are great though!)
-* Back end is the king +++<span class="fragment">...and the bottleneck</span>+++
-* Oh, so you want a new endpoint/view to expose the same domain but
-different properties ?
-
+* `Resources vs Queries`
+** **Rest**: 1 URI ==> 1 resource
+** **GraphQL**: 1 URI ==> n resources
+* `Application layer`
+** **Rest** == HTTP
+** **GraphQL** is not tied to any specific protocol
+* `Front-End friendly`
+** **Rest**: Back end is the king +++<span class="fragment">...and the bottleneck</span>+++
 
 === +++<span style="color:white;">No problem. I'll see what I can do</span>+++
 
@@ -34,3 +35,26 @@ different properties ?
 image::waiting.jpg[background, size=cover]
 
 === Best example of REST
+
+TODO
+
+=== +++<span style="color:#fdc329;">Ratpack + GraphQL</span>+++
+
+[%notitle]
+image::ratpack_trio.jpg[background, size=cover]
+
+=== Technologies used
+
+
+[%step]
+- Ratpack
+- GraphQL-java
+- GQL
+- GraphiQL
+
+=== Our full Schema
+
+[source, groovy]
+----
+include::{relayr}/src/main/groovy/helthix/relayr/Schema.groovy[tags=applicationSchema, indent=0]
+----

@@ -22,6 +22,6 @@ class GraphQLHandler implements Handler {
     def payload = ctx.get(Map)
     def results = DSL.execute(schema, payload.query, payload.variables)
 
-    ctx.render json(results.errors ?: results.data)
+    ctx.render json([data: results.errors ?: results.data])
   }
 }
