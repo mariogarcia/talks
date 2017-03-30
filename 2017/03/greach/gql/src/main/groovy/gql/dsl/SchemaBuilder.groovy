@@ -44,7 +44,9 @@ class SchemaBuilder {
    */
   SchemaBuilder query(String name, @DelegatesTo(ObjectTypeBuilder) Closure<ObjectTypeBuilder> dsl) {
     Closure<ObjectTypeBuilder> clos = dsl.dehydrate().clone() as Closure<ObjectTypeBuilder>
-    ObjectTypeBuilder builderSource = new ObjectTypeBuilder().name(name)
+    ObjectTypeBuilder builderSource = new ObjectTypeBuilder()
+      .name(name)
+      .description("description of type $name")
     ObjectTypeBuilder builderResult = builderSource.with(clos) ?: builderSource
     GraphQLObjectType qurs = builderResult.build()
 

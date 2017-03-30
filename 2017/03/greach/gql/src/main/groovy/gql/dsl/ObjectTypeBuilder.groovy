@@ -81,7 +81,9 @@ class ObjectTypeBuilder {
    */
   ObjectTypeBuilder field(String name, @DelegatesTo(FieldBuilder) Closure<FieldBuilder> dsl) {
     Closure<FieldBuilder> clos = dsl.clone() as Closure<FieldBuilder>
-    FieldBuilder builderSource = new FieldBuilder().name(name)
+    FieldBuilder builderSource = new FieldBuilder()
+      .name(name)
+      .description("description of field $name")
     FieldBuilder builderResult = builderSource.with(clos) ?: builderSource
 
     this.type = type.field(builderResult.build())
@@ -128,6 +130,20 @@ class ObjectTypeBuilder {
   /**
    * @since 0.1.0
    */
+  static nonNull(GraphQLType type) {
+    return new GraphQLNonNull(type)
+  }
+
+  /**
+   * @since 0.1.0
+   */
+  static list(GraphQLType type) {
+    return new GraphQLList(type)
+  }
+
+  /**
+   * @since 0.1.0
+   */
   static class FieldBuilder {
 
     GraphQLFieldDefinition.Builder builder = GraphQLFieldDefinition.newFieldDefinition()
@@ -161,22 +177,6 @@ class ObjectTypeBuilder {
      */
     FieldBuilder type(GraphQLOutputType type) {
       builder.type(type)
-      return this
-    }
-
-    /**
-     * @since 0.1.0
-     */
-    FieldBuilder nonNull(GraphQLType type) {
-      builder.type = new GraphQLNonNull(type)
-      return this
-    }
-
-    /**
-     * @since 0.1.0
-     */
-    FieldBuilder list(GraphQLType type) {
-      builder.type = new GraphQLList(type)
       return this
     }
 
