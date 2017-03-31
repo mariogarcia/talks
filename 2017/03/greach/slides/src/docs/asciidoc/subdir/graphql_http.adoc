@@ -4,35 +4,6 @@
 image::languages.jpg[background, size=cover]
 
 
-=== GraphQL vs Rest
-
-[%notitle]
-image::rest.jpg[background, size=cover]
-
-=== Why we could want to move to GraphQL ?
-
-=== First of all
-
-[%step]
-- While REST is an architectural concept
-- GraphQL is just a query language
-
-=== Differences
-
-[%step]
-* `Resources vs Queries`
-** **Rest**: 1 URI ==> 1 resource
-** **GraphQL**: 1 URI ==> n resources
-* `Application layer`
-** **Rest** == HTTP
-** **GraphQL** is not tied to any specific protocol
-* `Front-End friendly`
-** **Rest**: Back end is the king +++<span class="fragment">...and the bottleneck</span>+++
-
-=== +++<span style="color:white;">No problem. I'll see what I can do</span>+++
-
-[%notitle]
-image::waiting.jpg[background, size=cover]
 
 === Best example of REST
 
@@ -52,9 +23,51 @@ image::ratpack_trio.jpg[background, size=cover]
 - GQL
 - GraphiQL
 
-=== Our full Schema
+=== Full Film Schema
 
 [source, groovy]
 ----
 include::{relayr}/src/main/groovy/helthix/relayr/Schema.groovy[tags=applicationSchema, indent=0]
+----
+
+[%step]
+- And it fits in the slide!!
+
+=== Queries
+
+[source, groovy]
+----
+include::{relayr}/src/main/groovy/helthix/relayr/GraphQLModule.groovy[tags=appQueries, indent=0]
+----
+
+=== Ratpack Handler
+
+[source, groovy]
+----
+include::{relayr}/src/main/groovy/helthix/relayr/GraphQLHandler.groovy[tags=handler, indent=0]
+----
+
+=== +++<span style="color:white;">Showtime!</span>+++
+
+[%notitle]
+image::ratpack_demo.jpg[background, size=cover]
+
+[NOTE.speaker]
+----
+query UserHome($actor: String, $year: String) {
+  latest: lastFilm {
+    title
+    year
+    directedBy
+    bond
+  }
+  whenIwasBorn: byYear(year: $year) {
+    title
+  }
+  favouriteActorMovies: byBondActorNameLike(name: $actor) {
+    title
+    year
+    bond
+  }
+}
 ----

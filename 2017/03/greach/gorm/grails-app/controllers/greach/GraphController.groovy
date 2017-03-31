@@ -2,6 +2,11 @@ package greach
 
 import grails.converters.JSON
 
+/**
+ * Example of Grails 3,2,X controller exposing a GraphQL endpoint
+ *
+ * @since 0.1.0
+ */
 class GraphController {
 
     def relayService

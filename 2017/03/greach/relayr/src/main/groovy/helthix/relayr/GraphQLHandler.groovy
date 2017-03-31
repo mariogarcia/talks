@@ -12,6 +12,7 @@ import gql.DSL
 /**
  * @since 0.1.0
  */
+// tag::handler[]
 class GraphQLHandler implements Handler {
 
   @Inject
@@ -19,9 +20,13 @@ class GraphQLHandler implements Handler {
 
   @Override
   void handle(final Context ctx) {
-    def payload = ctx.get(Map)
+    def payload = ctx.get(Map) // JSON request => Map
     def results = DSL.execute(schema, payload.query, payload.variables)
 
-    ctx.render json([data: results.errors ?: results.data])
+    // if errors => respond errors => data
+    def response = [data: results.errors ?: results.data]
+
+    ctx.render json(response)
   }
 }
+// end::handler[]

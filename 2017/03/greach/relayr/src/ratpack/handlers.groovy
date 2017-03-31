@@ -1,3 +1,5 @@
+import ratpack.server.ServerConfig
+
 import static ratpack.groovy.Groovy.ratpack
 import static helthix.utils.Handlers.createBindingHandler
 
@@ -15,8 +17,9 @@ import helthix.relayr.GraphQLHandler
  */
 ratpack {
 
-  serverConfig {
-    config -> config
+  serverConfig { config ->
+    config
+    .port(8080)
     .yaml("helthix.yml")
     .require("", Map)
   }
