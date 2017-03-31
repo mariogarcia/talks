@@ -11,6 +11,7 @@ ifndef::slidesMain[:slidesMain: ../../../../../slides]
 ifndef::gql[:gql: ../../../../../gql]
 ifndef::relayr[:relayr: ../../../../../relayr]
 ifndef::relays[:relays: ../../../../../relays]
+ifndef::gorm[:gorm: ../../../../../gorm]
 
 include::subdir/me.adoc[]
 

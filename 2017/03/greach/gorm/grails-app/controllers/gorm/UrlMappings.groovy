@@ -9,7 +9,9 @@ class UrlMappings {
             }
         }
 
+        // tag::graphql[]
         post "/graphql"(controller: "graph")
+        // end::graphql[]
 
         "/"(view:"/index")
         "500"(view:'/error')

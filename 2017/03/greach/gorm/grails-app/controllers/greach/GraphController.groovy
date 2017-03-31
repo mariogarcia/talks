@@ -2,20 +2,17 @@ package greach
 
 import grails.converters.JSON
 
-/**
- * Example of Grails 3,2,X controller exposing a GraphQL endpoint
- *
- * @since 0.1.0
- */
+// tag::controller[]
 class GraphController {
 
-    def relayService
+    def relayService // provided by plugin
 
     def index() {
-      String query = request.JSON.query.toString()
-	    Map vars = request.JSON.variables
-	    def result = relayService.query(query, null, vars?:[:])
+      def query = request.JSON.query.toString()
+      def vars = request.JSON.variables
+      def result = relayService.query(query, null, vars?:[:])
 
 	    render(result as JSON)
     }
 }
+// end::controller[]
