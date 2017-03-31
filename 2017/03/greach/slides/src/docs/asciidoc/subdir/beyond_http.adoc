@@ -1,4 +1,0 @@
-== +++<span style="color:white;">Beyond HTTP</span>+++
-
-[%notitle]
-image::beyond.jpg[background, size=cover]

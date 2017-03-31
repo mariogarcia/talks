@@ -17,7 +17,7 @@ image::ratpack_trio.jpg[background, size=cover]
 - GQL
 - GraphiQL
 
-=== Full Film Schema
+=== Full Film Type
 
 [source, groovy]
 ----
@@ -40,6 +40,17 @@ include::{relayr}/src/main/groovy/helthix/relayr/GraphQLModule.groovy[tags=appQu
 ----
 include::{relayr}/src/main/groovy/helthix/relayr/GraphQLHandler.groovy[tags=handler, indent=0]
 ----
+
+=== Uri mapping
+
+[source, groovy]
+----
+include::{relayr}/src/ratpack/handlers.groovy[tags=handlers, indent=0]
+----
+
+[%step]
+- 1. GraphQL endpoint
+- 2. GraphiQL web console
 
 === +++<span style="color:white;">Showtime!</span>+++
 
@@ -77,6 +88,16 @@ image::grails.png[background, size=cover]
 * Good GraphQL practices implemented in a JS library
 ** https://facebook.github.io/relay/
 
+=== Relay
+
+http://graphql.org/learn/best-practices/
+
+[%step]
+* How to handle pagination
+* How to handle ids
+* HTTP recommended features
+* ...
+
 === Gorm GraphQL
 
 [%step]
@@ -104,4 +125,11 @@ include::{gorm}/grails-app/controllers/gorm/UrlMappings.groovy[tags=graphql,inde
 include::{gorm}/grails-app/controllers/greach/GraphController.groovy[tags=controller, indent=0]
 ----
 
+=== GraphQL best practices hint: Id hashing
 
+[source, groovy]
+----
+include::{gorm}/src/test/groovy/greach/FilmSpec.groovy[tags=recommendation, indent=0]
+----
+
+Instead of passing **1** use a hash like **hagghsXy==**

@@ -16,6 +16,7 @@ class FilmSpec extends Specification {
 	    def film = new Film(title: "DR. NO", year: 1962)
 	    film.save(flush: true)
 
+      // tag::recommendation[]
 	    def idString = RelayHelpers.toGlobalId("Film", film.id.toString())
 	    def query = """
 	        query {
@@ -26,6 +27,7 @@ class FilmSpec extends Specification {
 	            }
 	        }
 	    """
+// end::recommendation[]
 	    def result = service.query(query, null, [:])
 
       then:

@@ -24,14 +24,15 @@ ratpack {
     .require("", Map)
   }
 
+  // tag::handlers[]
   handlers {
-    prefix('graphql') {
+    prefix('graphql') { // <1>
         all(createBindingHandler(Map))
         post(GraphQLHandler)
     }
-
-    files {
+    files {  // <2>
       dir('static').indexFiles('index.html')
     }
   }
+// end::handlers[]
 }

@@ -1,4 +1,4 @@
-== Conclusions
+== +++<span style="color:white;">Conclusions</span>+++
 
 [%notitle]
-image::languages.jpg[background, size=cover]
+image::beyond.jpg[background, size=cover]

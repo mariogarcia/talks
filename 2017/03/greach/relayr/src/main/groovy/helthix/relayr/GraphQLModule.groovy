@@ -27,10 +27,12 @@ class GraphQLModule  extends AbstractModule {
     // tag::appQueries[]
     return DSL.schema {
       query('Queries') {
+
         field('lastFilm') {
           type Schema.Film
           fetcher Queries.&findLastFilm
         }
+
         field('byYear') {
           type Schema.Film
           fetcher Queries.&findByYear
@@ -38,6 +40,7 @@ class GraphQLModule  extends AbstractModule {
             type GraphQLString
           }
         }
+
         field('byBondActorNameLike') {
           type list(Schema.Film)
           fetcher Queries.&byBondActorNameLike

@@ -10,4 +10,4 @@ image::languages.jpg[background, size=cover]
 - GraphQL overview
 - GraphQL types query language
 - GraphQL + JVM + HTTP
-- Beyond HTTP
+- Conclusions
