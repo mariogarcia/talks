@@ -18,3 +18,103 @@ image::atomium.jpg[background, size=cover]
 - Is not about HTTP
 - And definitely, definitely, definitely...
 - **GraphQL is not REST**
+
+=== GraphQL vs Rest
+
+[%notitle]
+image::rest.jpg[background, size=cover]
+
+=== Why we could want to move to GraphQL ?
+
+=== First of all
+
+[%step]
+- While REST is an architectural concept
+- GraphQL is just a query language
+
+=== Differences
+
+[%step]
+* `Resources vs Queries`
+** **Rest**: 1 URI ==> 1 resource
+** **GraphQL**: 1 URI ==> n dataset
+* `Application layer`
+** **Rest** == HTTP
+** **GraphQL** is not tied to any specific protocol
+* `Front-End friendly`
+** **Rest**: Back end is the king +++<span class="fragment">...and the bottleneck</span>+++
+
+=== +++<span style="color:white;">No problem. I'll see what I can do</span>+++
+
+[%notitle]
+image::waiting.jpg[background, size=cover]
+
+=== The challenge
+
+[%step]
+- I want to expose all James Bond films information
+- Users will **ONLY** use web browsers+++<span class="fragment"><strong>...FOR NOW</strong></span>+++
+- +++<span class="fragment"><strong>BUT</strong></span>+++ we have to be ready for mobile +++<span class="fragment"><strong>AT SOME POINT</strong></span>+++
+
+=== What do we do ?
+
++++
+<table class="explanation_table">
+   <tr>
+      <td><img src="./images/rest_under_pressure_initial_state.png"></td>
+      <td style="vertical-align: top;">
+         <ul class="ulist">
+           <li class="fragment"><p>We build up <strong>1 API endpoint</strong></p></li>
+           <li class="fragment"><p>Only targets <strong>1 device</strong></p></li>
+           <li class="fragment"><p>Still we can create <strong>a couple of views</strong> for the same data</p></li>
+         </ul>
+      </td>
+  </tr>
+</table>
++++
+
+=== Then shit happens!
+
+[%notitle]
+image::rest_under_pressure.png[]
+
+=== And normally gets worst
+
+Users want to see A, B, and C in user home
+
+[%notitle]
+image::rest_under_pressure_2.png[]
+
+[%step]
+- Front end could **reuse** views
+- and/or **aggregate calls**
+- still may not be enough and they will start asking back-end to do more... `and more` ... **and more**...
+
+[%notitle]
+=== Then shit happens (III)
+
+[%notitle]
+image::rest_under_pressure_reaction.gif[]
+
+=== Then you remember that...
+
+[%step]
+- **ONLY** means **in addition**
+- **FOR NOW** means **within the next two weeks**
+- **BUT** means **winter is coming!**
+- and of course...**AT SOME POINT** means probably **next week**
+
+=== GraphQL + HTTP to the rescue!
+
+[%notitle]
+=== Because shit happens
+
+image::rest_under_pressure_graphql_schema.png[]
+
+=== What changed ?
+
+[%step]
+- GraphQL HTTP endpoint as a **common query interface**
+- Therefore **a lot more flexibility for front end**
+- Your REST/NOT-REST **microservices will be easier to maintain**
+- Will be easier to **keep one single responsability** in each one of them
