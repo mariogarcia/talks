@@ -1,20 +1,9 @@
-== +++<span style="color:white;">Conclusions</span>+++
-
-[%notitle]
-image::beyond.jpg[background, size=cover]
+== Conclusions
 
 [%step]
 - Is not GraphQL instead of REST
 - Is about GraphQL over your existent services
 - A great improvement from the business point of view
 - Your front end workmates will love you
-
-[%notitle]
-=== Love from frontenders
-
-[%notitle]
-image::beyond.jpg[background, size=cover]
-
-=== I hope you it helped
 
 === Thank you!

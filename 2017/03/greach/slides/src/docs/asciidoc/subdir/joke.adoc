@@ -7,7 +7,7 @@
 - Whatever it is...
 
 [%notitle]
-== Now...seriously
+=== Now...seriously
 
 [%notitle]
 image::relax.gif[background, size=cover]

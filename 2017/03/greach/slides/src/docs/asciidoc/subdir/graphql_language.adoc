@@ -172,7 +172,7 @@ include::{relays}/src/main/java/bond/schema/BondSchemaBuilder.java[tags=queryTyp
 === Data Fetcher
 
 [%step]
-- Functional Interface `DataFetcher`
+- Functional Interface `graphql.schema.DataFetcher`
 - If using JDK could use method reference
 - If using Groovy Closures FTW
 - If using Groovy w Parrot -> Both \o/
@@ -203,7 +203,7 @@ image::groovy-time.gif[background, size=cover]
 [%step]
 * DSL over GraphQL-Java
 * Still alpha
-* Will publish a version @bintray before @GreachConf ends
+* https://github.com/grooviter/gql
 ** Feeback is very welcome :)
 
 === Groovy time: TYPES
