@@ -1,4 +1,4 @@
-== +++<span style="color:white;">Query language</span>+++
+== +++<span style="color:white;">Executing queries</span>+++
 
 [%notitle]
 image::languages.jpg[background, size=cover]
@@ -169,6 +169,14 @@ schema {
 include::{relays}/src/main/java/bond/schema/BondSchemaBuilder.java[tags=queryType, indent=0]
 ----
 
+=== Data Fetcher
+
+[%step]
+- Functional Interface `DataFetcher`
+- If using JDK could use method reference
+- If using Groovy Closures FTW
+- If using Groovy w Parrot -> Both \o/
+
 === First example revisited: EXECUTION
 
 [source, java]
@@ -179,7 +187,7 @@ include::{relays}/src/test/groovy/bond/schema/BondQueryExecutionSpec.groovy[tags
 [%step]
 - 1. **schema**: query + types definition
 - 2. **query**: query string
-- 3. **context**: helpful for add metadata (e.g. authorization)
+- 3. **context**: helpful for adding metadata (e.g. authorization)
 - 4. **variables**: if the query has any
 
 
@@ -194,8 +202,8 @@ image::groovy-time.gif[background, size=cover]
 
 [%step]
 * DSL over GraphQL-Java
-** http://github.com/grooviter/gql
 * Still alpha
+* Will publish a version @bintray before @GreachConf ends
 ** Feeback is very welcome :)
 
 === Groovy time: TYPES

@@ -33,6 +33,8 @@ class ObjectTypeBuilder {
   GraphQLScalarType GraphQLChar = Scalars.GraphQLChar
 
   /**
+   * @param name
+   * @return
    * @since 0.1.0
    */
   ObjectTypeBuilder name(String name) {
@@ -41,6 +43,9 @@ class ObjectTypeBuilder {
   }
 
   /**
+   *
+   * @param description
+   * @return
    * @since 0.1.0
    */
   ObjectTypeBuilder description(String description) {
@@ -49,6 +54,9 @@ class ObjectTypeBuilder {
   }
 
   /**
+   *
+   * @param interfaceType
+   * @return
    * @since 0.1.0
    */
   ObjectTypeBuilder addInterface(GraphQLInterfaceType interfaceType) {
@@ -65,9 +73,10 @@ class ObjectTypeBuilder {
   }
 
   /**
+   *
    * @since 0.1.0
    */
-  ObjectTypeBuilder interfaces(@DelegatesTo(InterfacesBuilder) Closure<InterfacesBuilder> interfaces) {
+  ObjectTypeBuilder interfaces(@DelegatesTo(InterfacesBuilder) Closure interfaces) {
     Closure<InterfacesBuilder> clos = interfaces.clone() as Closure<InterfacesBuilder>
     InterfacesBuilder builderSource = new InterfacesBuilder()
     InterfacesBuilder builderResult = builderSource.with(clos) ?: builderSource
@@ -77,9 +86,13 @@ class ObjectTypeBuilder {
   }
 
   /**
+   *
+   * @param name
+   * @param dsl
+   * @return
    * @since 0.1.0
    */
-  ObjectTypeBuilder field(String name, @DelegatesTo(FieldBuilder) Closure<FieldBuilder> dsl) {
+  ObjectTypeBuilder field(String name, @DelegatesTo(FieldBuilder) Closure dsl) {
     Closure<FieldBuilder> clos = dsl.clone() as Closure<FieldBuilder>
     FieldBuilder builderSource = new FieldBuilder()
       .name(name)
@@ -91,18 +104,12 @@ class ObjectTypeBuilder {
   }
 
   /**
+   *
+   * @param name
+   * @param fieldType
+   * @return
    * @since 0.1.0
    */
-  ObjectTypeBuilder field(String name, GraphQLScalarType fieldType) {
-    FieldBuilder builderSource = new FieldBuilder()
-      .name(name)
-      .description("description of field $name")
-      .type(fieldType)
-
-    this.type = type.field(builderSource.build())
-    return this
-  }
-
   ObjectTypeBuilder field(String name, GraphQLOutputType fieldType) {
     FieldBuilder builderSource = new FieldBuilder()
       .name(name)
@@ -128,16 +135,21 @@ class ObjectTypeBuilder {
   }
 
   /**
+   *
+   * @param type
+   * @return
    * @since 0.1.0
    */
-  static nonNull(GraphQLType type) {
+  static <T extends GraphQLOutputType> T nonNull(T type) {
     return new GraphQLNonNull(type)
   }
 
   /**
+   * @param type
+   * @return
    * @since 0.1.0
    */
-  static list(GraphQLType type) {
+  static <T extends GraphQLOutputType> T list(T type) {
     return new GraphQLList(type)
   }
 
@@ -191,7 +203,7 @@ class ObjectTypeBuilder {
     /**
      * @since 0.1.0
      */
-    FieldBuilder argument(String name, Closure<GraphQLArgument.Builder> dsl) {
+    FieldBuilder argument(String name, @DelegatesTo(GraphQLArgument) Closure dsl) {
       Closure<GraphQLArgument.Builder> clos = dsl.clone() as Closure<GraphQLArgument.Builder>
       GraphQLArgument.Builder builderSource = GraphQLArgument
         .newArgument()

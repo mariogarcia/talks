@@ -77,6 +77,13 @@ query UserHome($actor: String, $year: String) {
 }
 ----
 
+=== A word on Queries & Mutations
+
+[%step]
+- Queries are supposed to be able to be **batched**
+- Queries are supposed to be computed in **parallel**
+- Mutations are supposed to **run sequentially**
+
 === Grails + Relay
 
 [%notitle]

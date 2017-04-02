@@ -11,3 +11,28 @@ image::languages.jpg[background, size=cover]
 - GraphQL types query language
 - GraphQL + JVM + HTTP
 - Conclusions
+
+
+[ditaa]
+....
+                     +------------+
+                     |            |
+                     |   ASTNode  |
+                     |            |
+                     +-----+------+
+                           ^
+                           |
+                is a       |      is a
+               +-----------+----------+
+               |                      |
+               |                      |
+               |                      |
+          +----+-------+       +------+------+
+    has   |            |  has  |             | has
+  +-------+ Expression |<------+  Statement  +-------+
+  :       |            |       |             |       :
+  |       +------------+       +-------------+       |
+  |            ^                      ^              |
+  |            |                      |              |
+  +------------+                      +--------------+
+....

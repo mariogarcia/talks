@@ -7,8 +7,8 @@ import groovy.transform.CompileStatic
  *
  * @since 0.1.0
  */
-//withConfig(configuration) {
-//  source(unitValidator: { unit -> !unit.AST.classes.any { it.name.endsWith('Spec') } }) {
-//    ast(CompileStatic)
-//  }
-//}
+withConfig(configuration) {
+  source(unitValidator: { unit -> !unit.AST.classes.any { it.name.endsWith('Spec') } }) {
+    ast(CompileStatic)
+  }
+}

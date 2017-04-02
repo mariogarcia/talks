@@ -10,10 +10,14 @@ image::me.png[background, size=cover]
 ** https://twitter.com/marioggar
 ** https://github.com/mariogarcia
 
+=== Proud member of...
+
+image::madrid_gug.png[]
+
 === Working at Kaleidos
 
 image::kaleidos.jpg[]
 
-=== Proud member of...
+=== But a great family!
 
-image::madrid_gug.png[]
+=== 6th years attending Greach!!!

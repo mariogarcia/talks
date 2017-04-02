@@ -13,6 +13,7 @@ class Schema {
       field('title') {
         type nonNull(GraphQLString)
       }
+      field('something', GraphQLBoolean)
       field('year') {
         description 'release date'
         type GraphQLString
@@ -43,6 +44,7 @@ class Schema {
       field 'character', GraphQLString
       field 'actor', GraphQLString
     }
+
 
     // tag::applicationSchema[]
   static final GraphQLObjectType Film =

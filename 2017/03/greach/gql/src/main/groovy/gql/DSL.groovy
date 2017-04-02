@@ -17,7 +17,7 @@ import graphql.schema.GraphQLObjectType
 final class DSL {
 
   /**
-   * Builds the estructure of a {@link ObjectType} using a closure
+   * Builds the estructure of a {@link GraphQLObjectType} using a closure
    * which delegates to {@link ObjectTypeBuilder}
    * <br/>
    * <pre><code class="groovy">
@@ -36,13 +36,13 @@ final class DSL {
    * @param name name of the object to build
    * @param dsl dsl delegating its calls to an instance of type {@link
    * ObjectTypeBuilder}
-   * @return an instance of {@link ObjectType}
+   * @return an instance of {@link GraphQLObjectType}
    * @since 0.1.0
    */
-  static GraphQLObjectType type(String name, @DelegatesTo(ObjectTypeBuilder) Closure<ObjectTypeBuilder> dsl) {
-    Closure<ObjectTypeBuilder> clos = dsl.clone() as Closure<ObjectTypeBuilder>
+  static GraphQLObjectType type(String name, @DelegatesTo(value = ObjectTypeBuilder) Closure<ObjectTypeBuilder> dsl) {
+    Closure<ObjectTypeBuilder> closure = dsl.clone() as Closure<ObjectTypeBuilder>
     ObjectTypeBuilder builderSource = new ObjectTypeBuilder().name(name).description("description of $name")
-    ObjectTypeBuilder builderResult = builderSource.with(clos) ?: builderSource
+    ObjectTypeBuilder builderResult = builderSource.with(closure) ?: builderSource
 
     return builderResult.build()
   }
@@ -68,9 +68,9 @@ final class DSL {
    * @since 0.1.0
    */
   static GraphQLSchema schema(@DelegatesTo(SchemaBuilder) Closure<SchemaBuilder> dsl) {
-    Closure<SchemaBuilder> clos = dsl.clone() as Closure<SchemaBuilder>
+    Closure<SchemaBuilder> closure = dsl.clone() as Closure<SchemaBuilder>
     SchemaBuilder builderSource = new SchemaBuilder()
-    SchemaBuilder builderResult = builderSource.with(clos) ?: builderSource
+    SchemaBuilder builderResult = builderSource.with(closure) ?: builderSource
 
     return builderResult.build()
   }
@@ -118,12 +118,12 @@ final class DSL {
    * @since 0.1.0
    */
   static ExecutionResult execute(GraphQLSchema schema, String query, Map<String,Object> arguments = [:]) {
-    GraphQL graphql = new GraphQL(schema)
+    GraphQL graphQL = new GraphQL(schema)
 
     /* GraphQL java assumes arguments can't be empty if you're using
        the method that allows arguments */
     return arguments ?
-      graphql.execute(query, null, arguments) :
-      graphql.execute(query, null)
+      graphQL.execute(query, null, arguments) :
+      graphQL.execute(query, null)
   }
 }
