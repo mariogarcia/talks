@@ -8,7 +8,7 @@ buildscript {
 plugins {
   id 'groovy'
   id 'org.asciidoctor.convert' version '1.5.3'
-  id 'com.github.jruby-gradle.base' version '1.2.1'
+  id 'com.github.jruby-gradle.base' version '1.4.0'
   id 'org.ysb33r.vfs' version '1.0'
 }
 
@@ -16,7 +16,7 @@ version = '1.0.0-SNAPSHOT'
 
 ext {
   revealjsVersion           = '3.2.0'
-  asciidoctorBackendVersion = 'master'
+  asciidoctorBackendVersion = 'maint-1.0.x'
   downloadDir               = new File(buildDir,'download')
   templateDir               = new File(downloadDir,'templates')
   revealjsDir               = new File(downloadDir,'reveal.js')
