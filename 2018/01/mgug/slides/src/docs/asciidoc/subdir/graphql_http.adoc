@@ -19,29 +19,30 @@ image::ratpack_trio.jpg[background, size=cover]
 
 [source, groovy]
 ----
-include::{relayr}/src/main/groovy/helthix/relayr/Schema.groovy[tags=applicationSchema, indent=0]
+include::{gql}/src/main/groovy/bond/graphql/Types.groovy[tags=Film, indent=0]
 ----
 
 === Consultas
 
 [source, groovy]
 ----
-include::{relayr}/src/main/groovy/helthix/relayr/GraphQLModule.groovy[tags=appQueries, indent=0]
+include::{gql}/src/main/groovy/bond/graphql/SchemaProvider.groovy[tags=queries, indent=0]
 ----
 
 === Ratpack Handler
 
 [source, groovy]
 ----
-include::{relayr}/src/main/groovy/helthix/relayr/GraphQLHandler.groovy[tags=handler, indent=0]
+include::{gql}/src/main/groovy/bond/handler/Handler.groovy[tags=handler, indent=0]
 ----
 
 === Uri mapping
 
 [source, groovy]
 ----
-include::{relayr}/src/ratpack/handlers.groovy[tags=handlers, indent=0]
+include::{gql}/src/ratpack/handlers.groovy[tags=graphql, indent=0]
 ----
+
 
 [%step]
 - 1. GraphQL endpoint

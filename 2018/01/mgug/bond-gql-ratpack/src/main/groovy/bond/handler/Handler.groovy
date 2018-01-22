@@ -20,6 +20,7 @@ class Handler implements ratpack.handling.Handler {
   @Inject
   GraphQLSchema schema
 
+  // tag::handler[]
   @Override
   void handle(Context ctx) throws Exception {
     def payload = ctx.get(Map)
@@ -32,4 +33,5 @@ class Handler implements ratpack.handling.Handler {
       ctx.render(json([data: result.errors ?: result.data]))
     }
   }
+  // end::handler[]
 }

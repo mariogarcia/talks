@@ -21,11 +21,14 @@ ratpack {
   handlers {
     all(new CorsHandler())
     all(Utils.createBindingHandler(Map))
+
+    // tag::graphql[]
     prefix('graphql') {
-      post(Handler)
+      post(Handler)  // GraphQL
     }
     files {
-      dir('static').indexFiles('index.html')
+      dir('static').indexFiles('index.html') // GraphiQL
     }
+    // end::graphql[]
   }
 }

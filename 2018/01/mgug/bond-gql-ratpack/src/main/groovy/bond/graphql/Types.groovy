@@ -10,10 +10,10 @@ import graphql.schema.GraphQLObjectType
  */
 class Types {
 
-  // tag::filmType[]
+  // tag::Film[]
   static GraphQLObjectType Film = DSL.type('Film') {
     field 'title', nonNull(GraphQLString)
     field 'year', GraphQLInt
   }
-  // end::filmType[]
+  // end::Film[]
 }
