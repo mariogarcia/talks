@@ -1,7 +1,12 @@
 apply plugin: 'groovy'
-apply plugin: 'jacoco'
+
+repositories {
+  mavenCentral()
+  maven {
+    url  "http://dl.bintray.com/grooviter/maven"
+  }
+}
 
 dependencies {
-  compile libs.groovy_all
-  compile libs.graphql_java
+  compile "com.github.grooviter:gql:$gql"
 }

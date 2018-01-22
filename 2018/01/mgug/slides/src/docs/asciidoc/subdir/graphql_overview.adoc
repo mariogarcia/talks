@@ -1,10 +1,10 @@
 [background-color=black]
-== +++<span style="color:white;">GraphQL Overview</span>+++
+== +++<span style="color:white;">GraphQL en general</span>+++
 
 [%notitle]
 image::atomium.jpg[background, size=cover]
 
-=== Que es GraphQL
+=== Que es GraphQL ?
 
 [%step]
 - Es un **lenguaje de consultas**
@@ -38,15 +38,23 @@ image::rest.jpg[background, size=cover]
 ** **Rest**: 1 URI => 1 recurso
 ** **GraphQL**: 1 URI => N consultas
 
+=== Recursos vs Consultas
+
+image::rest_layout.png[]
+
+=== Recursos vs Consultas
+
+image::graphql_layout.png[]
+
 === Tipo de Aplicaciones
 [%step]
 ** **Rest** == HTTP
-** **GraphQL** se puede utilizar en cualquier tipo de aplicaciones
+** **GraphQL** puede usarse con: HTTP, JDBC, AMQP...etc
 
-=== Especificacion
+=== Documentacion
 [%step]
-** **Rest** => no hay especificacion unica (destaca Swagger)
-** **GraphQL** => Todos los motores GraphQL deben seguir la especificacion
+** **Rest** => varias implementaciones, no hay especificacion (destaca Swagger)
+** **GraphQL** => Todos los motores GraphQL exponen el esquema de la misma manera
 
 === Front-End friendly
 [%step]
@@ -105,13 +113,6 @@ image::rest_under_pressure_2.png[]
 [%notitle]
 image::rest_under_pressure_reaction.gif[]
 
-=== Y es cuando recuerdas que...
-
-[%step]
-- **SOLO** significa **ademas**
-- **Por ahora** significa **en las proximas dos semanas**
-- y por supuesto...**en algun momento** probablemente sea **la proxima semana**
-
 === GraphQL + HTTP al rescate!
 
 [%notitle]
@@ -119,8 +120,8 @@ image::rest_under_pressure_reaction.gif[]
 
 === Que cambia ?
 
-=== Un solo endpoint
-
 [%step]
-- Hace que nos concentremos solo en la consulta
-- Y por lo tanto nos permite tener **mas flexibilidad con el front end**
+* **1** solo endpoint
+** Deja que nos concentremos solo en la **consulta**
+* **Granularidad** en la carga de datos
+* **Documentacion** out-of-the-box

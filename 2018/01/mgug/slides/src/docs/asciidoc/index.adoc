@@ -8,10 +8,7 @@
 :docinfodir: _shared
 ifndef::imagesdir[:imagesdir: images]
 ifndef::slidesMain[:slidesMain: ../../../../../slides]
-ifndef::gql[:gql: ../../../../../gql]
-ifndef::relayr[:relayr: ../../../../../relayr]
-ifndef::relays[:relays: ../../../../../relays]
-ifndef::gorm[:gorm: ../../../../../gorm]
+ifndef::gql[:gql: ../../../../../bond-gql-ratpack]
 
 include::subdir/me.adoc[]
 

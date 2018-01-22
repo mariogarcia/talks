@@ -24,6 +24,9 @@ repositories {
 }
 
 dependencies {
+
+  compile project(":bond-data")
+
   compile "io.ratpack:ratpack-guice:$ratpack"
   compile "io.ratpack:ratpack-rx:$ratpack"
   compile "io.ratpack:ratpack-hikari:$ratpack"
@@ -32,6 +35,7 @@ dependencies {
   compile "org.slf4j:slf4j-simple:$slf4j"
 
   testCompile "org.spockframework:spock-core:$spock"
+  testCompile "org.spockframework:spock-guice:$spock"
   testCompile "junit:junit:$junit"
 }
 

@@ -1,4 +1,4 @@
-package bond.graphql
+package bond.handler
 
 import ratpack.func.Action
 import ratpack.handling.Context

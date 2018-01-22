@@ -1,12 +1,13 @@
 package bond.graphql
 
-import static gql.DSL.mergeSchemas
-
+//import static gql.DSL.mergeSchemas
+import gql.DSL
 import graphql.schema.GraphQLSchema
 
 import javax.inject.Inject
 import javax.inject.Provider
 
+import bond.db.Queries
 
 /**
  * Provides a singleton instance of the {@link GraphQLSchema} type
@@ -17,6 +18,21 @@ class SchemaProvider implements Provider<GraphQLSchema> {
 
   @Override
   GraphQLSchema get() {
-    return null
+    // tag::queries[]
+    return DSL.schema {
+      queries('Queries') {
+        field('lastFilm') {
+          type Types.Film
+          fetcher(Queries.&findLastFilm) // from db
+        }
+
+        field('filmByYear') {
+          type Types.Film
+          fetcher(Queries.&findByYear) // from db
+          argument 'year', GraphQLString
+        }
+      }
+    }
+    // end::queries[]
   }
 }

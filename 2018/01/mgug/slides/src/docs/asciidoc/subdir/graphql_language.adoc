@@ -41,10 +41,7 @@ http://facebook.github.io/graphql/
 
 [source, groovy]
 ----
-type Film {
-  title: !String
-  year: Int
-}
+include::{gql}/src/main/resources/graphql/Film.graphql[indent=0]
 ----
 
 [%step]
@@ -55,15 +52,12 @@ type Film {
 
 [source, groovy]
 ----
-type Queries {
-   lastFilm: Film
-   filmByYear(year: Int): Film
-}
+include::{gql}/src/main/resources/graphql/Queries.graphql[indent=0]
 ----
 
 [%step]
-- Las consultas siempre usan tipos y escalares
-- Las consultas puede requerir argumentos
+- Las consultas siempre usan **tipos** y **escalares**
+- Las consultas puede requerir **argumentos**
 
 === Primer ejemplo : EJECUCION
 
@@ -107,13 +101,10 @@ type Queries {
 
 === Validacion
 
-[source, json]
+[source, groovy]
 .title es obligatorio
 ----
-type Film {
-  title: !String
-  year: Int
-}
+include::{gql}/src/main/resources/graphql/Film.graphql[indent=0]
 ----
 
 [source, json]
@@ -139,75 +130,54 @@ image::showmecode.gif[background, size=cover]
 
 === Groovy time: TIPOS
 
-[source, json]
+[source, groovy]
+.title es obligatorio
 ----
-type Film {
-  title: !String
-  year: Int
-}
+include::{gql}/src/main/resources/graphql/Film.graphql[indent=0]
 ----
 
 [source, groovy]
 ----
-include::{relayr}/src/main/groovy/helthix/relayr/Schema.groovy[tags=filmType, indent=0]
-----
-
-=== Groovy time: TIPOS (II)
-
-[source, groovy]
-----
-include::{relayr}/src/main/groovy/helthix/relayr/Schema.groovy[tags=filmType, indent=0]
+include::{gql}/src/main/groovy/bond/graphql/Types.groovy[tags=filmType, indent=0]
 ----
 
 === Groovy time: CONSULTAS
 
-[source, json]
+[source, groovy]
 ----
-type Queries {
-   lastFilm: Film
-   filmByYear(year: Int): Film
-}
-
-schema {
- query: Queries
-}
+include::{gql}/src/main/resources/graphql/Queries.graphql[indent=0]
 ----
 
 [source, groovy]
 ----
-include::{relayr}/src/main/groovy/helthix/relayr/GraphQLModule.groovy[tags=queryType, indent=0]
+include::{gql}/src/main/resources/graphql/Schema.graphql[indent=0]
 ----
-
-=== Groovy time: CONSULTAS (II)
 
 [source, groovy]
 ----
-include::{relayr}/src/main/groovy/helthix/relayr/GraphQLModule.groovy[tags=queryType, indent=0]
+include::{gql}/src/main/groovy/bond/graphql/SchemaProvider.groovy[tags=queries, indent=0]
 ----
 
-=== Groovy time: EJECUCION
+=== Groovy time: TEST
 
 [source, groovy]
+.query
 ----
-include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=executeSimpleQuery, indent=0]
+include::{gql}/src/test/groovy/bond/graphql/queries/LastFilmSpec.groovy[tags=query, indent=0]
 ----
 
-[source, json]
-.devuelve
+[source, groovy]
+.ejecucion
 ----
-{
-  lastFilm: {
-    year: 2015,
-    title: 'SPECTRE'
-  }
-}
+include::{gql}/src/test/groovy/bond/graphql/queries/LastFilmSpec.groovy[tags=test, indent=0]
 ----
 
 === Groovy time: EJECUCION (II)
 
 [source, groovy]
+.ejecucion
 ----
-include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=executeSimpleQuery, indent=0]
+include::{gql}/src/test/groovy/bond/graphql/queries/LastFilmSpec.groovy[tags=executeSimpleQuery, indent=0]
 ----
 
 === +++<span style="color:white;">Queries with arguments</span>+++
@@ -220,13 +190,14 @@ image::arguments.png[background, size=cover]
 [source, groovy]
 .consultas
 ----
-include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=parametrizedQuery, indent=0]
+include::{gql}/src/test/groovy/bond/graphql/queries/DrNoSpec.groovy[tags=parametrizedQuery, indent=0]
 ----
+
 
 [source, groovy]
 .ejecucion de consultas
 ----
-include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=parametrizedExecution, indent=0]
+include::{gql}/src/test/groovy/bond/graphql/queries/DrNoSpec.groovy[tags=parametrizedExecution, indent=0]
 ----
 
 === DR. NO
@@ -242,7 +213,7 @@ image::drno.jpg[]
 ]
 ----
 
-=== Unas palabras sobre consultas & mutaciones
+=== Sobre consultas & mutaciones
 
 [%step]
 - Consultas suelen poder ejecutarse **en batch**
@@ -252,23 +223,9 @@ image::drno.jpg[]
 === Agregacion de consultas
 
 [source, groovy]
+.varias consultas a la vez
 ----
-query UserHome($actor: String, $year: String) {
-  latest: lastFilm {
-    title
-    year
-    directedBy
-    bond
-  }
-  whenIwasBorn: byYear(year: $year) {
-    title
-  }
-  favouriteActorMovies: byBondActorNameLike(name: $actor) {
-    title
-    year
-    bond
-  }
-}
+include::{gql}/src/test/groovy/bond/graphql/queries/AggregationSpec.groovy[tags=parametrizedQuery, indent=0]
 ----
 
 === Ahora vamos a exponer esto a traves de HTTP

@@ -1,0 +1,4 @@
+type Queries {
+   lastFilm: Film
+   filmByYear(year: Int): Film
+}

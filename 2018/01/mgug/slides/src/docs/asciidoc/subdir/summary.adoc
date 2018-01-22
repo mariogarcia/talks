@@ -1,13 +1,12 @@
-== +++<span style="color:white;">Summary</span>+++
+== +++<span style="color:white;">Que vamos a ver hoy ?</span>+++
 
 [%notitle]
 image::languages.jpg[background, size=cover]
 
-[%notitle]
-=== Index
+=== Indice
 
 [%step]
 - GraphQL en general
-- GraphQL como lenguage de consultas
-- GraphQL + JVM + HTTP
+- GraphQL como lenguaje de consultas
+- GraphQL + Ratpack/Grails
 - Conclusiones

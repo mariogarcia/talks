@@ -1,4 +1,4 @@
-package bond.graphql
+package bond.handler
 
 import static gql.DSL.execute
 import static ratpack.jackson.Jackson.json

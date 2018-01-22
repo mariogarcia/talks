@@ -5,13 +5,14 @@ import com.google.inject.Scopes
 import graphql.schema.GraphQLSchema
 
 /**
+ * Binds GraphQLSchema
  *
+ * @since 0.1.0
  */
-class HandlerModule extends AbstractModule {
+class GraphQLModule extends AbstractModule {
 
   @Override
   protected void configure() {
-    bind(Handler).in(Scopes.SINGLETON)
     bind(GraphQLSchema).toProvider(SchemaProvider)
   }
 }
