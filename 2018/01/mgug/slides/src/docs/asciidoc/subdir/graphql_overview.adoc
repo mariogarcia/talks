@@ -46,6 +46,12 @@ image::rest_layout.png[]
 
 image::graphql_layout.png[]
 
+=== Manejo de errores
+
+[%step]
+** **Rest** => HTTP codes
+** **GraphQL** error messages in responses
+
 === Tipo de Aplicaciones
 [%step]
 ** **Rest** == HTTP
@@ -67,61 +73,17 @@ al front
 [%notitle]
 image::waiting.jpg[background, size=cover]
 
-=== El ejemplo
-
-[%step]
-- Exponer la informacion sobre las peliculas de James Bond
-- Pensemos que ahora **SOLO** los clientes seran el navegador
-- Pero deberiamos ser flexibles para poder servir mas/menos datos **EN ALGUN MOMENTO**
-
-=== Como lo hariamos con Rest ?
-
-+++
-<table class="explanation_table">
-   <tr>
-      <td><img src="./images/rest_under_pressure_initial_state.png"></td>
-      <td style="vertical-align: top;">
-         <ul class="ulist">
-           <li class="fragment"><p>Creamos <strong>1 API endpoint</strong></p></li>
-           <li class="fragment"><p>Para <strong>1 dispositivo</strong></p></li>
-         </ul>
-      </td>
-  </tr>
-</table>
-+++
-
-=== Y entonces los requerimientos cambian!
-
-[%notitle]
-image::rest_under_pressure.png[]
-
-=== Y la cosa se complica
-
-Usuarios quieren ver A, B, y C en la home
-
-[%notitle]
-image::rest_under_pressure_2.png[]
-
-[%step]
-- Front end puede **reusar** endpoints
-- y **agregar llamadas**
-- Puede que no sea suficiente y haya que crear nuevos endpoints
-
-[%notitle]
-=== Then shit happens (III)
-
-[%notitle]
-image::rest_under_pressure_reaction.gif[]
-
-=== GraphQL + HTTP al rescate!
-
-[%notitle]
-=== Because shit happens
-
-=== Que cambia ?
+=== Resumiendo
 
 [%step]
 * **1** solo endpoint
 ** Deja que nos concentremos solo en la **consulta**
 * **Granularidad** en la carga de datos
 * **Documentacion** out-of-the-box
+
+=== El ejemplo
+
+[%step]
+- Exponer la informacion sobre las peliculas de James Bond
+- Pensemos que ahora **SOLO** los clientes seran el navegador
+- Pero deberiamos ser flexibles para poder servir mas/menos datos **EN ALGUN MOMENTO**
