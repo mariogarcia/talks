@@ -52,55 +52,10 @@ include::{relayr}/src/ratpack/handlers.groovy[tags=handlers, indent=0]
 [%notitle]
 image::ratpack_demo.jpg[background, size=cover]
 
-=== Unas palabras sobre consultas & mutaciones
-
-[%step]
-- Consultas suelen poder ejecutarse **en batch**
-- Consultas suelen poder ejecutarse en **paralelo**
-- Mutaciones se ejecutan de manera **secuencial**
-
-=== Agregacion de consultas
-
-[source, groovy]
-----
-query UserHome($actor: String, $year: String) {
-  latest: lastFilm {
-    title
-    year
-    directedBy
-    bond
-  }
-  whenIwasBorn: byYear(year: $year) {
-    title
-  }
-  favouriteActorMovies: byBondActorNameLike(name: $actor) {
-    title
-    year
-    bond
-  }
-}
-----
-
 === Grails + GORM
 
 [%notitle]
 image::grails.png[background, size=cover]
-
-=== Relay ?
-
-[%step]
-* Good GraphQL practices implemented in a JS library
-** https://facebook.github.io/relay/
-
-=== Relay
-
-http://graphql.org/learn/best-practices/
-
-[%step]
-* How to handle pagination
-* How to handle ids
-* HTTP recommended features
-* ...
 
 === Gorm GraphQL
 
@@ -129,7 +84,7 @@ include::{gorm}/grails-app/controllers/gorm/UrlMappings.groovy[tags=graphql,inde
 include::{gorm}/grails-app/controllers/greach/GraphController.groovy[tags=controller, indent=0]
 ----
 
-=== GraphQL best practices hint: Id hashing
+=== GraphQL buenas practicas: Id hashing
 
 [source, groovy]
 ----

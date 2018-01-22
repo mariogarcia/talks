@@ -1,7 +1,6 @@
 include 'slides'
 include 'bond-data'
 include 'bond-gql-ratpack'
-include 'bond-gorm-grails'
 
 rootProject.name = 'graphql-mgug'
 

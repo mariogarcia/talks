@@ -122,5 +122,5 @@ image::rest_under_pressure_reaction.gif[]
 === Un solo endpoint
 
 [%step]
-- Hara que nos concentremos solo en la consulta
-- Y por lo tanto nos permitira tener **mas flexibilidad con el front end**
+- Hace que nos concentremos solo en la consulta
+- Y por lo tanto nos permite tener **mas flexibilidad con el front end**

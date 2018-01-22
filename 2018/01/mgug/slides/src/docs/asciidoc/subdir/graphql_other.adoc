@@ -1,0 +1,28 @@
+== Other
+
+=== Relay ?
+
+[%step]
+* Buenas practicas con GraphQL
+* Implementadas como especificacion en una biblioteca JS
+** https://facebook.github.io/relay/
+
+=== Relay
+
+http://graphql.org/learn/best-practices/
+
+[%step]
+* Paginacion
+* Identificadores
+* Uso de HTTP
+* ...
+
+=== Security
+
+=== Http
+
+* TODO
+
+=== Interceptors
+
+* TODO

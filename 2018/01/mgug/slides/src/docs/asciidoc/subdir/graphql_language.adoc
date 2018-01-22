@@ -65,7 +65,7 @@ type Queries {
 - Las consultas siempre usan tipos y escalares
 - Las consultas puede requerir argumentos
 
-=== Primer ejemplo : EJECUTAR UNA CONSULTA
+=== Primer ejemplo : EJECUCION
 
 [source, json]
 .**query**: "give me the last James Bond film with its **title**
@@ -185,7 +185,7 @@ include::{relayr}/src/main/groovy/helthix/relayr/GraphQLModule.groovy[tags=query
 include::{relayr}/src/main/groovy/helthix/relayr/GraphQLModule.groovy[tags=queryType, indent=0]
 ----
 
-=== Groovy time: EJECUCION DE CONSULTAS
+=== Groovy time: EJECUCION
 
 [source, groovy]
 ----
@@ -203,7 +203,7 @@ include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=
 }
 ----
 
-=== Groovy time: EJECUCION DE CONSULTAS (II)
+=== Groovy time: EJECUCION (II)
 
 [source, groovy]
 ----
@@ -240,6 +240,35 @@ image::drno.jpg[]
     year: "1962"
   ]
 ]
+----
+
+=== Unas palabras sobre consultas & mutaciones
+
+[%step]
+- Consultas suelen poder ejecutarse **en batch**
+- Consultas suelen poder ejecutarse en **paralelo**
+- Mutaciones se ejecutan de manera **secuencial**
+
+=== Agregacion de consultas
+
+[source, groovy]
+----
+query UserHome($actor: String, $year: String) {
+  latest: lastFilm {
+    title
+    year
+    directedBy
+    bond
+  }
+  whenIwasBorn: byYear(year: $year) {
+    title
+  }
+  favouriteActorMovies: byBondActorNameLike(name: $actor) {
+    title
+    year
+    bond
+  }
+}
 ----
 
 === Ahora vamos a exponer esto a traves de HTTP

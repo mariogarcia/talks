@@ -25,6 +25,8 @@ include::subdir/graphql_language.adoc[]
 
 include::subdir/graphql_http.adoc[]
 
+include::subdir/graphql_other.adoc[]
+
 include::subdir/conclusions.adoc[]
 
 include::subdir/qna.adoc[]
