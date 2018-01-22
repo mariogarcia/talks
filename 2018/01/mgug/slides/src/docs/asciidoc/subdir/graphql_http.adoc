@@ -58,13 +58,18 @@ image::ratpack_demo.jpg[background, size=cover]
 [%notitle]
 image::grails.png[background, size=cover]
 
-=== Gorm GraphQL
+=== GORM GraphQL
+https://grails.github.io/gorm-graphql/latest/guide/index.html
+
+=== Por que Grails/GORM ?
 
 [%step]
-* Plugin Grails 3
-** https://github.com/mrcirillo/relay-gorm-connector
+* **Gorm** es una buena abstracion para bases de datos
+* Tus **entidades** Gorm expuestas como tipos GraphQL
+* **GraphiQL** auto-configurado en desarrollo
+* **Plugin** Grails 3 / Standalone
 
-=== GraphQL Schema
+=== Mapear tipos
 
 [source, groovy]
 ----
