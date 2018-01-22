@@ -23,13 +23,13 @@ image::atomium.jpg[background, size=cover]
 [%notitle]
 image::rest.jpg[background, size=cover]
 
-=== Por que queremos migrar a GraphQL ?
+=== Que los diferencia  ?
 
 === Lo primero
 
 [%step]
-- Mientras que REST es una serie de **buenas practicas**
-- GraphQL es simplemente un **lenguaje de consulta**
+- Mientras que REST es **buenas practicas** + **HTTP**
+- GraphQL es **SOLO** un **lenguaje de consulta**
 
 === Diferencias
 
@@ -67,7 +67,7 @@ al front
 [%notitle]
 image::waiting.jpg[background, size=cover]
 
-=== El reto
+=== El ejemplo
 
 [%step]
 - Exponer la informacion sobre las peliculas de James Bond
