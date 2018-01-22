@@ -4,7 +4,7 @@ import ratpack.server.ServerConfigBuilder
 import bond.config.AppConfig
 import bond.cors.CorsHandler
 import bond.handler.Utils
-import bond.graphql.Handler
+import bond.handler.Handler
 
 /**
  * Handler mappings

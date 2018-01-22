@@ -30,7 +30,7 @@ class Handler implements ratpack.handling.Handler {
     Blocking.get {
       execute(schema, "$query", params)
     }.then { ExecutionResult result ->
-      ctx.render(json([data: result.errors ?: result.data]))
+      ctx.render(json(errors: result.errors, data: result.data))
     }
   }
   // end::handler[]

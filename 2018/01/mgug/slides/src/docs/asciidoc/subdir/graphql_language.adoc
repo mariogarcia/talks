@@ -123,7 +123,7 @@ image::showmecode.gif[background, size=cover]
 === GraphQL DSL (GQL)
 
 [%step]
-* DSL sobre GraphQL-Java
+* **DSL** sobre GraphQL-Java
 * Todavia alpha
 * https://github.com/grooviter/gql
 ** Se agradece Feeback :)
@@ -131,14 +131,15 @@ image::showmecode.gif[background, size=cover]
 === Groovy time: TIPOS
 
 [source, groovy]
-.title es obligatorio
+.GraphQL
 ----
 include::{gql}/src/main/resources/graphql/Film.graphql[indent=0]
 ----
 
 [source, groovy]
+.Groovy
 ----
-include::{gql}/src/main/groovy/bond/graphql/Types.groovy[tags=filmType, indent=0]
+include::{gql}/src/main/groovy/bond/graphql/Types.groovy[tags=Film, indent=0]
 ----
 
 === Groovy time: CONSULTAS

@@ -61,40 +61,53 @@ image::grails.png[background, size=cover]
 === GORM GraphQL
 https://grails.github.io/gorm-graphql/latest/guide/index.html
 
+=== Tu aplicacion accede a bases de datos ?
+
 === Por que Grails/GORM ?
 
 [%step]
-* **Gorm** es una buena abstracion para bases de datos
-* Tus **entidades** Gorm expuestas como tipos GraphQL
-* **GraphiQL** auto-configurado en desarrollo
+* **GORM** &#10084; SQL/NoSQL Databases
+* **Entidades** Gorm = Tipos/Queries/Mutations GraphQL
+* **GraphiQL** out-of-the-box
 * **Plugin** Grails 3 / Standalone
 
 === Mapear tipos
 
 [source, groovy]
 ----
-include::{gorm}/grails-app/domain/greach/Film.groovy[tags=domain, indent=0]
+include::{gorm}/grails-app/domain/bond/Film.groovy[tags=Film, indent=0]
 ----
 
-=== Grails UrlMappings
+=== Operaciones por defecto
+
+=== +++<span style="color:white;"></span>+++
+[cols="1,1", options="header"]
+|===
+|Type
+|Operation
+
+|Query
+|film(id: ..)
+
+|Query
+|filmList(max: .., sort: .., etc)
+
+|Query
+|filmCount
+
+|Mutation
+|filmCreate(film: {})
+
+|Mutation
+|filmUpdate(id: .., film: {})
+
+|Mutation
+|filmDelete(id: ..)
+|===
+
+=== Custom Queries
 
 [source, groovy]
 ----
-include::{gorm}/grails-app/controllers/gorm/UrlMappings.groovy[tags=graphql,indent=0]
+include::{gorm}/grails-app/domain/bond/Film.groovy[tags=lastFilm, indent=0]
 ----
-
-=== Grails controller
-
-[source, groovy]
-----
-include::{gorm}/grails-app/controllers/greach/GraphController.groovy[tags=controller, indent=0]
-----
-
-=== GraphQL buenas practicas: Id hashing
-
-[source, groovy]
-----
-include::{gorm}/src/test/groovy/greach/FilmSpec.groovy[tags=recommendation, indent=0]
-----
-
-Instead of passing **1** use a hash like **hagghsXy==**

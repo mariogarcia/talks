@@ -1,9 +1,8 @@
 == Conclusions
 
 [%step]
-- Is not GraphQL instead of REST
-- Is about GraphQL over your existent services
-- A great improvement from the business point of view
-- Your front end workmates will love you
+- GraphQL no es un sustituto 1 - 1 de REST
+- Es una mejora en la comunicacion con el front-end
+- Front &#10084; Back
 
 === Thank you!

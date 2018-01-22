@@ -9,6 +9,7 @@
 ifndef::imagesdir[:imagesdir: images]
 ifndef::slidesMain[:slidesMain: ../../../../../slides]
 ifndef::gql[:gql: ../../../../../bond-gql-ratpack]
+ifndef::gorm[:gorm: ../../../../../bond-gorm-grails]
 
 include::subdir/me.adoc[]
 
