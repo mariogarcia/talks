@@ -1,0 +1,9 @@
+== Conclusions
+
+[%step]
+- Is not GraphQL instead of REST
+- Is about GraphQL over your existent services
+- A great improvement from the business point of view
+- Your front end workmates will love you
+
+=== Thank you!

@@ -1,0 +1,139 @@
+== +++<span style="color:white;">Http + GraphQL</span>+++
+
+[%notitle]
+image::languages.jpg[background, size=cover]
+
+=== +++<span style="color:#fdc329;">Ratpack + GraphQL</span>+++
+
+[%notitle]
+image::ratpack_trio.jpg[background, size=cover]
+
+=== Tecnologias
+
+[%step]
+- Ratpack
+- GQL
+- GraphiQL
+
+=== Tipo Film
+
+[source, groovy]
+----
+include::{relayr}/src/main/groovy/helthix/relayr/Schema.groovy[tags=applicationSchema, indent=0]
+----
+
+=== Consultas
+
+[source, groovy]
+----
+include::{relayr}/src/main/groovy/helthix/relayr/GraphQLModule.groovy[tags=appQueries, indent=0]
+----
+
+=== Ratpack Handler
+
+[source, groovy]
+----
+include::{relayr}/src/main/groovy/helthix/relayr/GraphQLHandler.groovy[tags=handler, indent=0]
+----
+
+=== Uri mapping
+
+[source, groovy]
+----
+include::{relayr}/src/ratpack/handlers.groovy[tags=handlers, indent=0]
+----
+
+[%step]
+- 1. GraphQL endpoint
+- 2. GraphiQL
+
+=== +++<span style="color:white;">Showtime!</span>+++
+
+[%notitle]
+image::ratpack_demo.jpg[background, size=cover]
+
+=== Unas palabras sobre consultas & mutaciones
+
+[%step]
+- Consultas suelen poder ejecutarse **en batch**
+- Consultas suelen poder ejecutarse en **paralelo**
+- Mutaciones se ejecutan de manera **secuencial**
+
+=== Agregacion de consultas
+
+[source, groovy]
+----
+query UserHome($actor: String, $year: String) {
+  latest: lastFilm {
+    title
+    year
+    directedBy
+    bond
+  }
+  whenIwasBorn: byYear(year: $year) {
+    title
+  }
+  favouriteActorMovies: byBondActorNameLike(name: $actor) {
+    title
+    year
+    bond
+  }
+}
+----
+
+=== Grails + GORM
+
+[%notitle]
+image::grails.png[background, size=cover]
+
+=== Relay ?
+
+[%step]
+* Good GraphQL practices implemented in a JS library
+** https://facebook.github.io/relay/
+
+=== Relay
+
+http://graphql.org/learn/best-practices/
+
+[%step]
+* How to handle pagination
+* How to handle ids
+* HTTP recommended features
+* ...
+
+=== Gorm GraphQL
+
+[%step]
+* Plugin Grails 3
+** https://github.com/mrcirillo/relay-gorm-connector
+
+=== GraphQL Schema
+
+[source, groovy]
+----
+include::{gorm}/grails-app/domain/greach/Film.groovy[tags=domain, indent=0]
+----
+
+=== Grails UrlMappings
+
+[source, groovy]
+----
+include::{gorm}/grails-app/controllers/gorm/UrlMappings.groovy[tags=graphql,indent=0]
+----
+
+=== Grails controller
+
+[source, groovy]
+----
+include::{gorm}/grails-app/controllers/greach/GraphController.groovy[tags=controller, indent=0]
+----
+
+=== GraphQL best practices hint: Id hashing
+
+[source, groovy]
+----
+include::{gorm}/src/test/groovy/greach/FilmSpec.groovy[tags=recommendation, indent=0]
+----
+
+Instead of passing **1** use a hash like **hagghsXy==**

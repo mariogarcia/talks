@@ -1,0 +1,30 @@
+= GraphQL and Groovy
+@marioggar
+2017-03-30
+:revnumber: {project-version}
+:example-caption!:
+:source-autofit:
+:docinfo:
+:docinfodir: _shared
+ifndef::imagesdir[:imagesdir: images]
+ifndef::slidesMain[:slidesMain: ../../../../../slides]
+ifndef::gql[:gql: ../../../../../gql]
+ifndef::relayr[:relayr: ../../../../../relayr]
+ifndef::relays[:relays: ../../../../../relays]
+ifndef::gorm[:gorm: ../../../../../gorm]
+
+include::subdir/me.adoc[]
+
+include::subdir/joke.adoc[]
+
+include::subdir/summary.adoc[]
+
+include::subdir/graphql_overview.adoc[]
+
+include::subdir/graphql_language.adoc[]
+
+include::subdir/graphql_http.adoc[]
+
+include::subdir/conclusions.adoc[]
+
+include::subdir/qna.adoc[]

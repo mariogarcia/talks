@@ -1,0 +1,13 @@
+== +++<span style="color:white;">Summary</span>+++
+
+[%notitle]
+image::languages.jpg[background, size=cover]
+
+[%notitle]
+=== Index
+
+[%step]
+- GraphQL en general
+- GraphQL como lenguage de consultas
+- GraphQL + JVM + HTTP
+- Conclusiones

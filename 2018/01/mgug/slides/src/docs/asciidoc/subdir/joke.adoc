@@ -1,0 +1,13 @@
+== Os interesa GraphQL porque...
+
+[%step]
+- He oido que GraphQL es lo que esta de moda
+- Estoy harto de hacer REST
+- Me aburria y he venido a pasar el rato
+- Sea lo que sea...
+
+[%notitle]
+=== Bueno pues...
+
+[%notitle]
+image::relax.gif[background, size=cover]

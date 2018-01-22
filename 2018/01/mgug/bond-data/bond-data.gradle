@@ -1,0 +1,7 @@
+apply plugin: 'groovy'
+apply plugin: 'jacoco'
+
+dependencies {
+  compile libs.groovy_all
+  compile libs.graphql_java
+}

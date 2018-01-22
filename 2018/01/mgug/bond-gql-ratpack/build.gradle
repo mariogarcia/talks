@@ -1,0 +1,46 @@
+buildscript {
+  repositories {
+    jcenter()
+    mavenCentral()
+  }
+  dependencies {
+    classpath "io.ratpack:ratpack-gradle:$ratpack"
+    classpath "com.github.jengelman.gradle.plugins:shadow:$shadow"
+  }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'codenarc'
+apply plugin: 'io.ratpack.ratpack-groovy'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  jcenter()
+  maven {
+    url  "http://dl.bintray.com/grooviter/maven"
+  }
+}
+
+dependencies {
+  compile "io.ratpack:ratpack-guice:$ratpack"
+  compile "io.ratpack:ratpack-rx:$ratpack"
+  compile "io.ratpack:ratpack-hikari:$ratpack"
+  compile "org.codehaus.groovy:groovy-all:$groovy"
+  compile "com.github.grooviter:gql:$gql"
+  compile "org.slf4j:slf4j-simple:$slf4j"
+
+  testCompile "org.spockframework:spock-core:$spock"
+  testCompile "junit:junit:$junit"
+}
+
+compileGroovy {
+  groovyOptions.configurationScript = file('src/conf/compiler.groovy')
+}
+
+codenarc {
+    configFile = new File(projectDir, 'src/conf/codenarc.groovy')
+    ignoreFailures = false
+    reportFormat = 'html'
+}

@@ -1,0 +1,245 @@
+== +++<span style="color:white;">Ejutando consultas</span>+++
+
+[%notitle]
+image::languages.jpg[background, size=cover]
+
+=== Pasos para ejecutar una consulta
+
+[%step]
+- Definir +++<span class="fragment" style="font-weight:bold;">TIPOS</span>+++
+- Definir +++<span class="fragment" style="font-weight:bold;">CONSULTAS</span>+++
+- Ejecutar consultas contra el esquema
+
+[transition=zoom, %notitle]
+=== +++<span style="color:white;">Primer ejemplo</span>+++
+
+[%notitle]
+image::bond.gif[background, size=cover]
+
+=== Primer ejemplo: SCHEMA
+
+[source, groovy]
+----
+type Film {
+  title: !String
+  year: Int
+}
+
+type Queries {
+   lastFilm: Film
+   filmByYear(year: Int): Film
+}
+
+schema {
+ query: Queries
+}
+----
+
+http://facebook.github.io/graphql/
+
+=== Primer ejemplo: TIPOS
+
+[source, groovy]
+----
+type Film {
+  title: !String
+  year: Int
+}
+----
+
+[%step]
+- El cliente **PUEDE** agregar/omitir tantos campos opcionales como quiera
+- El cliente **DEBE** agregar los campos obligatorios en la consulta
+
+=== Primer ejemplo : CONSULTAS
+
+[source, groovy]
+----
+type Queries {
+   lastFilm: Film
+   filmByYear(year: Int): Film
+}
+----
+
+[%step]
+- Las consultas siempre usan tipos y escalares
+- Las consultas puede requerir argumentos
+
+=== Primer ejemplo : EJECUTAR UNA CONSULTA
+
+[source, json]
+.**query**: "give me the last James Bond film with its **title**
+----
+{
+  lastFilm {
+    title
+  }
+}
+----
+
+[source, json]
+.**result**: "SPECTRE"
+----
+{
+  "data": {
+    "lastFilm": {
+      "title": "SPECTRE"
+    }
+  }
+}
+----
+
+=== Mirando un poco mas de cerca
+
+[source, json]
+.query
+----
+{
+  lastFilm { // <1>
+    title    // <2>
+  }
+}
+----
+
+[%step]
+- 1. **lastFilm**: Es la **consulta** en la que estoy interesado
+- 2. **title**: Es un **campo** especifico del tipo que se devuelve (Film)
+
+=== Validacion
+
+[source, json]
+.title es obligatorio
+----
+type Film {
+  title: !String
+  year: Int
+}
+----
+
+[source, json]
+.Consulta invalida
+----
+{
+  lastFilm
+}
+----
+
+[%notitle]
+=== SHUT UP AND SHOW ME CODE!
+
+image::showmecode.gif[background, size=cover]
+
+=== GraphQL DSL (GQL)
+
+[%step]
+* DSL sobre GraphQL-Java
+* Todavia alpha
+* https://github.com/grooviter/gql
+** Se agradece Feeback :)
+
+=== Groovy time: TIPOS
+
+[source, json]
+----
+type Film {
+  title: !String
+  year: Int
+}
+----
+
+[source, groovy]
+----
+include::{relayr}/src/main/groovy/helthix/relayr/Schema.groovy[tags=filmType, indent=0]
+----
+
+=== Groovy time: TIPOS (II)
+
+[source, groovy]
+----
+include::{relayr}/src/main/groovy/helthix/relayr/Schema.groovy[tags=filmType, indent=0]
+----
+
+=== Groovy time: CONSULTAS
+
+[source, json]
+----
+type Queries {
+   lastFilm: Film
+   filmByYear(year: Int): Film
+}
+
+schema {
+ query: Queries
+}
+----
+
+[source, groovy]
+----
+include::{relayr}/src/main/groovy/helthix/relayr/GraphQLModule.groovy[tags=queryType, indent=0]
+----
+
+=== Groovy time: CONSULTAS (II)
+
+[source, groovy]
+----
+include::{relayr}/src/main/groovy/helthix/relayr/GraphQLModule.groovy[tags=queryType, indent=0]
+----
+
+=== Groovy time: EJECUCION DE CONSULTAS
+
+[source, groovy]
+----
+include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=executeSimpleQuery, indent=0]
+----
+
+[source, json]
+.devuelve
+----
+{
+  lastFilm: {
+    year: 2015,
+    title: 'SPECTRE'
+  }
+}
+----
+
+=== Groovy time: EJECUCION DE CONSULTAS (II)
+
+[source, groovy]
+----
+include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=executeSimpleQuery, indent=0]
+----
+
+=== +++<span style="color:white;">Queries with arguments</span>+++
+
+[%notitle]
+image::arguments.png[background, size=cover]
+
+=== Pelicula de 1962 ?
+
+[source, groovy]
+.consultas
+----
+include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=parametrizedQuery, indent=0]
+----
+
+[source, groovy]
+.ejecucion de consultas
+----
+include::{relayr}/src/test/groovy/helthix/relayr/QueryExecutionSpec.groovy[tags=parametrizedExecution, indent=0]
+----
+
+=== DR. NO
+
+image::drno.jpg[]
+
+[source, groovy,background-color=white]
+----
+[byYear: [
+    title: 'DR. NO',
+    year: "1962"
+  ]
+]
+----
+
+=== Ahora vamos a exponer esto a traves de HTTP

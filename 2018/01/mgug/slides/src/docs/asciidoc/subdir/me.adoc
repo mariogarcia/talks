@@ -1,0 +1,15 @@
+== About me
+
+[%notitle]
+image::me.png[background, size=cover]
+
+[%step]
+* **Nombre**
+** Mario Garcia
+* **Redes Sociales**:
+** https://twitter.com/marioggar
+** https://github.com/mariogarcia
+
+=== Miembro del Mgug...
+
+image::madrid_gug.png[]
