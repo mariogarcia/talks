@@ -1,14 +1,15 @@
 package bond.handler
 
-import static gql.DSL.execute
+import static gql.DSL.executeAsync
 import static ratpack.jackson.Jackson.json
 
+import javax.inject.Inject
 import graphql.ExecutionResult
 import graphql.schema.GraphQLSchema
 import ratpack.exec.Blocking
+import ratpack.exec.Promise
+import ratpack.exec.Downstream
 import ratpack.handling.Context
-
-import javax.inject.Inject
 
 /**
  * GraphQL endpoint graphql
@@ -27,8 +28,10 @@ class Handler implements ratpack.handling.Handler {
     def query = payload.query
     def params = payload.variables as Map<String,Object>
 
-    Blocking.get {
-      execute(schema, "$query", params)
+    Promise.async { Downstream downstream ->
+      executeAsync(schema, "$query", params).thenApply { value ->
+        downstream.success(value)
+      }
     }.then { ExecutionResult result ->
       ctx.render(json(errors: result.errors, data: result.data))
     }
