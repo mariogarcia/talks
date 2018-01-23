@@ -8,6 +8,7 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 import bond.db.Queries
+import bond.db.Contest
 
 /**
  * Provides a singleton instance of the {@link GraphQLSchema} type
