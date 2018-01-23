@@ -25,10 +25,13 @@ ratpack {
     // tag::graphql[]
     prefix('graphql') {
       post(Handler)  // GraphQL
+      prefix('browser') {
+        files {
+          dir('static').indexFiles('index.html') // GraphiQL
+        }
+      }
     }
-    files {
-      dir('static').indexFiles('index.html') // GraphiQL
-    }
+
     // end::graphql[]
   }
 }
