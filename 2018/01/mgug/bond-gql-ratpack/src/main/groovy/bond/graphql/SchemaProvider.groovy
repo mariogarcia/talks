@@ -36,3 +36,22 @@ class SchemaProvider implements Provider<GraphQLSchema> {
     // end::queries[]
   }
 }
+
+
+//  @Override
+//  GraphQLSchema get() {
+//    return DSL.mergeSchemas {
+//      byResource('graphql/Schema.graphql')
+//      byResource('graphql/Film.graphql')
+//      byResource('graphql/System.graphql')
+//      byResource('graphql/Queries.graphql') {
+//        mapType('Queries') {
+//          link('lastFilm', Queries.&findLastFilm)
+//          link('filmByYear',Queries.&findByYear)
+//          link('system') { env ->
+//            [os: new bond.system.SystemService().getSystemOS()]
+//          }
+//        }
+//      }
+//    }
+//  }
