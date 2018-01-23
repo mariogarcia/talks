@@ -1,4 +1,24 @@
-== Que mas... ?
+== Que me dejo... ?
+
+=== Optimizaciones en las consultas
+
+[%step]
+- Recuerda que **cada propiedad** del modelo puede tener **su propio fetcher**
+- Eso **deberia hacer** que se pudieran **optimizar** las consultas
+
+=== Instrumentacion/Interceptor
+
+[%step]
+- Interceptan la ejecucion por diferentes motivos
+- Autorizar
+- Logear
+- Lanzar cosas en background
+
+=== Seguridad
+
+[%step]
+- Depende de lo que estes utilizando
+- HTTP => JWT esta de moda
 
 === Relay
 

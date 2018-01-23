@@ -1,8 +1,13 @@
-== Conclusions
+
+=== Conclusiones
+
+image::beyond.jpg[background, size=cover]
+
+=== Conclusiones
 
 [%step]
-- GraphQL no es un sustituto 1 - 1 de REST
-- Es una mejora en la comunicacion con el front-end
+- GraphQL no tiene que ser un sustituto 1 - 1 de REST **pero**...
+- Es una mejora en la **comunicacion** con el **front-end**
 - Front &#10084; Back
 
 === Gracias!
