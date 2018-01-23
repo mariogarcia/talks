@@ -68,7 +68,7 @@ image::graphql_layout.png[]
 ** **GraphQL** => Mucha mas flexibilidad del back para dar respuesta
 al front
 
-=== +++<span style="color:white;">Podran ser amigos...?</span>+++
+=== +++<span style="color:white;">Soy back quieres ser mi amigo ?</span>+++
 
 [%notitle]
 image::waiting.jpg[background, size=cover]
@@ -84,6 +84,6 @@ image::waiting.jpg[background, size=cover]
 === El ejemplo
 
 [%step]
-- Exponer la informacion sobre las peliculas de James Bond
-- Pensemos que ahora **SOLO** los clientes seran el navegador
-- Pero deberiamos ser flexibles para poder servir mas/menos datos **EN ALGUN MOMENTO**
+- Peliculas de James Bond
+- Aunque ahora el client **SOLO** sera el navegador...
+- Los conceptos nos serviran para cualquier tipo de cliente

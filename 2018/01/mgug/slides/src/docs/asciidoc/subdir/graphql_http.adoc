@@ -111,3 +111,22 @@ include::{gorm}/grails-app/domain/bond/Film.groovy[tags=Film, indent=0]
 ----
 include::{gorm}/grails-app/domain/bond/Film.groovy[tags=lastFilm, indent=0]
 ----
+
+=== Grail & Spring
+
+[source, groovy]
+----
+fetcher { env ->
+    env.context.springSecurityService
+}
+----
+
+[%step]
+- Puedes acceder a cualquier bean en un fetcher
+- Por ejemplo **springSecurityService**
+
+=== Ademas
+
+[%step]
+- Se puede optimizar la forma en la que se realizan las consultas
+- Se pueden elegir como serializar los datos escalares (Fechas, monedas...)

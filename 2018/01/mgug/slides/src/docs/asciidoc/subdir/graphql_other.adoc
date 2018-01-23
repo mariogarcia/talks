@@ -1,9 +1,9 @@
-== Other
+== Que mas... ?
 
-=== Relay ?
+=== Relay
 
 [%step]
-* Buenas practicas con GraphQL
+* **Buenas practicas** con GraphQL
 * Implementadas como especificacion en una biblioteca JS
 ** https://facebook.github.io/relay/
 
@@ -12,17 +12,7 @@
 http://graphql.org/learn/best-practices/
 
 [%step]
-* Paginacion
-* Identificadores
-* Uso de HTTP
+* Paginacion (restrictiva)
+* Identificadores (**hashing**)
+* Uso de HTTP (**cache** por ejemplo)
 * ...
-
-=== Security
-
-=== Http
-
-* TODO
-
-=== Interceptors
-
-* TODO

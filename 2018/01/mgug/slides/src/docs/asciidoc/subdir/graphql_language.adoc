@@ -1,4 +1,4 @@
-== +++<span style="color:white;">Ejutando consultas</span>+++
+== +++<span style="color:white;">Ejecutando consultas</span>+++
 
 [%notitle]
 image::languages.jpg[background, size=cover]
@@ -119,6 +119,11 @@ include::{gql}/src/main/resources/graphql/Film.graphql[indent=0]
 === SHUT UP AND SHOW ME CODE!
 
 image::showmecode.gif[background, size=cover]
+
+[%notitle]
+=== Groovy time!
+
+image::groovy-time.gif[background, size=cover]
 
 === GraphQL DSL (GQL)
 
