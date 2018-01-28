@@ -1,16 +1,17 @@
 import static ratpack.groovy.Groovy.ratpack
 
 import ratpack.server.ServerConfigBuilder
+
 import bond.config.AppConfig
 import bond.cors.CorsHandler
-import bond.handler.Utils
-import bond.handler.Handler
+
+import gql.ratpack.GraphQLHandler
+import gql.ratpack.GraphiQLHandler
 
 /**
  * Handler mappings
  */
 ratpack {
-
   serverConfig { ServerConfigBuilder config ->
     config
       .port(8888)
@@ -18,20 +19,16 @@ ratpack {
       .require("", AppConfig)
   }
 
+  // tag::graphql[]
   handlers {
     all(new CorsHandler())
-    all(Utils.createBindingHandler(Map))
 
-    // tag::graphql[]
     prefix('graphql') {
-      post(Handler)  // GraphQL
+      post(GraphQLHandler)
       prefix('browser') {
-        files {
-          dir('static').indexFiles('index.html') // GraphiQL
-        }
+        get(GraphiQLHandler)
       }
     }
-
-    // end::graphql[]
   }
+  // end::graphql[]
 }

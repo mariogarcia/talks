@@ -1,6 +1,7 @@
 apply plugin: 'groovy'
 
 repositories {
+  mavenLocal()
   mavenCentral()
   maven {
     url  "http://dl.bintray.com/grooviter/maven"
@@ -8,5 +9,5 @@ repositories {
 }
 
 dependencies {
-  compile "com.github.grooviter:gql:$gql"
+  compile "com.github.grooviter:gql-core:$gql"
 }

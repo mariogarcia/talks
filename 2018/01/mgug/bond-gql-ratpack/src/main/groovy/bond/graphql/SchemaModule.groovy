@@ -9,7 +9,7 @@ import graphql.schema.GraphQLSchema
  *
  * @since 0.1.0
  */
-class GraphQLModule extends AbstractModule {
+class SchemaModule extends AbstractModule {
 
   @Override
   protected void configure() {

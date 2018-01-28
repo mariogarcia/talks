@@ -31,7 +31,7 @@ dependencies {
   compile "io.ratpack:ratpack-rx:$ratpack"
   compile "io.ratpack:ratpack-hikari:$ratpack"
   compile "org.codehaus.groovy:groovy-all:$groovy"
-  compile "com.github.grooviter:gql:$gql"
+  compile "com.github.grooviter:gql-ratpack:$gql"
   compile "org.slf4j:slf4j-simple:$slf4j"
 
   testCompile "org.spockframework:spock-core:$spock"
