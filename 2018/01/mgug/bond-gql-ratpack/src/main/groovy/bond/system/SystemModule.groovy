@@ -13,6 +13,5 @@ class SystemModule extends AbstractModule {
   @Override
   protected void configure() {
     bind(SystemService).in(Scopes.SINGLETON)
-    bind(SystemGraphQL).in(Scopes.SINGLETON)
   }
 }

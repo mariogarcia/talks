@@ -1,7 +1,7 @@
 package bond.system
 
 import bond.config.AppConfig
-
+import graphql.schema.DataFetchingEnvironment
 import javax.inject.Inject
 
 /**
@@ -14,6 +14,16 @@ class SystemService {
 
   @Inject
   AppConfig config
+
+  Map getSystemHealth(DataFetchingEnvironment env) {
+    return [
+      version: systemVersion,
+      os: systemOS,
+      totalMemory: totalMemory,
+      availableMemory: availableMemory,
+      usedMemory: usedMemory
+    ]
+  }
 
   /**
    * Returns the current OS
