@@ -1,0 +1,12 @@
+=== +++<span style="color:white;"></span>+++
+
+[%notitle]
+image::todo_list.jpg[background, size=cover]
+
+=== Today...
+
+[%step]
+- +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ in general
+- +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ as query language
+- +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ + +++<span style="color:#286b86;font-weight:bold;">Groovy</span>+++
+- Summary

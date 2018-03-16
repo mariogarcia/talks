@@ -1,0 +1,28 @@
+= +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ +++<br/>+++ & +++<br/>+++ +++<span style="color:#286b86;font-weight:bold;">Groovy</span>+++
+@marioggar
+2017-03-30
+:revnumber: {project-version}
+:example-caption!:
+:source-autofit:
+:docinfo:
+:docinfodir: _shared
+ifndef::imagesdir[:imagesdir: images]
+ifndef::slidesMain[:slidesMain: ../../../../../slides]
+ifndef::gql[:gql: ../../../../../bond-gql-ratpack]
+ifndef::gorm[:gorm: ../../../../../bond-gorm-grails]
+
+include::subdir/me.adoc[]
+
+include::subdir/todo.adoc[]
+
+include::subdir/graphql_overview.adoc[]
+
+include::subdir/graphql_language.adoc[]
+
+include::subdir/graphql_http.adoc[]
+
+include::subdir/graphql_other.adoc[]
+
+include::subdir/conclusions.adoc[]
+
+include::subdir/qna.adoc[]

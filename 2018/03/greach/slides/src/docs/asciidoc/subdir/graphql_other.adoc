@@ -1,0 +1,38 @@
+== Que me dejo... ?
+
+=== Optimizaciones en las consultas
+
+[%step]
+- Recuerda que **cada propiedad** del modelo puede tener **su propio fetcher**
+- Eso **deberia hacer** que se pudieran **optimizar** las consultas
+
+=== Instrumentacion/Interceptor
+
+[%step]
+- Interceptan la ejecucion por diferentes motivos
+- Autorizar
+- Logear
+- Lanzar cosas en background
+
+=== Seguridad
+
+[%step]
+- Depende de lo que estes utilizando
+- HTTP => JWT esta de moda
+
+=== Relay
+
+[%step]
+* **Buenas practicas** con GraphQL
+* Implementadas como especificacion en una biblioteca JS
+** https://facebook.github.io/relay/
+
+=== Relay
+
+http://graphql.org/learn/best-practices/
+
+[%step]
+* Paginacion (restrictiva)
+* Identificadores (**hashing**)
+* Uso de HTTP (**cache** por ejemplo)
+* ...

@@ -1,0 +1,8 @@
+include 'slides'
+
+rootProject.name = 'graphql-greach-2018'
+
+rootProject.children.each { project ->
+    project.buildFileName = "${project.name}.gradle"
+    assert project.buildFile.isFile()
+}
