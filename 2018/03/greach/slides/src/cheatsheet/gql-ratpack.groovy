@@ -9,13 +9,14 @@ import gql.ratpack.GraphQLModule
 import gql.ratpack.GraphQLHandler
 import gql.ratpack.GraphiQLHandler
 
-def raffles = evaluate('gql-data-raffles.groovy' as File)
-def fetcher = { env -> }
+RAFFLES = evaluate('gql-data-raffles.groovy' as File)
 
 def Schema = DSL.mergeSchemas {
     byURI(new File('Greach.graphql').toURI()) {
         mapType('Queries') {
-            link('winners', fetcher)
+            link('winners') { env ->
+              // #TODO
+            }
         }
     }
 }
