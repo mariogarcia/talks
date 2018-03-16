@@ -1,0 +1,8 @@
+== What is left ?
+
+=== Relay
+
+[%step]
+* GraphQL good practices
+** https://facebook.github.io/relay/
+** http://graphql.org/learn/best-practices/

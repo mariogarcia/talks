@@ -130,16 +130,9 @@ image::groovy-time.gif[background, size=cover]
 
 [%step]
 * +++<span style="color:#286b86;font-weight:bold;">GQL</span>+++ (https://github.com/grooviter/gql)
-* **DSL** on top of https://github.com/graphql-java/[GraphQL-Java] and...
-* **Ratpack's** basic integration
+* **DSL** on top of https://github.com/graphql-java/[GraphQL-Java]
 
-=== Code time
+=== +++<span style="color:#e535ab;font-weight:bold;">GOTO</span>+++ code
 
-=== On **queries** and **mutations**
 
-[%step]
-- +++<span style="color:#e535ab;font-weight:bold;">Queries</span>+++ and +++<span style="color:#e535ab;font-weight:bold;">Mutations</span>+++ can be **batched**
-- +++<span style="color:#e535ab;font-weight:bold;">Queries</span>+++ are executed in **parallel**
-- +++<span style="color:#e535ab;font-weight:bold;">Mutations</span>+++ are executed **sequentially**
-
-=== Time to expose our schema through **HTTP**
+=== Time to expose our schema through +++<span style="color:#286b86;font-weight:bold;">HTTP</span>+++

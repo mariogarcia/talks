@@ -1,4 +1,4 @@
-== Hey +++<span style="color:#e535ab;font-weight:bold;">Hi</span>+++!!
+== Hey +++<span style="color:#e535ab;font-weight:bold;">Hi</span>+++
 
 [NOTE.speaker]
 --
@@ -14,6 +14,10 @@ image::me.png[background, size=cover]
 * **You can find me**:
 ** https://twitter.com/marioggar
 ** https://github.com/mariogarcia
+
+=== Working at +++<span style="color:#942951;font-weight:bold;">Kaleidos</span>+++
+
+image::kaleidos.jpg[]
 
 === Member of ...
 

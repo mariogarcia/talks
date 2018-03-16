@@ -11,18 +11,20 @@ ifndef::slidesMain[:slidesMain: ../../../../../slides]
 ifndef::gql[:gql: ../../../../../bond-gql-ratpack]
 ifndef::gorm[:gorm: ../../../../../bond-gorm-grails]
 
-include::subdir/me.adoc[]
+include::subdir/00_me.adoc[]
 
-include::subdir/todo.adoc[]
+include::subdir/01_theory.adoc[]
 
-include::subdir/graphql_overview.adoc[]
+include::subdir/02_execute_query.adoc[]
 
-include::subdir/graphql_language.adoc[]
+include::subdir/03_queries_resources.adoc[]
 
-include::subdir/graphql_http.adoc[]
+include::subdir/05_persistence.adoc[]
 
-include::subdir/graphql_other.adoc[]
+include::subdir/07_error_handling.adoc[]
 
-include::subdir/conclusions.adoc[]
+include::subdir/08_security.adoc[]
 
-include::subdir/qna.adoc[]
+include::subdir/09_others.adoc[]
+
+include::subdir/10_summary.adoc[]

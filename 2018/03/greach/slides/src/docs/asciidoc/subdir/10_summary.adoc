@@ -1,5 +1,4 @@
-
-=== +++<span></span>+++
+== +++<span></span>+++
 
 image::summary.png[background, size=80%]
 
@@ -10,5 +9,7 @@ image::summary.png[background, size=80%]
 * Is an improvement **interacting** with the **front-end**
 * Is Back +++<span style="color:#e535ab;font-weight:bold;">&#10084;</span>+++ Front
 * Still requires more traction
+
+=== Questions ?
 
 === Thanks!

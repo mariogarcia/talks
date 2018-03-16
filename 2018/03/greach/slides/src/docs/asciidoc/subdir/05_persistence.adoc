@@ -1,0 +1,65 @@
+== +++<span></span>+++
+
+[%notitle]
+image::persistence.jpg[background, size=60%]
+
+=== **Persistence** + +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ =...
+
+=== +++<span style="color:#feb672;font-weight:bold;">GORM</span>+++ +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++
+https://grails.github.io/gorm-graphql/latest/guide/index.html
+
+=== GRAILS / GORM
+
+[%step]
+* +++<span style="color:#feb672;font-weight:bold;">GORM</span>+++ &#10084; SQL/NoSQL Databases
+* **Entities** Gorm => Types/Queries/Mutations GraphQL
+* +++<span style="color:#e535ab;font-weight:bold;">GraphiQL</span>+++ out-of-the-box
+* **Plugin** Grails 3 / Standalone
+
+=== Mapping domain classes
+
+[source, groovy]
+----
+include::{gorm}/grails-app/domain/bond/Film.groovy[tags=Film, indent=0]
+----
+
+=== Operations by default
+
+=== +++<span style="color:white;"></span>+++
+[cols="1,1", options="header"]
+|===
+|Type
+|Operation
+
+|Query
+|film(id: ..)
+
+|Query
+|filmList(max: .., sort: .., etc)
+
+|Query
+|filmCount
+
+|Mutation
+|filmCreate(film: {})
+
+|Mutation
+|filmUpdate(id: .., film: {})
+
+|Mutation
+|filmDelete(id: ..)
+|===
+
+=== Custom Queries
+
+[source, groovy]
+----
+include::{gorm}/grails-app/domain/bond/Film.groovy[tags=lastFilm, indent=0]
+----
+
+=== Field fetching is +++<span style="color:#feb672;font-weight:bold;">optimized</span>+++
+
+[%step]
+* *Remember* that
+** In +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ each field can has its own fetcher function
+** +++<span style="color:#feb672;font-weight:bold;">GORM</span>+++ **mappings** take care of most of it

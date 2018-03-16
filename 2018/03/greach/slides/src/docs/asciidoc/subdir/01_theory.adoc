@@ -1,0 +1,30 @@
+== +++<span style="color:white;"></span>+++
+
+[%notitle]
+image::todo_list.jpg[background, size=cover]
+
+=== Today...
+
+[%step]
+- +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ theory
+- +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ + +++<span style="color:#286b86;font-weight:bold;">Groovy</span>+++
+- Summary
+
+== +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ Theory
+
+[%notitle]
+image::intro.jpg[background, size=cover]
+
+=== What is +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ ?
+
+[%step]
+- Is a **query language**
+- It uses **a type system** to defined those queries
+
+=== What is **NOT** ?
+
+[%step]
+- It's not a web framework
+- It doesn't have to do with HTTP necessarily
+- And definitely...
+- +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ is not **REST**
