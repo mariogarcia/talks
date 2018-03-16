@@ -1,18 +1,23 @@
 == +++<span></span>+++
 
 [%notitle]
-image::persistence.jpg[background, size=60%]
+image::persistence.png[background, size=40%]
 
 === **Persistence** + +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ =...
+
+=== +++<span style="color:white;"></span>+++
+
+[%notitle]
+image::grails_logo.jpg[background, size=40%]
 
 === +++<span style="color:#feb672;font-weight:bold;">GORM</span>+++ +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++
 https://grails.github.io/gorm-graphql/latest/guide/index.html
 
-=== GRAILS / GORM
+=== +++<span style="color:#e535ab;font-weight:bold;">WHY</span>+++ ?
 
 [%step]
 * +++<span style="color:#feb672;font-weight:bold;">GORM</span>+++ &#10084; SQL/NoSQL Databases
-* **Entities** Gorm => Types/Queries/Mutations GraphQL
+* +++<span style="color:#feb672;font-weight:bold;">GORM</span>+++ entities => +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ Types/Queries/Mutations
 * +++<span style="color:#e535ab;font-weight:bold;">GraphiQL</span>+++ out-of-the-box
 * **Plugin** Grails 3 / Standalone
 
@@ -23,7 +28,7 @@ https://grails.github.io/gorm-graphql/latest/guide/index.html
 include::{gorm}/grails-app/domain/bond/Film.groovy[tags=Film, indent=0]
 ----
 
-=== Operations by default
+=== +++<span style="color:#e535ab;font-weight:bold;">CRUD</span>+++ operations by default
 
 === +++<span style="color:white;"></span>+++
 [cols="1,1", options="header"]
@@ -60,6 +65,6 @@ include::{gorm}/grails-app/domain/bond/Film.groovy[tags=lastFilm, indent=0]
 === Field fetching is +++<span style="color:#feb672;font-weight:bold;">optimized</span>+++
 
 [%step]
-* *Remember* that
-** In +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ each field can has its own fetcher function
-** +++<span style="color:#feb672;font-weight:bold;">GORM</span>+++ **mappings** take care of most of it
+* *Meaning* that
+** If any +++<span style="color:#e535ab;font-weight:bold;">relationship</span>+++ has been mapped...
+** +++<span style="color:#feb672;font-weight:bold;">GORM</span>+++ will take care of **how** / **when** to load it
