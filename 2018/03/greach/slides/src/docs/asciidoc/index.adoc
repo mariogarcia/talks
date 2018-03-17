@@ -8,8 +8,7 @@
 :docinfodir: _shared
 ifndef::imagesdir[:imagesdir: images]
 ifndef::slidesMain[:slidesMain: ../../../../../slides]
-ifndef::gql[:gql: ../../../../../bond-gql-ratpack]
-ifndef::gorm[:gorm: ../../../../../bond-gorm-grails]
+ifndef::gorm[:gorm: ../../../../../raffle-grails]
 
 include::subdir/00_me.adoc[]
 

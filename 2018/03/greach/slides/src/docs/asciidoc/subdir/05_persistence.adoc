@@ -25,7 +25,7 @@ https://grails.github.io/gorm-graphql/latest/guide/index.html
 
 [source, groovy]
 ----
-include::{gorm}/grails-app/domain/bond/Film.groovy[tags=Film, indent=0]
+include::{gorm}/grails-app/domain/greach/raffles/Contestant.groovy[indent=0]
 ----
 
 === +++<span style="color:#e535ab;font-weight:bold;">CRUD</span>+++ operations by default
@@ -59,7 +59,7 @@ include::{gorm}/grails-app/domain/bond/Film.groovy[tags=Film, indent=0]
 
 [source, groovy]
 ----
-include::{gorm}/grails-app/domain/bond/Film.groovy[tags=lastFilm, indent=0]
+include::{gorm}/grails-app/domain/greach/raffles/Raffle.groovy[tags=custom, indent=0]
 ----
 
 === Field fetching is +++<span style="color:#feb672;font-weight:bold;">optimized</span>+++

@@ -1,4 +1,5 @@
 include 'slides'
+include 'raffle-grails'
 
 rootProject.name = 'graphql-greach-2018'
 
