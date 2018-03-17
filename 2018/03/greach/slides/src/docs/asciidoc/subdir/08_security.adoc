@@ -19,6 +19,8 @@ image::security.jpg[background, size=cover]
 
 === Grails vs GQL/Ratpack
 
-[%Step]
-* +++<span style="color:#feb672;font-weight:bold;">Grails</span>+++ => **ApplicationContext**
+[%step]
+* +++<span style="color:#feb672;font-weight:bold;">Grails</span>+++ => **DefaultGraphQLContextBuilder**
+** Can add any **bean** to be available in the context
 * +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++ => Ratpack's **Context**
+** Makes *everything* available in the context
