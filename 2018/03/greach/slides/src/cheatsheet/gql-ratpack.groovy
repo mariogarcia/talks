@@ -11,6 +11,7 @@ import gql.ratpack.GraphiQLHandler
 
 RAFFLES = evaluate('gql-data-raffles.groovy' as File)
 
+// 1. LINK SCHEMA
 def Schema = DSL.mergeSchemas {
     byURI(new File('Greach.graphql').toURI()) {
         mapType('Queries') {
@@ -21,6 +22,7 @@ def Schema = DSL.mergeSchemas {
     }
 }
 
+// 2. CONFIGURE RATPACK
 ratpack {
     bindings {
       module GraphQLModule
