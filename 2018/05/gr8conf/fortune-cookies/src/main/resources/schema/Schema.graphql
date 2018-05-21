@@ -1,0 +1,7 @@
+type Queries { # <1>
+  randomCookie: Cookie
+}
+
+schema {
+  query: Queries # <2>
+}

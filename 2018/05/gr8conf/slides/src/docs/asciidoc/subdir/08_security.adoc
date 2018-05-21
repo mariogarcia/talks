@@ -1,0 +1,26 @@
+== +++<span></span>+++
+
+[%notitle]
+image::security.jpg[background, size=cover]
+
+=== **Security**
+
+[%step]
+* Did I mention that +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ is a query language ?
+* It *knows nothing* about security mechanisms
+* We have to make the engine aware of security...
+* Using the "context"
+
+=== Context
+
+* Not to be confused with *ExecutionContext*
+* Available through all the execution flow
+* Can be any type of data structure (Map, List...)
+
+=== Grails vs GQL/Ratpack
+
+[%step]
+* +++<span style="color:#feb672;font-weight:bold;">Grails</span>+++ => **DefaultGraphQLContextBuilder**
+** Can add any **bean** to be available in the context
+* +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++ => Ratpack's **Context**
+** Makes *everything* available in the context

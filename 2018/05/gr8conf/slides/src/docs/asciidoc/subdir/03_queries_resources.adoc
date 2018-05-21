@@ -1,0 +1,52 @@
+== +++<span style="color:white;"></span>+++
+
+[%notitle]
+image::https.jpg[background, size=80%]
+
+=== +++<span style="color:#286b86;font-weight:bold;">HTTP</span>+++ + +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++
+
+=== Resources +++<span style="color:#e535ab;font-weight:bold;">vs</span>+++ Queries (I)
+
+image::rest_layout.png[]
+
+=== Resources +++<span style="color:#e535ab;font-weight:bold;">vs</span>+++ Queries (II)
+
+image::graphql_layout.png[]
+
+=== +++<span style="color:#e535ab;font-weight:bold;">Faster</span>+++ interaction w +++<span style="color:#286b86;font-weight:bold;">Front End</span>+++
+[%step]
+- +++<span style="color:#e535ab;font-weight:bold;">Queries</span>+++ and +++<span style="color:#e535ab;font-weight:bold;">Mutations</span>+++ can be **batched**
+- +++<span style="color:#e535ab;font-weight:bold;">Queries</span>+++ are executed in **parallel**
+- No more **controllers** / **handlers**
+
+=== +++<span style="color:#fdc329;"></span>+++
+
+[%notitle]
+image::ratpack_trio.jpg[background, size=cover]
+
+=== +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++ + +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++
+
+[%step]
+- **Ratpack** is a **set of Java libraries** for building scalable **HTTP** applications.
+- It is a lean and powerful foundation, **not** an all-encompassing framework.
+- http://ratpack.io
+
+=== +++<span style="color:#286b86;font-weight:bold;">gql-ratpack</span>+++ provides
+
+[%step]
+- +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ endpoint
+- +++<span style="color:#e535ab;font-weight:bold;">GraphiQL console</span>+++
+- https://grooviter.github.io/gql/docs/html5/index.html#_ratpack
+
+=== Documentation: +++<span style="color:#e535ab;font-weight:bold;">GraphiQL</span>+++
+
+[%step]
+** **S**ingle **P**age **A**pplication (React)
+** Tool for **prototyping queries**
+** Connects to a existing GraphQL/HTTP engine
+
+=== Documentation: +++<span style="color:#e535ab;font-weight:bold;">Alternatives</span>+++
+
+https://nordicapis.com/10-graphql-consoles-in-action/
+
+=== +++<span style="color:#e535ab;font-weight:bold;">GOTO</span>+++ code

@@ -1,0 +1,62 @@
+== +++<span></span>+++
+
+[%notitle]
+image::errors.jpg[background, size=cover]
+
+=== **Error** Handling
+
+[%step]
+* +++<span style="color:#37b5e4;font-weight:bold;">REST</span>+++ => HTTP codes
+* +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ error messages in responses
+* +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ still different approaches
+
+=== Error +++<span style="color:#e535ab;font-weight:bold;">vs</span>+++ Exception
+
+[%step]
+* +++<span style="color:#e535ab;font-weight:bold;">GraphQLError</span>+++ =>  meaninful error data to the client
+* +++<span style="color:#e535ab;font-weight:bold;">GraphQLException</span>+++ => data for developers
+
+=== Error +++<span style="color:#e535ab;font-weight:bold;">>></span>+++ Exception
+
+[%step]
+* Throwing +++<span style="color:#e535ab;font-weight:bold;">GraphQLException</span>+++ comes at a cost
+* +++<span style="color:#e535ab;font-weight:bold;">GraphQLError</span>+++ could be just a simple data structure
+* U need to know about +++<span style="color:#e535ab;font-weight:bold;">instrumentations</span>+++
+
+=== +++<span></span>+++
+
+[%notitle]
+image::instrumentations.jpg[background, size=cover]
+
+=== Instrumentations
+
+[%step]
+* +++<span style="color:#e535ab;font-weight:bold;">Middleware</span>+++ executed before/after fields and data fetchers
+* +++<span style="color:#e535ab;font-weight:bold;">Error </span>+++handling, +++<span style="color:#e535ab;font-weight:bold;">security, tracing</span>+++... you name it!
+* +++<span style="color:#e535ab;font-weight:bold;">Can</span>+++ be chained
+* +++<span style="color:#e535ab;font-weight:bold;">Can</span>+++ modify the behavior of the execution flow
+
+=== Instrumentations
+
+[ditaa]
+....
+   +------------------------------+------------------------------+------------------------------+
+   |cYEL                          |cYEL                          |cYEL                          |
+   |       INSTRUMENTATION 1   ---|--->   INSTRUMENTATION 2   ---|--->   INSTRUMENTATION 3      |
+   |  |                           |                              |                              |
+   +------------------------------+------------------------------+------------------------------+
+   |  |                           |                              |                              |
+   |  |    Instrument Fields      |            ...               |            ...               |
+   |  |                           |                              |                              |
+   +------------------------------+------------------------------+------------------------------+
+   |  |                           |                              |                              |
+   |  | Instrument Data Fetchers  |            ...               |            ...               |
+   |  |                           |                              |                              |
+   +------------------------------+------------------------------+------------------------------+
+   |  |                           |                              |                              |
+   |  v   Instrument E. Resul     |            ...               |            ...               |
+   |                              |                              |                              |
+   +------------------------------+------------------------------+------------------------------+
+....
+
+=== +++<span style="color:#e535ab;font-weight:bold;">GOTO</span>+++ CODE

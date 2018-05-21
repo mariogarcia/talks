@@ -1,0 +1,138 @@
+== +++<span style="color:white;"></span>+++
+
+[%notitle]
+image::gettingstarted.jpg[background, size=cover]
+
+=== To exec your 1st +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ query
+
+[%step]
+- Define +++<span class="fragment" style="font-weight:bold;">Data Types</span>+++
+- Define +++<span class="fragment" style="font-weight:bold;">Query Types</span>+++
+- Define +++<span class="fragment" style="font-weight:bold;">Schema</span>+++
+- **Execute** +++<span class="fragment">queries against the defined schema</span>+++
+
+=== Define Data Types
+
+[source, groovy]
+----
+type Contestant {
+  name: String
+}
+
+type Raffle {
+  id: String
+  title: String
+  contestants: [Contestant]
+  noWinners: Int
+}
+----
+
+http://facebook.github.io/graphql/
+
+=== Define Queries
+
+[source, groovy]
+----
+type Query {
+   list: [Raffle]
+   getWinners(raffleId: String!): [Contestant]
+}
+----
+
+[%step]
+- Query is **just another type**
+- It defines **all possible queries** over defined types
+- Queries can use other **types** or **scalars**
+- Queries may have **arguments**
+
+=== Define Schema
+
+[source, groovy]
+----
+type schema {
+   query: Query
+   mutation: Mutation
+}
+----
+
+[%step]
+- Which is the type for **queries**
+- Which is the type for **mutations**
+
+=== Execute a query
+
+[source, json]
+.**query**: "give me (id, title) of all **raffles**
+----
+{
+  list {
+    id
+    title
+  }
+}
+----
+
+[source, json]
+.**result**: list of available raffles
+----
+{
+  "data": {
+    "list": [
+     {
+      "id": "pfoqjfq09w8jf",
+      "title": "A Greach T-Shirt"
+     }
+    ]
+  }
+}
+----
+
+=== Validation
+
+[source, groovy]
+.**raffleId** was mandatory
+----
+type Query {
+  ...
+  winners(raffleId: String!): [Contestant]
+  ...
+}
+----
+
+[source, json]
+.Invalid query
+----
+{
+  winners {
+    name
+  }
+}
+----
+
+[%notitle]
+=== SHUT UP AND SHOW ME CODE!
+
+image::showmecode.gif[background, size=cover]
+
+=== GraphQL and JVM
+
+[%notitle]
+image::graphql_java.png[]
+
+https://github.com/graphql-java
+
+[%notitle]
+=== Groovy time!
+
+image::groovy-time.gif[background, size=cover]
+
+=== First +++<span style="color:#286b86;font-weight:bold;">Groovy</span>+++ example
+
+[%step]
+* +++<span style="color:#286b86;font-weight:bold;">GQL</span>+++ (https://github.com/grooviter/gql)
+* **DSL** on top of https://github.com/graphql-java/[GraphQL-Java]
+
+=== +++<span style="color:#e535ab;font-weight:bold;">GOTO</span>+++ code
+
+
+=== Time to expose our schema through +++<span style="color:#286b86;font-weight:bold;">HTTP</span>+++

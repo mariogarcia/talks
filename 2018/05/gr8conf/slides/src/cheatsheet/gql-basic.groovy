@@ -1,5 +1,7 @@
-@Grab('com.github.grooviter:gql-core:0.2.0')
+@Grab('com.github.grooviter:gql-core:0.3.0')
+@GrabExclude('org.codehaus.groovy:groovy-all')
 import gql.DSL
+import graphql.schema.DataFetchingEnvironment
 
 RAFFLES = evaluate('gql-data-raffles.groovy' as File)
 
@@ -9,31 +11,28 @@ def Contestant = DSL.type('Contestant') {
 }
 
 def Raffle = DSL.type('Raffle') {
-    field 'id', GraphQLInt
+    field 'id', GraphQLString
     field 'title', GraphQLString
     field 'contestants', list(Contestant)
 }
-
-// 2 & 3. DEFINE queries & schema
+// 2. DEFINE SCHEMA
 def Schema = DSL.schema {
     queries {
         field('list') {
-            type list(Contestant)
-            argument 'max', GraphQLInt
+            type(list(Contestant))
+            argument('max', GraphQLInt)
             fetcher { env ->
-                RAFFLES
-                    .find()
-                    .contestants
-                    .take(env.arguments.max)
+                RAFFLES.find().contestants.take(env.arguments.max)
             }
         }
     }
 }
 
+
 // 4. EXECUTE query
 def query = '''
  {
-   list(max: 2) {
+   list(max: 4) {
     name
    }
  }

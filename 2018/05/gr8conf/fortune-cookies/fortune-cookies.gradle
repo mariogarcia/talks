@@ -1,0 +1,30 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath "io.ratpack:ratpack-gradle:1.5.1"
+    classpath "com.github.jengelman.gradle.plugins:shadow:1.2.4"
+  }
+}
+
+apply plugin: "io.ratpack.ratpack-groovy"
+apply plugin: "com.github.johnrengelman.shadow"
+apply plugin: "idea"
+apply plugin: "eclipse"
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  runtime 'org.slf4j:slf4j-simple:1.7.25'
+  // tag::gql-ratpack[]
+  compile 'com.github.grooviter:gql-ratpack:0.3.0'
+  // end::gql-ratpack[]
+  // tag::h2[]
+  compile 'com.h2database:h2:1.4.196'
+  // end::h2[]
+
+  testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+}

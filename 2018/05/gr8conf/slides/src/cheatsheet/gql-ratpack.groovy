@@ -16,13 +16,10 @@ def Schema = DSL.mergeSchemas {
     byURI(new File('Greach.graphql').toURI()) {
         mapType('Queries') {
             link('winners') { env ->
-                def contestants = RAFFLES
+                return RAFFLES
                     .find { it.id == env.arguments.raffleId }
                     .contestants
-
-                Collections.shuffle(contestants)
-
-                return contestants
+                    .sort { a, b -> new Random().nextInt() }
                     .take(env.arguments.noWinners)
             }
         }
