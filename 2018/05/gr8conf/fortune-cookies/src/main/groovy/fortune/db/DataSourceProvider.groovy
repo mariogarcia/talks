@@ -1,21 +1,23 @@
-package fortune
+package fortune.db
 
 import javax.inject.Inject
 import javax.inject.Provider
+
+import fortune.config.Config
 import org.h2.jdbcx.JdbcDataSource
 import javax.sql.DataSource
 
 class DataSourceProvider implements Provider<DataSource> {
 
   @Inject
-  Map config // <1>
+  Config config
 
   @Override
-  DataSource get() { // <2>
+  DataSource get() {
     return new JdbcDataSource(
-      URL: config.url,
-      user: config.username,
-      password: config.password ?: ''
+      URL: config.database.url,
+      user: config.database.username,
+      password: config.database.password ?: ''
     )
   }
 }

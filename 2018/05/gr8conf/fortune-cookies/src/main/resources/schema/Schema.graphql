@@ -1,7 +1,8 @@
-type Queries { # <1>
+type Queries {
   randomCookie: Cookie
+  login(credentials: Credentials!): UserProfile
 }
 
 schema {
-  query: Queries # <2>
+  query: Queries
 }
