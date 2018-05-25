@@ -7,8 +7,8 @@ import fortune.db.DataSourceProvider
 import fortune.graphql.InstrumentationProvider
 import fortune.graphql.SchemaProvider
 import fortune.init.FixturesService
-import fortune.security.SecurityAwareConfig
-import fortune.security.UserProfileRepository
+import fortune.security.config.SecurityAwareConfig
+import fortune.security.user.UserProfileRepository
 import graphql.execution.instrumentation.Instrumentation
 import graphql.schema.GraphQLSchema
 import javax.sql.DataSource

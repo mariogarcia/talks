@@ -1,4 +1,4 @@
-package fortune.security
+package fortune.security.user
 
 /**
  * @since 0.1.0

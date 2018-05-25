@@ -1,8 +1,9 @@
-package fortune.security.auth
+package fortune.security.instrumentation
 
 import javax.inject.Inject
 
-import fortune.security.UserProfile
+import fortune.security.user.DefaultUserProfile
+import fortune.security.user.UserProfile
 import graphql.execution.instrumentation.NoOpInstrumentation
 import graphql.execution.instrumentation.parameters.InstrumentationFieldFetchParameters
 import graphql.schema.DataFetcher
@@ -20,27 +21,34 @@ import ratpack.http.Request
  */
 @Slf4j
 @TupleConstructor
-class AuthenticationInstrumentation extends NoOpInstrumentation {
+class Authentication extends NoOpInstrumentation {
 
+    /**
+     * Service responsible to check authentication credentials
+     *
+     * @since 0.1.0
+     */
     @Inject
     AuthenticationService securityService
 
     @Override
     DataFetcher<?> instrumentDataFetcher(DataFetcher<?> dataFetcher, InstrumentationFieldFetchParameters params) {
-        log.info('instrumenting DataFetcher to check authentication')
+        log.debug('instrumenting DataFetcher to check authentication')
 
         DataFetchingEnvironment environment = params.environment
         Context context = environment.context as Context
 
-        DataFetcher fetcher = context
-                .header('Authorization')
-                .flatMap(AuthenticationInstrumentation.&extractToken)
-                .flatMap(securityService.&checkToken)
-                .map(AuthenticationInstrumentation.&addUserProfileToRequest.curry(context))
-                .map { dataFetcher }
-                .orElse(dataFetcher) as DataFetcher
+        UserProfile userProfile = context
+            .header('Authorization')
+            .flatMap(Authentication.&extractToken)
+            .flatMap(securityService.&checkToken)
+            .orElse(DefaultUserProfile.ANONYMOUS())
 
-        return fetcher
+        return Optional
+            .of(userProfile)
+            .map(Authentication.&addUserProfileToRequest.curry(context))
+            .map { dataFetcher }
+            .orElse(dataFetcher) as DataFetcher
     }
 
     /**

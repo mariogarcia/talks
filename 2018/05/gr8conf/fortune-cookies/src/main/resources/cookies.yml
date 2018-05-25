@@ -4,4 +4,11 @@ database:
   password:
 
 security:
-  secret: mysupersecret
+  crypto:
+    secret: mysupersecret
+
+  authorization:
+    mappings:
+      /__schema: ANONYMOUS
+      /login: ANONYMOUS
+      /randomCookie: ANONYMOUS

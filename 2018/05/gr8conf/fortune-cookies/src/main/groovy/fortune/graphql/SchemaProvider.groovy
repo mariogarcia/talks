@@ -4,7 +4,7 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 import fortune.CookiesService
-import fortune.security.auth.AuthenticationService
+import fortune.security.instrumentation.AuthenticationService
 import graphql.schema.GraphQLSchema
 import gql.DSL
 

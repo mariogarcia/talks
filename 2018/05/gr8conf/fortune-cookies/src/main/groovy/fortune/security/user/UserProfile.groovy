@@ -1,4 +1,4 @@
-package fortune.security
+package fortune.security.user
 
 /**
  * @since 0.1.0
@@ -21,5 +21,5 @@ interface UserProfile {
      * @return
      * @since 0.1.0
      */
-    List<String> getRoles()
+    Set<String> getRoles()
 }

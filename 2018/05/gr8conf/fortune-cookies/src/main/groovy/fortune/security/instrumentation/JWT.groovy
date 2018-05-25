@@ -1,12 +1,10 @@
-package fortune.security.auth
+package fortune.security.instrumentation
 
-import javax.inject.Inject
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
-import com.auth0.jwt.JWT
+
 import com.auth0.jwt.algorithms.Algorithm
 import com.auth0.jwt.interfaces.DecodedJWT
-import fortune.security.SecurityAwareConfig
 
 /**
  * Crytographic functions

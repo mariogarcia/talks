@@ -8,6 +8,7 @@ RAFFLES = evaluate('gql-data-raffles.groovy' as File)
 // 1. DEFINE data types
 def Contestant = DSL.type('Contestant') {
     field 'name', GraphQLString
+    field 'age', GraphQLFloat
 }
 
 def Raffle = DSL.type('Raffle') {
@@ -15,31 +16,36 @@ def Raffle = DSL.type('Raffle') {
     field 'title', GraphQLString
     field 'contestants', list(Contestant)
 }
+
 // 2. DEFINE SCHEMA
+
 def Schema = DSL.schema {
     queries {
         field('list') {
-            type(list(Contestant))
-            argument('max', GraphQLInt)
-            fetcher { env ->
-                RAFFLES.find().contestants.take(env.arguments.max)
-            }
+            type list(Contestant)
+            argument 'max', nonNull(GraphQLInt)
+            fetcher(this.&getContestants)
         }
     }
 }
 
+List<Map> getContestants(DataFetchingEnvironment env) {
+    return RAFFLES
+        .find()
+        .contestants
+        .take(env.arguments.max)
+}
 
 // 4. EXECUTE query
 def query = '''
  {
-   list(max: 4) {
+   list(max: 2) {
     name
+    age
    }
  }
 '''
 
-def result = DSL
-    .execute(Schema, query)
-    .data
+def result = DSL.execute(Schema, query)
 
-println result
+println result.data ?: result.errors
