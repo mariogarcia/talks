@@ -5,7 +5,7 @@ import org.pac4j.core.profile.UserProfile
 /**
  * @since 0.1.0
  */
-class UserRepository implements UserProfileRepository {
+class UserProfileRepositoryImpl implements UserProfileRepository {
 
     @Override
     UserProfile findByCredentials(String username, String password) {

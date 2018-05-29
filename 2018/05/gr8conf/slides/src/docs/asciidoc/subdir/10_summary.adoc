@@ -6,8 +6,11 @@ image::summary.png[background, size=80%]
 
 [%step]
 * Is not a one-for-all technology
-* Is an improvement **interacting** with the **front-end**
-* Is Back +++<span style="color:#e535ab;font-weight:bold;">&#10084;</span>+++ Front
+** You have one endpoint that only does one thing...
+** Maybe REST is what you need
+* Is specially an improvement **interacting** with the **front-end**
+* GraphQL It's not limited to HTTP
+* As a query language is still underestimated
 * Still requires more traction
 
 === Questions ?

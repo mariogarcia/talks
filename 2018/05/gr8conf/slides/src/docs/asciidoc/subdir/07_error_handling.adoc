@@ -13,8 +13,8 @@ image::errors.jpg[background, size=cover]
 === Error +++<span style="color:#e535ab;font-weight:bold;">vs</span>+++ Exception
 
 [%step]
-* +++<span style="color:#e535ab;font-weight:bold;">GraphQLError</span>+++ =>  meaninful error data to the client
-* +++<span style="color:#e535ab;font-weight:bold;">GraphQLException</span>+++ => data for developers
+* +++<span style="color:#e535ab;font-weight:bold;">GraphQLError</span>+++ =>  has meaninful error data to the client
+* +++<span style="color:#e535ab;font-weight:bold;">GraphQLException</span>+++ => has more information for developers
 
 === Error +++<span style="color:#e535ab;font-weight:bold;">>></span>+++ Exception
 

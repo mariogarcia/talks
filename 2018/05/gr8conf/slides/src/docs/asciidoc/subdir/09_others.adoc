@@ -6,3 +6,14 @@
 * GraphQL good practices
 ** https://facebook.github.io/relay/
 ** http://graphql.org/learn/best-practices/
+
+=== Alternatives to Ratpack + GQL
+
+[%step]
+* GORM-GraphQL
+** If you like GORM
+** And fits your plan
+** Use it
+* Plain GraphQL Java
+** DIY
+

@@ -59,7 +59,7 @@ asciidoctorj {
 }
 
 asciidoctor {
-  dependsOn download
+    dependsOn download
 	sources {
 		include 'index.adoc'
 	}

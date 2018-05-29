@@ -9,26 +9,25 @@ image::security.jpg[background, size=cover]
 * Did I mention that +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ is a query language ?
 * It *knows nothing* about security mechanisms
 * We have to make the engine aware of security...
-* Using the "context"
+* Using the **Context**
 
 === Context
 
 [%step]
-* Can be any type of data structure (Map, List...)
-* Will carry information from **HTTP** to the GraphQL execution flow
-* Available through all the execution flow (instrumentations and data fetchers)
+* Can carry **information from outside** to the GraphQL execution flow
+* Can be **any type** of data structure (Map, List...)
+* **Available through all** the execution flow (instrumentations and data fetchers)
 
-=== Using JUST intrumentations
+=== Two strategies
+
+=== Using Instrumentation
 
 [%step]
 * More control
-* Harder to integrate with Ratpack's execution runtime
-* Limited
+* Harder to integrate with Ratpack's execution model
 
-=== Using HTTP authentication
+=== Using REST + Instrumentation
 
 [%step]
-* You can use already implemented solutions (Pac4j)
+* You can use already implemented integrations (Pac4j)
 * Easier to integration with Ratpack's execution runtime
-
-

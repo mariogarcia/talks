@@ -1,3 +1,36 @@
-== Ratpack's execution model
+== +++<span style="color:white;"></span>+++
 
-TODO
+[%notitle]
+image::workflow.gif[background, size=80%]
+
+=== +++<span style="color:#286b86;font-weight:bold;">Ratpack's</span>+++ execution model
+
+=== +++<span style="color:#286b86;font-weight:bold;">Ratpack's</span>+++ execution model (II)
+
+[ditaa]
+....
+                       +--------------------+
+                       |                    |
+                       |    SERVICE LOGIC   |
+                       |                    |
+                       +----------+---------+
+                                  |
+                                  |
+                       +----------+-------------+
+                       |                        |
+          BLOCKING     |                        |          NOT BLOCKING
+        (IO, JDBC...)  |                        |  (async calls, Cassandra e.g.)
+                       v                        v
+               +-------+-------+        +-------+-------+
+               |   BLOCKING    |        | NOT BLOCKING  |
+               |   EXECUTOR    |        |   EXECUTOR    |
+               +---------------+        +---------------+
+....
+
+=== Honor Ratpack's executors
+
+[%step]
+- **CompletableFuture** can be used as a service return type
+- Access executors via **ratpack.exec.Execution**
+- Execute **CompletableFuture** using the proper **executor**
+- Create your own abstractions
