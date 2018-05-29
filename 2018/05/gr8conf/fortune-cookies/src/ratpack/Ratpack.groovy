@@ -2,7 +2,6 @@ import static ratpack.groovy.Groovy.ratpack
 import static ratpack.pac4j.RatpackPac4j.authenticator
 import static ratpack.pac4j.RatpackPac4j.requireAuth
 
-
 import fortune.config.Config
 import fortune.cookies.CookiesModule
 import fortune.db.DbModule
