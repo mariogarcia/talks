@@ -3,9 +3,9 @@
 [%notitle]
 image::workflow.gif[background, size=80%]
 
-=== +++<span style="color:#286b86;font-weight:bold;">Ratpack's</span>+++ execution model
+=== +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++'s execution model
 
-=== +++<span style="color:#286b86;font-weight:bold;">Ratpack's</span>+++ execution model (II)
+=== +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++'s execution model (II)
 
 [ditaa]
 ....
@@ -27,7 +27,7 @@ image::workflow.gif[background, size=80%]
                +---------------+        +---------------+
 ....
 
-=== Honor Ratpack's executors
+=== Honor +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++'s executors
 
 [%step]
 - **CompletableFuture** can be used as a service return type

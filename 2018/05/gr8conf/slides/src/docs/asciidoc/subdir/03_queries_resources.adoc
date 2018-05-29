@@ -12,14 +12,14 @@ image::rest_layout.png[]
 === Resources +++<span style="color:#e535ab;font-weight:bold;">FrontEnd</span>+++
 
 [%step]
-- Have to coordinate data coming from different resources
+- Has to **coordinate** data coming from **different resources**
 - Several calls to different endpoints
 
 === Resources +++<span style="color:#e535ab;font-weight:bold;">Backend</span>+++
 
 [%step]
-- New controller/handler for every new resource
-- Consider different ways of serving data depending on parameters
+- New **controller/handler** for every new resource
+- Implement different **data views**
 
 === Resources +++<span style="color:#e535ab;font-weight:bold;">vs</span>+++ Queries (II)
 
@@ -37,22 +37,25 @@ image::graphql_layout.png[]
 image::ratpack_trio.jpg[background, size=cover]
 
 === +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++ + +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++
+http://ratpack.io
 
-=== Why Ratpack ?
-
-[%step]
-- Ratpack is lightweight
-- Ratpack is performant (Netty)
-- It is a lean and powerful foundation, **not** an all-encompassing framework.
-- http://ratpack.io
-
-=== Integrating <span style="color:#e535ab;font-weight:bold;">graphql-java</span>+++ and +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++
+=== Why +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++ ?
 
 [%step]
-- +++<span style="color:#286b86;font-weight:bold;">gql-ratpack</span>+++ provides
-- +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ endpoint
-- +++<span style="color:#e535ab;font-weight:bold;">GraphiQL console</span>+++
-- https://grooviter.github.io/gql/docs/html5/index.html#_ratpack
+* Is **lightweight**
+** It is a **lean and powerful foundation**, **not** an all-encompassing framework.
+* Very good **performance**
+** Netty + Ratpack's execution model
+
+=== Exposing +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ with +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++
+
+[%step]
+* +++<span style="color:#286b86;font-weight:bold;">gql-ratpack</span>+++
+** Module of +++<span style="color:#286b86;font-weight:bold;">GQL</span>+++ project
+** https://grooviter.github.io/gql/docs/html5/index.html#_ratpack
+* It provides:
+** +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ endpoint
+** +++<span style="color:#e535ab;font-weight:bold;">GraphiQL console</span>+++
 
 === Documentation: +++<span style="color:#e535ab;font-weight:bold;">GraphiQL</span>+++
 

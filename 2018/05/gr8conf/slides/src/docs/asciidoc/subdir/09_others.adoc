@@ -3,17 +3,17 @@
 === Relay
 
 [%step]
-* GraphQL good practices
+* +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ good practices
 ** https://facebook.github.io/relay/
 ** http://graphql.org/learn/best-practices/
 
-=== Alternatives to Ratpack + GQL
+=== Alternatives to +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++ + +++<span style="color:#286b86;font-weight:bold;">GQL</span>+++
 
 [%step]
-* GORM-GraphQL
-** If you like GORM
-** And fits your plan
-** Use it
-* Plain GraphQL Java
+* **gorm-graphql** with/without Grails
+** If you like GORM, and fits your plan, use it!
+** https://github.com/grails/gorm-graphql
+* **graphql-java**
 ** DIY
+** http://graphql-java.readthedocs.io/en/latest/
 
