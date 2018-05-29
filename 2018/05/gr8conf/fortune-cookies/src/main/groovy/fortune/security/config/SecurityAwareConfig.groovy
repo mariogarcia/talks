@@ -16,13 +16,6 @@ interface SecurityAwareConfig {
      * @since 0.1.0
      */
     static class SecurityConfig {
-        /**
-         * Contains hashing and cryptographic properties
-         *
-         * @return hashing properties
-         * @since 0.1.0
-         */
-        CryptoConfig crypto
 
         /**
          * Contains authorization mappings information
@@ -31,20 +24,6 @@ interface SecurityAwareConfig {
          * @since 0.1.0
          */
         AuthorizationConfig authorization
-    }
-
-    /**
-     * Contains hashing and cryptographic related properties
-     *
-     * @since 0.1.0
-     */
-    static class CryptoConfig {
-        /**
-         * Secret used to hash passwords and tokens
-         *
-         * @since 0.1.0
-         */
-        String secret
     }
 
     /**
@@ -63,6 +42,10 @@ interface SecurityAwareConfig {
          * @since 0.1.0
          */
         Map<String, String> mappings
+
+        Boolean schema
+
+        Boolean allowPartials
     }
 
     /**

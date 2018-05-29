@@ -1,16 +1,16 @@
 package fortune.security.instrumentation
 
 import javax.inject.Inject
-import java.util.function.Predicate
 import groovy.util.logging.Slf4j
 
-import fortune.security.user.UserProfile
 import gql.DSL
+import graphql.GraphQLError
+import graphql.execution.ExecutionTypeInfo
 import graphql.execution.instrumentation.NoOpInstrumentation
 import graphql.execution.instrumentation.parameters.InstrumentationFieldFetchParameters
-import graphql.GraphQLError
 import graphql.schema.DataFetcher
 import graphql.schema.DataFetchingEnvironment
+import org.pac4j.core.profile.UserProfile
 import ratpack.handling.Context
 
 /**
@@ -20,6 +20,16 @@ import ratpack.handling.Context
  */
 @Slf4j
 class Authorization extends NoOpInstrumentation {
+
+    /**
+     * In case some fetcher has not been authorised but don't want
+     * to return an error but nothing instead.
+     *
+     * @since 0.1.0
+     */
+    static final DataFetcher<?> EMPTY_FETCHER = { DataFetchingEnvironment env ->
+        return null
+    }
 
     /**
      * Service responsible to check whether a {@link UserProfile} is allowed to
@@ -34,22 +44,45 @@ class Authorization extends NoOpInstrumentation {
     DataFetcher<?> instrumentDataFetcher(DataFetcher<?> dataFetcher, InstrumentationFieldFetchParameters params) {
         log.debug('instrumenting DataFetcher to check authorization')
 
-        DataFetchingEnvironment environment = params.environment
-        Context context = environment.context as Context
-        String executionPath = params.typeInfo.path
+        Context context = params.environment.context as Context
+        ExecutionTypeInfo typeInfo = params.typeInfo
+        String path = typeInfo.path
+        DataFetcher notAllowed = getNotAllowedFetcher(authorizationService.allowPartials(), params)
 
+        /**
+         * Schema instrospection is controlled by configuration flag ALL/NOTHING
+         */
+        if (path.startsWith('/__schema')) {
+            if (authorizationService.isSchemaVisible()) {
+                return dataFetcher
+            } else {
+                return getAuthorizationFailureFetcher(params)
+            }
+        }
+
+        /**
+         * For any other GraphQL path
+         */
         return context
-            .request
             .maybeGet(UserProfile)
-            .filter(byUserProfile(executionPath))
+            .filter(authorizationService.&isAllowed.rcurry(path))
             .map { dataFetcher }
-            .orElse(getAuthorizationFailureFetcher(params)) as DataFetcher
+            .orElseGet { notAllowed } as DataFetcher
     }
 
-    private Predicate<UserProfile> byUserProfile(String path) {
-        return { UserProfile profile ->
-            return authorizationService.isAllowed(profile, path)
-        }
+    /**
+     * When somebody is not allowed to execute a given fetcher you can choose whether to return
+     * an error and stop executing nested fetchers or, just to return an empty value.
+     *
+     * @param partialsAllowed true if you want to return empty values when not authorized
+     * @param params current instance of {@link InstrumentationFieldFetchParameters} from execution flow
+     * @return an instance of {@link DataFetcher} as the result of authorization not granted
+     * @since 0.1.0
+     */
+    static DataFetcher<?> getNotAllowedFetcher(Boolean partialsAllowed, InstrumentationFieldFetchParameters params) {
+        return partialsAllowed ?
+                EMPTY_FETCHER :
+                getAuthorizationFailureFetcher(params)
     }
 
     /**

@@ -4,11 +4,10 @@ database:
   password:
 
 security:
-  crypto:
-    secret: mysupersecret
-
   authorization:
+    schema: true
+    allowPartials: true
     mappings:
-      /__schema: ANONYMOUS
       /login: ANONYMOUS
-      /randomCookie: ANONYMOUS
+      /randomCookie: USER
+      /cookies: ANONYMOUS

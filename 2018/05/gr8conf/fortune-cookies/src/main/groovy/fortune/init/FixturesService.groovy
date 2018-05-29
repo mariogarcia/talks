@@ -6,11 +6,15 @@ import ratpack.service.Service
 import ratpack.service.StartEvent
 
 /**
+ * Loads initial database data
+ *
  * @since 0.1.0
  */
 class FixturesService implements Service {
 
   /**
+   * Database connection ref
+   *
    * @since 0.1.0
    */
   @Inject
@@ -26,18 +30,10 @@ class FixturesService implements Service {
     )
     '''
 
-    sql.execute '''
-    INSERT INTO cookies
-      (AUTHOR, TEXT)
-    VALUES
-    ('Anonymous', 'Dont talk to strangers')
-    '''
+    sql.execute "INSERT INTO cookies (AUTHOR, TEXT) VALUES ('Anonymous', 'Dont talk to strangers')"
+    sql.execute "INSERT INTO cookies (AUTHOR, TEXT) VALUES ('Anonymous', 'The greatest risk is not taking one')"
+    sql.execute "INSERT INTO cookies (AUTHOR, TEXT) VALUES ('Anonymous', 'Groovy is so cool!')"
+    sql.execute "INSERT INTO cookies (AUTHOR, TEXT) VALUES ('Anonymous', 'Better late than never')"
 
-    sql.execute '''
-    INSERT INTO cookies
-      (AUTHOR, TEXT)
-    VALUES
-      ('Anonymous', 'The greatest risk is not taking one')
-    '''
   }
 }

@@ -3,27 +3,24 @@ package fortune.graphql
 import javax.inject.Inject
 import javax.inject.Provider
 
-import fortune.CookiesService
-import fortune.security.instrumentation.AuthenticationService
+import fortune.cookies.CookiesService
 import graphql.schema.GraphQLSchema
 import gql.DSL
 
 /**
+ * Loads application's GraphQL Schema
+ *
  * @since 0.1.0
  */
 class SchemaProvider implements Provider<GraphQLSchema> {
 
   /**
+   * Service to access fortune cookies
+   *
    * @since 0.1.0
    */
   @Inject
   CookiesService cookiesService
-
-  /**
-   * @since 0.1.0
-   */
-  @Inject
-  AuthenticationService authenticationService
 
   @Override
   GraphQLSchema get() {
@@ -32,7 +29,7 @@ class SchemaProvider implements Provider<GraphQLSchema> {
       byResource('schema/Security.graphql')
       byResource('schema/Schema.graphql') {
         mapType('Queries') {
-            link('login', authenticationService.&login)
+            link('cookies', cookiesService.&listCookies)
             link('randomCookie', cookiesService.&findRandomCookie)
         }
       }

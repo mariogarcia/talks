@@ -7,6 +7,11 @@ import fortune.config.Config
 import org.h2.jdbcx.JdbcDataSource
 import javax.sql.DataSource
 
+/**
+ * Configures datasource connection
+ *
+ * @since 0.1.0
+ */
 class DataSourceProvider implements Provider<DataSource> {
 
   @Inject

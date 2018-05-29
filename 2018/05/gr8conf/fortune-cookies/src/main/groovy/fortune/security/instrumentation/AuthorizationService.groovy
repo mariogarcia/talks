@@ -3,7 +3,7 @@ package fortune.security.instrumentation
 import javax.inject.Inject
 
 import fortune.security.config.SecurityAwareConfig
-import fortune.security.user.UserProfile
+import org.pac4j.core.profile.UserProfile
 
 /**
  * Checks current user roles with the ones required for
@@ -50,8 +50,16 @@ class AuthorizationService {
             .collect(AuthorizationService.&convertToMapping)
 
         return resolveMapping(mappings, path)
-            .map(AuthorizationService.&checkConstraints.rcurry(userProfile.roles))
+            .map(AuthorizationService.&checkConstraints.rcurry(userProfile.roles as Set))
             .orElse(false)
+    }
+
+    Boolean isSchemaVisible() {
+        return config.security.authorization.schema
+    }
+
+    Boolean allowPartials() {
+        return config.security.authorization.allowPartials
     }
 
     static Optional<Mapping> resolveMapping(List<Mapping> mappings, String path) {

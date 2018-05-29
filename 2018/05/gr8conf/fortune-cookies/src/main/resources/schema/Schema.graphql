@@ -1,5 +1,6 @@
 type Queries {
   randomCookie: Cookie
+  cookies(max: Int!, offset: Int!): [Cookie]
   login(credentials: Credentials!): UserProfile
 }
 

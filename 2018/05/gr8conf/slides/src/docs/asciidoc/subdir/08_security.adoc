@@ -13,14 +13,22 @@ image::security.jpg[background, size=cover]
 
 === Context
 
-* Not to be confused with *ExecutionContext*
-* Available through all the execution flow
+[%step]
 * Can be any type of data structure (Map, List...)
+* Will carry information from **HTTP** to the GraphQL execution flow
+* Available through all the execution flow (instrumentations and data fetchers)
 
-=== Grails vs GQL/Ratpack
+=== Using JUST intrumentations
 
 [%step]
-* +++<span style="color:#feb672;font-weight:bold;">Grails</span>+++ => **DefaultGraphQLContextBuilder**
-** Can add any **bean** to be available in the context
-* +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++ => Ratpack's **Context**
-** Makes *everything* available in the context
+* More control
+* Harder to integrate with Ratpack's execution runtime
+* Limited
+
+=== Using HTTP authentication
+
+[%step]
+* You can use already implemented solutions (Pac4j)
+* Easier to integration with Ratpack's execution runtime
+
+

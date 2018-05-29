@@ -18,7 +18,7 @@ include::subdir/02_execute_query.adoc[]
 
 include::subdir/03_queries_resources.adoc[]
 
-include::subdir/05_persistence.adoc[]
+include::subdir/05_execution.adoc[]
 
 include::subdir/07_error_handling.adoc[]
 
