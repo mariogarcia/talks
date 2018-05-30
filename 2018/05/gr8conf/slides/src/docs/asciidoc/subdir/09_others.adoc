@@ -1,5 +1,12 @@
 == What is left ?
 
+=== +++<span style="color:white;"></span>+++
+
+[%notitle]
+image::alot.gif[background, size=40%]
+
+=== A lot but...
+
 === Relay
 
 [%step]
