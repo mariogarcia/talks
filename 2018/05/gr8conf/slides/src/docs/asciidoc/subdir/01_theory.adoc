@@ -1,3 +1,7 @@
+=== Why this talk ?
+
+image::experience.gif[size=90%]
+
 == +++<span style="color:white;"></span>+++
 
 [%notitle]

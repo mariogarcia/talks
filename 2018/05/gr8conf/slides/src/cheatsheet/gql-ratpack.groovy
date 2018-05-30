@@ -8,25 +8,29 @@ import gql.DSL
 import gql.ratpack.GraphQLModule
 import gql.ratpack.GraphQLHandler
 import gql.ratpack.GraphiQLHandler
+import graphql.ExecutionResult
+import graphql.ExecutionResultImpl
+import graphql.schema.DataFetchingEnvironment
 
 RAFFLES = evaluate('gql-data-raffles.groovy' as File)
 
 // 1. LINK SCHEMA
 def Schema = DSL.mergeSchemas {
-    byURI(new File('Greach.graphql').toURI()) {
-        mapType('Queries') {
-            link('winners') { env ->
-                return RAFFLES
-                    .find { it.id == env.arguments.raffleId }
-                    .contestants
-                    .sort { a, b -> new Random().nextInt() }
-                    .take(env.arguments.noWinners)
-            }
-        }
+    byURI(new File('Schema.graphql').toURI()){
+
     }
 }
 
-// 2. CONFIGURE RATPACK
+// 2. DATA FETCHER
+List<Map> getWinners(DataFetchingEnvironment  env) {
+    return RAFFLES
+            .find { it.id == env.arguments.raffleId }
+            .contestants
+            .sort { a, b -> new Random().nextInt() }
+            .take(env.arguments.noWinners)
+}
+
+// 3. CONFIGURE RATPACK
 ratpack {
     bindings {
       module GraphQLModule

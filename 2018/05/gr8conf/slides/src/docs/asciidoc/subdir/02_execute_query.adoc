@@ -129,6 +129,7 @@ image::groovy-time.gif[background, size=cover]
 === First +++<span style="color:#286b86;font-weight:bold;">Groovy</span>+++ example
 
 [%step]
+* Execute a simple query
 * +++<span style="color:#286b86;font-weight:bold;">GQL</span>+++ (https://github.com/grooviter/gql)
 * **DSL** on top of https://github.com/graphql-java/[GraphQL-Java]
 

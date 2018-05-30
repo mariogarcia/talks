@@ -8,29 +8,8 @@ Actually things aren't that bad
 [%notitle]
 image::me.png[background, size=cover]
 
-[%step]
-* **Name**
-** Mario Garcia
-* **You can find me**:
-** https://twitter.com/marioggar
-** https://github.com/mariogarcia
-
-=== Working at +++<span style="color:#942951;font-weight:bold;">Kaleidos</span>+++
-
-image::kaleidos.jpg[]
-
-=== Member of ...
-
-image::madrid_gug.png[]
-
-=== +++<span style="color:#286b86;font-weight:bold;">Groovy</span>+++ developer since...
-
-=== +++<span></span>+++
-
-[%notitle]
-image::dont_remember.gif[background, size=800x400]
-
-=== Nowadays working with JS...
-
-[%notitle]
-image::dark_side.gif[]
+* **Mario Garcia**
+** Twitter: **@marioggar**
+** Github: **mariogarcia**
+** Currently working for: **kaleidos.net**
+** Member of **Madrid GUG**

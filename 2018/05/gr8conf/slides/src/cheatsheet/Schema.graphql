@@ -1,6 +1,7 @@
 # A possible winner for a given raffle
 type Contestant {
   name: String
+  age: Float
 }
 
 # A raffle

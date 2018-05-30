@@ -34,3 +34,10 @@ image::workflow.gif[background, size=80%]
 - Access executors via **ratpack.exec.Execution**
 - Execute **CompletableFuture** using the proper **executor**
 - Create your own abstractions
+
+=== Abstractions
+
+[source, groovy]
+----
+include::{cookies}/src/main/groovy/fortune/cookies/CookiesServiceImpl.groovy[tags=futures,indent=0]
+----

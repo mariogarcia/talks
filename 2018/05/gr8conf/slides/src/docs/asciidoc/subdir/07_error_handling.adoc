@@ -7,21 +7,635 @@ image::errors.jpg[background, size=cover]
 
 [%step]
 * +++<span style="color:#37b5e4;font-weight:bold;">REST</span>+++ => HTTP codes
-* +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ error messages in responses
-* +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ still different approaches
+* +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ => rich messages
 
 === Error +++<span style="color:#e535ab;font-weight:bold;">vs</span>+++ Exception
 
 [%step]
-* +++<span style="color:#e535ab;font-weight:bold;">GraphQLError</span>+++ =>  has meaninful error data to the client
-* +++<span style="color:#e535ab;font-weight:bold;">GraphQLException</span>+++ => has more information for developers
+* `graphql.GraphQLError`
+** has meaninful error data to the client
+* `graphql.GraphQLException`
+** has more information for developers
+
+=== Error
+
+[source, json]
+----
+{
+  "data": null,
+  "errors": [
+    {
+      "message": "Validation error of type MissingFieldArgument: Missing field argument raffleId",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "description": "Missing field argument raffleId",
+      "validationErrorType": "MissingFieldArgument",
+      "errorType": "ValidationError",
+      "path": null,
+      "extensions": null
+    }
+  ]
+}
+----
+
+=== Exception
+
+[source, json]
+----
+{
+  "data": {
+    "winners": null
+  },
+  "errors": [
+    {
+      "message": "Exception while fetching data (/winners) : null",
+      "path": [
+        "winners"
+      ],
+      "exception": {
+        "cause": {
+          "cause": null,
+          "stackTrace": [
+            {
+              "methodName": "newInstance0",
+              "fileName": "NativeConstructorAccessorImpl.java",
+              "lineNumber": -2,
+              "className": "sun.reflect.NativeConstructorAccessorImpl",
+              "nativeMethod": true
+            },
+            {
+              "methodName": "newInstance",
+              "fileName": "NativeConstructorAccessorImpl.java",
+              "lineNumber": 62,
+              "className": "sun.reflect.NativeConstructorAccessorImpl",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "newInstance",
+              "fileName": "DelegatingConstructorAccessorImpl.java",
+              "lineNumber": 45,
+              "className": "sun.reflect.DelegatingConstructorAccessorImpl",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "newInstance",
+              "fileName": "Constructor.java",
+              "lineNumber": 423,
+              "className": "java.lang.reflect.Constructor",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "invoke",
+              "fileName": "CachedConstructor.java",
+              "lineNumber": 83,
+              "className": "org.codehaus.groovy.reflection.CachedConstructor",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "callConstructor",
+              "fileName": "ConstructorSite.java",
+              "lineNumber": 105,
+              "className": "org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "defaultCallConstructor",
+              "fileName": "CallSiteArray.java",
+              "lineNumber": 60,
+              "className": "org.codehaus.groovy.runtime.callsite.CallSiteArray",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "callConstructor",
+              "fileName": "AbstractCallSite.java",
+              "lineNumber": 235,
+              "className": "org.codehaus.groovy.runtime.callsite.AbstractCallSite",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "callConstructor",
+              "fileName": "AbstractCallSite.java",
+              "lineNumber": 247,
+              "className": "org.codehaus.groovy.runtime.callsite.AbstractCallSite",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "doCall",
+              "fileName": "gql-ratpack.groovy",
+              "lineNumber": 22,
+              "className": "gql-ratpack$_run_closure1$_closure5$_closure6$_closure7",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "invoke0",
+              "fileName": "NativeMethodAccessorImpl.java",
+              "lineNumber": -2,
+              "className": "sun.reflect.NativeMethodAccessorImpl",
+              "nativeMethod": true
+            },
+            {
+              "methodName": "invoke",
+              "fileName": "NativeMethodAccessorImpl.java",
+              "lineNumber": 62,
+              "className": "sun.reflect.NativeMethodAccessorImpl",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "invoke",
+              "fileName": "DelegatingMethodAccessorImpl.java",
+              "lineNumber": 43,
+              "className": "sun.reflect.DelegatingMethodAccessorImpl",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "invoke",
+              "fileName": "Method.java",
+              "lineNumber": 498,
+              "className": "java.lang.reflect.Method",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "invoke",
+              "fileName": "CachedMethod.java",
+              "lineNumber": 93,
+              "className": "org.codehaus.groovy.reflection.CachedMethod",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "doMethodInvoke",
+              "fileName": "MetaMethod.java",
+              "lineNumber": 325,
+              "className": "groovy.lang.MetaMethod",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "invokeMethod",
+              "fileName": "ClosureMetaClass.java",
+              "lineNumber": 294,
+              "className": "org.codehaus.groovy.runtime.metaclass.ClosureMetaClass",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "invokeMethod",
+              "fileName": "MetaClassImpl.java",
+              "lineNumber": 1027,
+              "className": "groovy.lang.MetaClassImpl",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "call",
+              "fileName": "Closure.java",
+              "lineNumber": 414,
+              "className": "groovy.lang.Closure",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "invokeCustom",
+              "fileName": "ConvertedClosure.java",
+              "lineNumber": 54,
+              "className": "org.codehaus.groovy.runtime.ConvertedClosure",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "invoke",
+              "fileName": "ConversionHandler.java",
+              "lineNumber": 124,
+              "className": "org.codehaus.groovy.runtime.ConversionHandler",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "get",
+              "fileName": null,
+              "lineNumber": -1,
+              "className": "com.sun.proxy.$Proxy12",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "fetchField",
+              "fileName": "ExecutionStrategy.java",
+              "lineNumber": 222,
+              "className": "graphql.execution.ExecutionStrategy",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "resolveField",
+              "fileName": "ExecutionStrategy.java",
+              "lineNumber": 167,
+              "className": "graphql.execution.ExecutionStrategy",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "execute",
+              "fileName": "AsyncExecutionStrategy.java",
+              "lineNumber": 55,
+              "className": "graphql.execution.AsyncExecutionStrategy",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "executeOperation",
+              "fileName": "Execution.java",
+              "lineNumber": 153,
+              "className": "graphql.execution.Execution",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "execute",
+              "fileName": "Execution.java",
+              "lineNumber": 97,
+              "className": "graphql.execution.Execution",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "execute",
+              "fileName": "GraphQL.java",
+              "lineNumber": 546,
+              "className": "graphql.GraphQL",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "parseValidateAndExecute",
+              "fileName": "GraphQL.java",
+              "lineNumber": 488,
+              "className": "graphql.GraphQL",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "executeAsync",
+              "fileName": "GraphQL.java",
+              "lineNumber": 463,
+              "className": "graphql.GraphQL",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "executeAsync",
+              "fileName": "DSL.groovy",
+              "lineNumber": 163,
+              "className": "gql.DSL",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "lambda$null$2",
+              "fileName": "GraphQLHandler.java",
+              "lineNumber": 67,
+              "className": "gql.ratpack.GraphQLHandler",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "lambda$null$2",
+              "fileName": "DefaultExecution.java",
+              "lineNumber": 118,
+              "className": "ratpack.exec.internal.DefaultExecution",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "exec",
+              "fileName": "DefaultExecution.java",
+              "lineNumber": 457,
+              "className": "ratpack.exec.internal.DefaultExecution$SingleEventExecStream",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "exec",
+              "fileName": "DefaultExecution.java",
+              "lineNumber": 196,
+              "className": "ratpack.exec.internal.DefaultExecution",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "intercept",
+              "fileName": "DefaultExecution.java",
+              "lineNumber": 189,
+              "className": "ratpack.exec.internal.DefaultExecution",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "drain",
+              "fileName": "DefaultExecution.java",
+              "lineNumber": 169,
+              "className": "ratpack.exec.internal.DefaultExecution",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "<init>",
+              "fileName": "DefaultExecution.java",
+              "lineNumber": 93,
+              "className": "ratpack.exec.internal.DefaultExecution",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "lambda$start$0",
+              "fileName": "DefaultExecController.java",
+              "lineNumber": 195,
+              "className": "ratpack.exec.internal.DefaultExecController$1",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "run",
+              "fileName": "PromiseTask.java",
+              "lineNumber": 73,
+              "className": "io.netty.util.concurrent.PromiseTask",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "safeExecute",
+              "fileName": "AbstractEventExecutor.java",
+              "lineNumber": 163,
+              "className": "io.netty.util.concurrent.AbstractEventExecutor",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "runAllTasks",
+              "fileName": "SingleThreadEventExecutor.java",
+              "lineNumber": 403,
+              "className": "io.netty.util.concurrent.SingleThreadEventExecutor",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "run",
+              "fileName": "EpollEventLoop.java",
+              "lineNumber": 309,
+              "className": "io.netty.channel.epoll.EpollEventLoop",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "run",
+              "fileName": "SingleThreadEventExecutor.java",
+              "lineNumber": 858,
+              "className": "io.netty.util.concurrent.SingleThreadEventExecutor$5",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "lambda$newThread$0",
+              "fileName": "DefaultExecController.java",
+              "lineNumber": 136,
+              "className": "ratpack.exec.internal.DefaultExecController$ExecControllerBindingThreadFactory",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "run",
+              "fileName": "DefaultThreadFactory.java",
+              "lineNumber": 138,
+              "className": "io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "run",
+              "fileName": "Thread.java",
+              "lineNumber": 748,
+              "className": "java.lang.Thread",
+              "nativeMethod": false
+            }
+          ],
+          "message": "this is a mess",
+          "localizedMessage": "this is a mess",
+          "suppressed": []
+        },
+        "stackTrace": [
+          {
+            "methodName": "get",
+            "fileName": null,
+            "lineNumber": -1,
+            "className": "com.sun.proxy.$Proxy12",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "fetchField",
+            "fileName": "ExecutionStrategy.java",
+            "lineNumber": 222,
+            "className": "graphql.execution.ExecutionStrategy",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "resolveField",
+            "fileName": "ExecutionStrategy.java",
+            "lineNumber": 167,
+            "className": "graphql.execution.ExecutionStrategy",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "execute",
+            "fileName": "AsyncExecutionStrategy.java",
+            "lineNumber": 55,
+            "className": "graphql.execution.AsyncExecutionStrategy",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "executeOperation",
+            "fileName": "Execution.java",
+            "lineNumber": 153,
+            "className": "graphql.execution.Execution",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "execute",
+            "fileName": "Execution.java",
+            "lineNumber": 97,
+            "className": "graphql.execution.Execution",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "execute",
+            "fileName": "GraphQL.java",
+            "lineNumber": 546,
+            "className": "graphql.GraphQL",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "parseValidateAndExecute",
+            "fileName": "GraphQL.java",
+            "lineNumber": 488,
+            "className": "graphql.GraphQL",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "executeAsync",
+            "fileName": "GraphQL.java",
+            "lineNumber": 463,
+            "className": "graphql.GraphQL",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "executeAsync",
+            "fileName": "DSL.groovy",
+            "lineNumber": 163,
+            "className": "gql.DSL",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "lambda$null$2",
+            "fileName": "GraphQLHandler.java",
+            "lineNumber": 67,
+            "className": "gql.ratpack.GraphQLHandler",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "lambda$null$2",
+            "fileName": "DefaultExecution.java",
+            "lineNumber": 118,
+            "className": "ratpack.exec.internal.DefaultExecution",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "exec",
+            "fileName": "DefaultExecution.java",
+            "lineNumber": 457,
+            "className": "ratpack.exec.internal.DefaultExecution$SingleEventExecStream",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "exec",
+            "fileName": "DefaultExecution.java",
+            "lineNumber": 196,
+            "className": "ratpack.exec.internal.DefaultExecution",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "intercept",
+            "fileName": "DefaultExecution.java",
+            "lineNumber": 189,
+            "className": "ratpack.exec.internal.DefaultExecution",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "drain",
+            "fileName": "DefaultExecution.java",
+            "lineNumber": 169,
+            "className": "ratpack.exec.internal.DefaultExecution",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "<init>",
+            "fileName": "DefaultExecution.java",
+            "lineNumber": 93,
+            "className": "ratpack.exec.internal.DefaultExecution",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "lambda$start$0",
+            "fileName": "DefaultExecController.java",
+            "lineNumber": 195,
+            "className": "ratpack.exec.internal.DefaultExecController$1",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "run",
+            "fileName": "PromiseTask.java",
+            "lineNumber": 73,
+            "className": "io.netty.util.concurrent.PromiseTask",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "safeExecute",
+            "fileName": "AbstractEventExecutor.java",
+            "lineNumber": 163,
+            "className": "io.netty.util.concurrent.AbstractEventExecutor",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "runAllTasks",
+            "fileName": "SingleThreadEventExecutor.java",
+            "lineNumber": 403,
+            "className": "io.netty.util.concurrent.SingleThreadEventExecutor",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "run",
+            "fileName": "EpollEventLoop.java",
+            "lineNumber": 309,
+            "className": "io.netty.channel.epoll.EpollEventLoop",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "run",
+            "fileName": "SingleThreadEventExecutor.java",
+            "lineNumber": 858,
+            "className": "io.netty.util.concurrent.SingleThreadEventExecutor$5",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "lambda$newThread$0",
+            "fileName": "DefaultExecController.java",
+            "lineNumber": 136,
+            "className": "ratpack.exec.internal.DefaultExecController$ExecControllerBindingThreadFactory",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "run",
+            "fileName": "DefaultThreadFactory.java",
+            "lineNumber": 138,
+            "className": "io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator",
+            "nativeMethod": false
+          },
+          {
+            "methodName": "run",
+            "fileName": "Thread.java",
+            "lineNumber": 748,
+            "className": "java.lang.Thread",
+            "nativeMethod": false
+          }
+        ],
+        "undeclaredThrowable": {
+          "cause": null,
+          "stackTrace": [
+            {
+              "methodName": "newInstance0",
+              "fileName": "NativeConstructorAccessorImpl.java",
+              "lineNumber": -2,
+              "className": "sun.reflect.NativeConstructorAccessorImpl",
+              "nativeMethod": true
+            },
+            {
+              "methodName": "newInstance",
+              "fileName": "NativeConstructorAccessorImpl.java",
+              "lineNumber": 62,
+              "className": "sun.reflect.NativeConstructorAccessorImpl",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "newInstance",
+              "fileName": "DelegatingConstructorAccessorImpl.java",
+              "lineNumber": 45,
+              "className": "sun.reflect.DelegatingConstructorAccessorImpl",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "newInstance",
+              "fileName": "Constructor.java",
+              "lineNumber": 423,
+              "className": "java.lang.reflect.Constructor",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "invoke",
+              "fileName": "CachedConstructor.java",
+              "lineNumber": 83,
+              "className": "org.codehaus.groovy.reflection.CachedConstructor",
+              "nativeMethod": false
+            },
+            {
+              "methodName": "callConstructor",
+              "fileName": "ConstructorSite.java",
+              "lineNumber": 105,
+              "className": "org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce",
+              "nativeMethod": false
+            }
+...
+}
+----
 
 === Error +++<span style="color:#e535ab;font-weight:bold;">>></span>+++ Exception
 
 [%step]
-* Throwing +++<span style="color:#e535ab;font-weight:bold;">GraphQLException</span>+++ comes at a cost
-* +++<span style="color:#e535ab;font-weight:bold;">GraphQLError</span>+++ could be just a simple data structure
-* U need to know about +++<span style="color:#e535ab;font-weight:bold;">instrumentations</span>+++
+* Throwing an **exception** is expensive
+* Returning an **error** is just a simple data structure
+
+=== Error +++<span style="color:#e535ab;font-weight:bold;">>></span>+++ Exception (II)
+
+You need to be aware of +++<span style="color:#e535ab;font-weight:bold;">instrumentations</span>+++
 
 === +++<span></span>+++
 
@@ -59,4 +673,4 @@ image::instrumentations.jpg[background, size=cover]
    +------------------------------+------------------------------+------------------------------+
 ....
 
-=== +++<span style="color:#e535ab;font-weight:bold;">GOTO</span>+++ CODE
+=== A good example... +++<span style="color:#e535ab;font-weight:bold;">security</span>+++

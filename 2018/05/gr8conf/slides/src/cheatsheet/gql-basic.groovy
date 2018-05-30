@@ -6,9 +6,8 @@ import graphql.schema.DataFetchingEnvironment
 RAFFLES = evaluate('gql-data-raffles.groovy' as File)
 
 // 1. DEFINE data types
-
-// =====> Contestant(id, name, age)
-// =====> Raffle(id, name, contestants)
+// ====> Contestant(name, age)
+// ====> Raffle(title, contestants)
 
 // 2. DEFINE SCHEMA
 // ====> list(list(Contestant))
@@ -21,6 +20,7 @@ List<Map> getContestants(DataFetchingEnvironment env) {
 }
 
 // 3. EXECUTE query
+// 4. VALIDATION ERROR (optional)
 def query = '''
  {
    list(max: 2) {
@@ -37,3 +37,4 @@ def result = DSL
     }
 
 println result
+

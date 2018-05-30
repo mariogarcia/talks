@@ -37,14 +37,16 @@ class CookiesServiceImpl implements  CookiesService {
       return new Random().nextInt(upperBound.toInteger())
   }
 
+    // tag::futures[]
   @Override
   CompletableFuture<List<Map>> listCookies(DataFetchingEnvironment env) {
       Selectors.ListCookiesParams params = Selectors.listCookiesParams(env)
 
-      return Futures.blocking {
+      return Futures.blocking { // <-- blocking operation
           repository.list(params)
       }
   }
+    // end::futures[]
 
   @Override
   CompletableFuture<Map> createCookie(DataFetchingEnvironment env) {

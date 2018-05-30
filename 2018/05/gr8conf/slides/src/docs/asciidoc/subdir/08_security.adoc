@@ -3,7 +3,7 @@
 [%notitle]
 image::security.jpg[background, size=cover]
 
-=== **Security**
+=== Security
 
 [%step]
 * Did I mention that +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ is a query language ?
@@ -24,10 +24,16 @@ image::security.jpg[background, size=cover]
 
 [%step]
 * More control
-* Harder to integrate with Ratpack's execution model
+* **Harder to integrate** with Ratpack's execution model
 
-=== Using REST + Instrumentation
+=== Using +++<span style="color:#286b86;font-weight:bold;">REST</span>+++ + Instrumentation
 
 [%step]
-* You can use already implemented integrations (Pac4j)
-* Easier to integration with Ratpack's execution runtime
+* You can use already implemented integrations (**Pac4j**)
+* **Easier to integrate** with Ratpack's execution runtime
+
+=== Using +++<span style="color:#286b86;font-weight:bold;">REST</span>+++ + Instrumentation...
+* +++<span style="color:#286b86;font-weight:bold;">gql-ratpack</span>+++ embraces this choice
+* `gql.ratpack.pac4j.GraphQLHandler`
+
+=== +++<span style="color:#e535ab;font-weight:bold;">GOTO</span>+++ code

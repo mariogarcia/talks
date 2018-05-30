@@ -8,7 +8,7 @@
 :docinfodir: _shared
 ifndef::imagesdir[:imagesdir: images]
 ifndef::slidesMain[:slidesMain: ../../../../../slides]
-ifndef::gorm[:gorm: ../../../../../raffle-grails]
+ifndef::cookies[:cookies: ../../../../../fortune-cookies]
 
 include::subdir/00_me.adoc[]
 
