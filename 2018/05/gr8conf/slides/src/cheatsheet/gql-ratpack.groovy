@@ -5,14 +5,10 @@
 import static ratpack.groovy.Groovy.ratpack
 
 import gql.DSL
-import gql.ratpack.GraphQLModule
 import gql.ratpack.GraphQLHandler
+import gql.ratpack.GraphQLModule
 import gql.ratpack.GraphiQLHandler
-import graphql.ExecutionResult
-import graphql.ExecutionResultImpl
 import graphql.schema.DataFetchingEnvironment
-
-RAFFLES = evaluate('gql-data-raffles.groovy' as File)
 
 // 1. LINK SCHEMA
 def Schema = DSL.mergeSchemas {
@@ -21,16 +17,7 @@ def Schema = DSL.mergeSchemas {
     }
 }
 
-// 2. DATA FETCHER
-List<Map> getWinners(DataFetchingEnvironment  env) {
-    return RAFFLES
-            .find { it.id == env.arguments.raffleId }
-            .contestants
-            .sort { a, b -> new Random().nextInt() }
-            .take(env.arguments.noWinners)
-}
-
-// 3. CONFIGURE RATPACK
+// 2. CONFIGURE RATPACK
 ratpack {
     bindings {
       module GraphQLModule
@@ -41,4 +28,22 @@ ratpack {
         post('graphql', GraphQLHandler)
         get('graphql/browser', GraphiQLHandler)
     }
+}
+
+
+
+
+
+
+
+
+// 3. PROPER IMPLEMENTATION
+List<Map> getWinners(DataFetchingEnvironment  env) {
+    def contestants = evaluate('gql-data-raffles.groovy' as File)
+            .find { it.id == env.arguments.raffleId }
+            .contestants
+
+    Collections.shuffle(contestants)
+
+    return contestants.take(env.arguments.noWinners)
 }
