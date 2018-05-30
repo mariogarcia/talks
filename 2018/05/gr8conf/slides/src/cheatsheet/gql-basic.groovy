@@ -2,18 +2,17 @@
 @GrabExclude('org.codehaus.groovy:groovy-all')
 import gql.DSL
 import graphql.schema.DataFetchingEnvironment
-
-RAFFLES = evaluate('gql-data-raffles.groovy' as File)
-
 // 1. DEFINE data types
 // ====> Contestant(name, age)
+
 // ====> Raffle(title, contestants)
 
 // 2. DEFINE SCHEMA
 // ====> list(list(Contestant))
 
+
 List<Map> getContestants(DataFetchingEnvironment env) {
-    return RAFFLES
+    return evaluate('gql-data-raffles.groovy' as File)
         .find()
         .contestants
         .take(env.arguments.max)
