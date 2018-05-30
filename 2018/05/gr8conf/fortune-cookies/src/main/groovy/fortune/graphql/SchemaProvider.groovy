@@ -4,8 +4,8 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 import fortune.cookies.CookiesServiceImpl
-import graphql.schema.GraphQLSchema
 import gql.DSL
+import graphql.schema.GraphQLSchema
 
 /**
  * Loads application's GraphQL Schema
@@ -29,11 +29,11 @@ class SchemaProvider implements Provider<GraphQLSchema> {
       byResource('schema/Security.graphql')
       byResource('schema/Schema.graphql') {
         mapType('Queries') {
-            link('cookies', cookiesService.&listCookies)
-            link('randomCookie', cookiesService.&findRandomCookie)
+          link('cookies', cookiesService.&listCookies)
+          link('randomCookie', cookiesService.&findRandomCookie)
         }
         mapType('Mutations') {
-            link('create', cookiesService.&createCookie)
+          link('createCookie', cookiesService.&createCookie)
         }
       }
     }

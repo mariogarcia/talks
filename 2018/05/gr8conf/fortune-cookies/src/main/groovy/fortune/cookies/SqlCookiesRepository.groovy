@@ -68,16 +68,18 @@ class SqlCookiesRepository implements CookiesRepository {
      * @since 0.1.0
      */
     Map create(Selectors.CreateCookieParams params) {
-        log.debug('create new cookie')
+        log.info('new cookie is going to be created')
 
-        List<String> keyColumns = ['ID', 'AUTHOR', 'TEXT']
-        List<GroovyRowResult> results = sql.executeInsert(
-            'INSERT INTO cookies (AUTHOR, TEXT) VALUES (:author, :text)',
-            keyColumns,
-            author: params.author,
-            text: params.text
-        )
+        String insertSql = 'INSERT INTO cookies (AUTHOR, TEXT) VALUES (:author, :text)'
+        List<GroovyRowResult> results = sql
+            .executeInsert(
+                insertSql,
+                author: params.author,
+                text: params.text)
 
-        return results.find()
+        Integer id = results.flatten().find()
+        Map cookie = sql.firstRow('SELECT * FROM cookies WHERE id = :id', id: id)
+
+        return cookie
     }
 }

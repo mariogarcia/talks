@@ -11,3 +11,4 @@ security:
       /login: ANONYMOUS
       /randomCookie: USER
       /cookies: ANONYMOUS
+      /createCookie: USER

@@ -41,12 +41,6 @@ class CookiesServiceImpl implements  CookiesService {
   CompletableFuture<List<Map>> listCookies(DataFetchingEnvironment env) {
       Selectors.ListCookiesParams params = Selectors.listCookiesParams(env)
 
-      // Getting pac4j UserProfile from Context
-      Context context = env.context as Context
-      UserProfile profile = context.get(UserProfile)
-
-      log.debug("user ${profile.getAttribute('username')} is listing cookies")
-
       return Futures.blocking {
           repository.list(params)
       }
@@ -55,6 +49,12 @@ class CookiesServiceImpl implements  CookiesService {
   @Override
   CompletableFuture<Map> createCookie(DataFetchingEnvironment env) {
       Selectors.CreateCookieParams params = Selectors.createCookieParams(env)
+
+      // Getting pac4j UserProfile from Context
+      Context context = env.context as Context
+      UserProfile profile = context.get(UserProfile)
+
+      log.info("user ${profile.getAttribute('username')} is going to create a new cookie")
 
       return Futures.blocking {
           repository.create(params)
