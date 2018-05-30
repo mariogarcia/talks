@@ -1,6 +1,6 @@
 @Grapes([
   @Grab('io.ratpack:ratpack-groovy:1.5.1'),
-  @Grab('com.github.grooviter:gql-ratpack:0.2.0')
+  @Grab('com.github.grooviter:gql-ratpack:0.3.1')
 ])
 import static ratpack.groovy.Groovy.ratpack
 

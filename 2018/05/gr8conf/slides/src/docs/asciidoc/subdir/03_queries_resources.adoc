@@ -20,6 +20,7 @@ image::rest_layout.png[]
 [%step]
 - New **controller/handler** for every new resource
 - Implement different **data views**
+- Input formal validation
 
 === Resources +++<span style="color:#e535ab;font-weight:bold;">vs</span>+++ Queries (II)
 
@@ -30,6 +31,7 @@ image::graphql_layout.png[]
 - +++<span style="color:#e535ab;font-weight:bold;">Queries</span>+++ and +++<span style="color:#e535ab;font-weight:bold;">Mutations</span>+++ can be **batched**
 - +++<span style="color:#e535ab;font-weight:bold;">Queries</span>+++ are executed in **parallel**
 - No more **controllers** / **handlers**
+- +++<span style="color:#e535ab;font-weight:bold;">GraphQL engine </span>+++takes care of input **formal validation**
 
 === +++<span style="color:#fdc329;"></span>+++
 
