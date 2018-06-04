@@ -13,7 +13,10 @@ import graphql.schema.DataFetchingEnvironment
 // 1. LINK SCHEMA
 def Schema = DSL.mergeSchemas {
     byURI(new File('Schema.graphql').toURI()){
-        // PROTOTYPING
+        mapType('Queries') {
+            link('winners', this.&getWinners)
+
+        }
     }
 }
 

@@ -17,7 +17,7 @@ image::alot.gif[background, size=40%]
 === Alternatives to +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++ + +++<span style="color:#286b86;font-weight:bold;">GQL</span>+++
 
 [%step]
-* **gorm-graphql** with/without Grails
+* **gorm-graphql** with/without Grails, Micronaut...
 ** If you like GORM, and fits your plan, use it!
 ** https://github.com/grails/gorm-graphql
 * **graphql-java**
