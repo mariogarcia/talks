@@ -9,7 +9,7 @@
 
 image::enough.gif[background, size=90%]
 
-=== Is there a better way ?
+=== Wanted to find a better way
 
 === Unfortunately...
 

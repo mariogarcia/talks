@@ -34,9 +34,9 @@ image::graphql_layout.png[]
 
 image::expose_graphql.png[background, size=35%]
 
-=== Today only time for:
+=== Only time for:
 
-image::ratpack_grails.png[background,size=35%]
+image::ratpack_grails.png[background,size=30%]
 
 === +++<span style="color:#fdc329;"></span>+++
 
@@ -49,7 +49,7 @@ image::ratpack_logo.png[background, size=60%]
 * Is **lightweight**
 ** It is a **lean and powerful foundation**, **not** an all-encompassing framework.
 * Very good **performance**
-** Netty + Ratpack's execution model
+** Netty + execution model
 
 === Exposing +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ with +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++
 

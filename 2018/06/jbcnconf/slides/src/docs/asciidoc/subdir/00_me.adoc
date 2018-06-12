@@ -11,14 +11,24 @@ image::me.png[background, size=cover]
 [%step]
 * **Name**
 ** Mario Garcia
+* Currently working at **Kaleidos**
+** https://kaleidos.net
+
+=== Me
+
+[NOTE.speaker]
+--
+Actually things aren't that bad
+--
+
+[%notitle]
+image::me.png[background, size=cover]
+
+[%step]
+* **Usual suspect of:**
+** Madrid Groovy User Group
 * **You can find me**:
 ** https://twitter.com/marioggar
 ** https://github.com/mariogarcia
-
-=== Member of...
-
-image::madrid_gug.png[]
-
-=== Working at Kaleidos
-
-image::kaleidos.jpg[]
+* **Presentation and code**
+** https://github.com/mariogarcia/talks
