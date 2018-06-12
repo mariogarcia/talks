@@ -1,0 +1,14 @@
+database:
+  url: jdbc:h2:mem::test;DB_CLOSE_DELAY=-1
+  username: sa
+  password:
+
+security:
+  authorization:
+    schema: true
+    allowPartials: true
+    mappings:
+      /login: ANONYMOUS
+      /randomCookie: USER
+      /cookies: ANONYMOUS
+      /createCookie: USER

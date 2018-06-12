@@ -1,0 +1,23 @@
+# A possible winner for a given raffle
+type Contestant {
+  name: String
+  age: Float
+}
+
+# A raffle
+type Raffle {
+  id: String
+  title: String
+  contestants: [Contestant]
+  noWinners: Int
+}
+
+# Available queries
+type Queries {
+  contestants(max: Int!): [Contestant]
+  winners(raffleId: Int!, noWinners: Int!): [Contestant]
+}
+
+schema {
+  query: Queries
+}

@@ -1,0 +1,101 @@
+== +++<span></span>+++
+
+[%notitle]
+image::security.jpg[background, size=cover]
+
+=== Security
+
+[%step]
+- Instrumentations
+- REST
+
+=== Instrumentations
+
+[%step]
+* +++<span style="color:#e535ab;font-weight:bold;">Middleware</span>+++ executed before/after fields and data fetchers
+* +++<span style="color:#e535ab;font-weight:bold;">Error </span>+++handling, +++<span style="color:#e535ab;font-weight:bold;">security, tracing</span>+++... you name it!
+* +++<span style="color:#e535ab;font-weight:bold;">Can</span>+++ be chained
+* +++<span style="color:#e535ab;font-weight:bold;">Can</span>+++ modify the behavior of the execution flow
+
+=== Instrumentations
+
+[ditaa]
+....
+   +------------------------------+------------------------------+------------------------------+
+   |cYEL                          |cYEL                          |cYEL                          |
+   |       INSTRUMENTATION 1   ---|--->   INSTRUMENTATION 2   ---|--->   INSTRUMENTATION 3      |
+   |  |                           |                              |                              |
+   +------------------------------+------------------------------+------------------------------+
+   |  |                           |                              |                              |
+   |  |    Instrument Fields      |            ...               |            ...               |
+   |  |                           |                              |                              |
+   +------------------------------+------------------------------+------------------------------+
+   |  |                           |                              |                              |
+   |  | Instrument Data Fetchers  |            ...               |            ...               |
+   |  |                           |                              |                              |
+   +------------------------------+------------------------------+------------------------------+
+   |  |                           |                              |                              |
+   |  v   Instrument E. Resul     |            ...               |            ...               |
+   |                              |                              |                              |
+   +------------------------------+------------------------------+------------------------------+
+....
+
+=== Security
+
+[%step]
+* +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ *knows nothing* about security mechanisms
+* We have to make +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ aware of security...
+* Using the **Context**
+
+=== Context
+
+[%step]
+* Can add extra **information** to the GraphQL execution flow
+* Can be **any type** of data structure (Map, List...)
+* **Available through all** the execution flow
+** Instrumentations
+** Data fetchers
+
+=== Authentication
+
+Two strategies
+
+=== Authentication
+
+[%step]
+* **ONLY** instrumentations
+** DIY
+** Login/Logout are GraphQL mutations
+* **REST** + instrumentations
+** You can use already implemented integrations
+** REST endpoints for Login/Logout
+
+=== +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++ authentication
+
+[%step]
+* +++<span style="color:#286b86;font-weight:bold;">gql-ratpack</span>+++ provides:
+** **gql.ratpack.pac4j.GraphQLHandler**
+* You can access **Pac4j** user profile from data fetcher
+* You can access **Ratpack's** registry from data fetcher
+
+=== +++<span style="color:#dea716;font-weight:bold;">Grails </span>+++ authentication
+
+[%step]
+* +++<span style="color:#dea716;font-weight:bold;">Grails</span>+++ has a bullet proof integration with **Spring Security**
+* You can access **springSecurityContext** from data fetchers
+
+=== Authorization
+
+Two strategies as well :P
+
+=== Authorization
+
+[%step]
+* Using a **instrumentation**
+** No authorization code in your data fetchers
+** Harder
+* Using **data fetchers**
+** Check permissions in data fetchers
+** Easier
+
+=== +++<span style="color:#e535ab;font-weight:bold;">GOTO</span>+++ code

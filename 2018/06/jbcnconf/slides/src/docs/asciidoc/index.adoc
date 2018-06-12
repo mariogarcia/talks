@@ -1,0 +1,32 @@
+= +++<span style="color:#286b86;font-weight:bold;">Groovy</span>+++.+++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ +++<br/>+++
+@marioggar
+2017-03-30
+:revnumber: {project-version}
+:example-caption!:
+:source-autofit:
+:docinfo:
+:docinfodir: _shared
+ifndef::imagesdir[:imagesdir: images]
+ifndef::slidesMain[:slidesMain: ../../../../../slides]
+ifndef::cookies[:cookies: ../../../../../fortune-cookies]
+ifndef::gorm[:gorm: ../../../../../raffle-grails]
+
+include::subdir/00_me.adoc[]
+
+include::subdir/01_theory.adoc[]
+
+include::subdir/02_execute_query.adoc[]
+
+include::subdir/03_queries_resources.adoc[]
+
+include::subdir/05_execution.adoc[]
+
+include::subdir/05_persistence.adoc[]
+
+// include::subdir/07_error_handling.adoc[]
+
+include::subdir/08_security.adoc[]
+
+include::subdir/09_others.adoc[]
+
+include::subdir/10_summary.adoc[]

@@ -1,0 +1,57 @@
+=== Why this talk ?
+
+[%step]
+- After 3 years of backend development
+- A lot of REST
+- To feed a really advanced front UI
+
+=== +++<span data="enough"></span>+++
+
+image::enough.gif[background, size=90%]
+
+=== Is there a better way ?
+
+=== Unfortunately...
+
+[%step]
+- No JVM project available
+- I joined a +++<u>JS</u>+++ and +++<u>Python</u>+++
+
+=== +++<span data="dark"></span>+++
+
+image::dark_side.gif[background, size=90%]
+
+=== However...
+
+- I brought my findings to JVM world
+
+== +++<span style="color:white;"></span>+++
+
+[%notitle]
+image::todo_list.jpg[background, size=cover]
+
+=== Today...
+
+[%step]
+- +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ theory
+- +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ + +++<span style="color:#286b86;font-weight:bold;">Groovy</span>+++
+- +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ + +++<span style="color:#286b86;font-weight:bold;">Ratpack</span>+++
+- +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ + +++<span style="color:#286b86;font-weight:bold;">Grails</span>+++
+- Summary
+
+== +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ Theory
+
+[%notitle]
+image::intro.jpg[background, size=cover]
+
+=== What is +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ ?
+
+[%step]
+* Is a **query language**
+* It uses **a type system** to define +++<u>data</u>+++ and +++<u>queries</u>+++
+
+=== What is **NOT** ?
+
+[%step]
+* It doesn't have to do with HTTP necessarily
+* +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ != *REST*

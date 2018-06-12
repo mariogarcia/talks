@@ -1,0 +1,24 @@
+== Hey +++<span style="color:#e535ab;font-weight:bold;">Hi</span>+++
+
+[NOTE.speaker]
+--
+Actually things aren't that bad
+--
+
+[%notitle]
+image::me.png[background, size=cover]
+
+[%step]
+* **Name**
+** Mario Garcia
+* **You can find me**:
+** https://twitter.com/marioggar
+** https://github.com/mariogarcia
+
+=== Member of...
+
+image::madrid_gug.png[]
+
+=== Working at Kaleidos
+
+image::kaleidos.jpg[]

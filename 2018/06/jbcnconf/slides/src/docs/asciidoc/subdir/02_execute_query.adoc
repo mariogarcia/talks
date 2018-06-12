@@ -1,0 +1,49 @@
+== +++<span style="color:white;"></span>+++
+
+[%notitle]
+image::gettingstarted.jpg[background, size=cover]
+
+=== To exec your 1st +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ query
+
+[%step]
+- Define +++<span class="fragment" style="font-weight:bold;">Data Types</span>+++
+- Define +++<span class="fragment" style="font-weight:bold;">Query Types</span>+++
+- Define +++<span class="fragment" style="font-weight:bold;">Schema</span>+++
+- **Execute** +++<span class="fragment">queries against the defined schema</span>+++
+- Get **data** or **errors**
+
+[%notitle]
+=== SHUT UP AND SHOW ME CODE!
+
+image::showmecode.gif[background, size=cover]
+
+=== GraphQL-JAVA
+
+[%notitle]
+image::graphql_java.png[]
+
+https://github.com/graphql-java
+
+=== graphql-java
+
+[%step]
+- +++<u>Reference</u>+++ implementation in the JVM
+- Really +++<u>active</u>+++ community
+- +++<u>Keeping up</u>+++ the pace of GraphQL specs and RIs
+
+[%notitle]
+=== Groovy time!
+
+image::groovy-time.gif[background, size=cover]
+
+=== First +++<span style="color:#286b86;font-weight:bold;">Groovy</span>+++ example
+
+[%step]
+* Execute a simple query
+* +++<span style="color:#286b86;font-weight:bold;">GQL</span>+++ (https://github.com/grooviter/gql)
+** +++<span style="color:#286b86;font-weight:bold;">Groovy</span>+++ DSL on top of https://github.com/graphql-java/[GraphQL-Java]
+
+=== +++<span style="color:#e535ab;font-weight:bold;">GOTO</span>+++ code
+
+
+=== Time to expose GraphQL => +++<span style="color:#286b86;font-weight:bold;">HTTP</span>+++

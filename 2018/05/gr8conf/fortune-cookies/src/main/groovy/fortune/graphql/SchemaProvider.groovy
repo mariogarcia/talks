@@ -24,7 +24,7 @@ class SchemaProvider implements Provider<GraphQLSchema> {
 
   @Override
   GraphQLSchema get() {
-    return DSL.mergeSchemas {
+    GraphQLSchema schema = DSL.mergeSchemas {
       byResource('schema/Cookie.graphql')
       byResource('schema/Security.graphql')
       byResource('schema/Schema.graphql') {
@@ -37,5 +37,7 @@ class SchemaProvider implements Provider<GraphQLSchema> {
         }
       }
     }
+
+    return schema
   }
 }

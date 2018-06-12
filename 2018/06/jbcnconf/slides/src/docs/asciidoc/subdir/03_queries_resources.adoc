@@ -1,0 +1,69 @@
+== Why +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ instead of +++<span style="color:#286b86;font-weight:bold;">REST</span>+++ ?
+
+=== Remember +++<span style="color:#286b86;font-weight:bold;">REST</span>+++ ?
+
+image::rest_layout.png[]
+
+=== Resources +++<span style="color:#e535ab;font-weight:bold;">FrontEnd</span>+++
+
+[%step]
+- Has to **coordinate** data coming from **different resources**
+- Several calls to different endpoints
+
+=== Resources +++<span style="color:#e535ab;font-weight:bold;">Backend</span>+++
+
+[%step]
+- New **controller/handler** for every new resource
+- Implement different **data views**
+- Input formal validation
+
+=== What about +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ ?
+
+image::graphql_layout.png[]
+
+=== +++<span style="color:#e535ab;font-weight:bold;">Faster</span>+++ interaction w +++<span style="color:#286b86;font-weight:bold;">Front End</span>+++
+[%step]
+- No more **controllers** / **handlers**
+- +++<span style="color:#e535ab;font-weight:bold;">Queries</span>+++ and +++<span style="color:#e535ab;font-weight:bold;">Mutations</span>+++ can be **batched**
+- +++<span style="color:#e535ab;font-weight:bold;">Queries</span>+++ can be executed in **parallel** in the server
+- +++<span style="color:#e535ab;font-weight:bold;">GraphQL engine </span>+++takes care of input **formal validation**
+
+=== Then how we +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ => +++<span style="color:#286b86;font-weight:bold;">HTTP</span>+++ ?
+
+=== +++<span data="exposing_graphql"></span>+++
+
+image::expose_graphql.png[background, size=35%]
+
+=== Today only time for:
+
+image::ratpack_grails.png[background,size=35%]
+
+=== +++<span style="color:#fdc329;"></span>+++
+
+[%notitle]
+image::ratpack_logo.png[background, size=60%]
+
+=== Why +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++ ?
+
+[%step]
+* Is **lightweight**
+** It is a **lean and powerful foundation**, **not** an all-encompassing framework.
+* Very good **performance**
+** Netty + Ratpack's execution model
+
+=== Exposing +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ with +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++
+
+[%step]
+* **gql-ratpack**
+** Module of gql exposing +++<u>graphql-java</u>+++ with +++<u>Ratpack</u>+++
+** https://grooviter.github.io/gql/docs/html5/index.html#_ratpack
+* Pure **Java**
+** No +++<u>GQL</u>+++ nor +++<u>Groovy</u>+++ dependencies
+
+=== Exposing +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ with +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>.+++
+
+[%step]
+* **gql-ratpack** provides:
+** +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ endpoint
+** +++<span style="color:#e535ab;font-weight:bold;">GraphiQL</span>+++ console
+** Util functions to deal with Ratpack's execution model

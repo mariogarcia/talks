@@ -1,0 +1,25 @@
+== +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++'s execution model
+
+Blocking VS **NON** Blocking
+
+=== +++<span data="exec_model"></span>+++
+
+image::ratpack_exec_model.jpg[background, size=80%]
+
+=== Honor +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++'s executors
+
+[%step]
+* Using **CompletableFuture** as return type of **DataFetcher**
+* Execute **CompletableFuture** using the proper **executor**
+** via **ratpack.exec.Execution**
+
+=== Abstractions
+
+[source, groovy]
+----
+include::{cookies}/src/main/groovy/fortune/cookies/CookiesServiceImpl.groovy[tags=futures,indent=0]
+----
+
+`gql.ratpack.exec.Futures`
+
+=== +++<span style="color:#e535ab;font-weight:bold;">GOTO</span>+++ code

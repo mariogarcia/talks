@@ -1,0 +1,10 @@
+include 'slides'
+include 'fortune-cookies'
+include 'raffle-grails'
+
+rootProject.name = 'graphql-jbcnconf-2018'
+
+rootProject.children.each { project ->
+    project.buildFileName = "${project.name}.gradle"
+    assert project.buildFile.isFile()
+}

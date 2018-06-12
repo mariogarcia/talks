@@ -1,0 +1,14 @@
+== +++<span></span>+++
+
+image::summary.png[background, size=80%]
+
+=== Summary: +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++
+
+[%step]
+* Is **not** a silver bullet
+* Is an **improvement**  between back/front
+* +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ **It's not limited** to HTTP
+
+=== Questions ?
+
+=== Thanks!

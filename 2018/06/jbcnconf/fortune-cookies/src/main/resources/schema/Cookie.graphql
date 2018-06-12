@@ -1,0 +1,9 @@
+type Cookie {
+  author: String
+  text: String
+}
+
+input CookieInput {
+  author: String!
+  text: String!
+}

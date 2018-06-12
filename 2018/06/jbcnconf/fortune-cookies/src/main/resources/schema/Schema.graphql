@@ -1,0 +1,13 @@
+type Queries {
+  randomCookie: Cookie
+  cookies(max: Int!, offset: Int!): [Cookie]
+}
+
+type Mutations {
+  createCookie(cookie: CookieInput!): Cookie
+}
+
+schema {
+  query: Queries
+  mutation: Mutations
+}

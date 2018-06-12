@@ -1,0 +1,26 @@
+== What is left ?
+
+=== +++<span style="color:white;"></span>+++
+
+[%notitle]
+image::alot.gif[background, size=40%]
+
+=== A lot but...
+
+=== Relay
+
+[%step]
+* +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ good practices
+** https://facebook.github.io/relay/
+** http://graphql.org/learn/best-practices/
+
+=== Alternatives
+
+[%step]
+* **gorm-graphql** without Grails
+** If you like GORM, and fits your plan, use it with some other web framework
+** Maybe with **micronaut.io** ?
+* **graphql-java**
+** DIY
+** http://graphql-java.readthedocs.io/en/latest/
+
