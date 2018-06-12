@@ -69,5 +69,3 @@ include::{gorm}/grails-app/domain/greach/raffles/Raffle.groovy[tags=custom, inde
 * *Meaning* that
 ** If any +++<span style="color:#e535ab;font-weight:bold;">relationship</span>+++ has been mapped...
 ** +++<span style="color:#feb672;font-weight:bold;">GORM</span>+++ will take care of **how** / **when** to load it
-
-=== +++<span style="color:#e535ab;font-weight:bold;">GOTO</span>+++ code

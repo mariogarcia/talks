@@ -8,12 +8,7 @@ image::ratpack_exec_model.jpg[background, size=80%]
 
 === Honor +++<span style="color:#dea716;font-weight:bold;">Ratpack</span>+++'s executors
 
-[%step]
-* Using **CompletableFuture** as return type of **DataFetcher**
-* Execute **CompletableFuture** using the proper **executor**
-** via **ratpack.exec.Execution**
-
-=== Abstractions
+=== CompletableFuture
 
 [source, groovy]
 ----
