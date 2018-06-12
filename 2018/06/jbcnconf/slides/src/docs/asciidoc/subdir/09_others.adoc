@@ -5,7 +5,14 @@
 [%notitle]
 image::alot.gif[background, size=40%]
 
-=== A lot but...
+=== A lot missing but...
+
+=== Error handling
+
+[%step]
+* +++<span style="color:#e535ab;font-weight:bold;">GraphQLError</span>+++ vs throwing **Exceptions**
+* Handling errors **as values**
+** http://vavr.io **Either.Left** types as GraphQLError instances
 
 === Relay
 
@@ -18,9 +25,7 @@ image::alot.gif[background, size=40%]
 
 [%step]
 * **gorm-graphql** without Grails
-** If you like GORM, and fits your plan, use it with some other web framework
-** Maybe with **micronaut.io** ?
+** If you like GORM, and fits your plan, you may use it with other web framework
 * **graphql-java**
 ** DIY
-** http://graphql-java.readthedocs.io/en/latest/
-
+** Choose your web framework and expose **GraphQL** instance

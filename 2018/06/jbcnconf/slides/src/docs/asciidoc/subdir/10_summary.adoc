@@ -6,7 +6,8 @@ image::summary.png[background, size=80%]
 
 [%step]
 * Is an **improvement**  between back/front
-* More power to the front end developer
+* More flexibility for the front end developer
+* More productivity for the back end developer
 * +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ engine takes care of some work for you
 * Is **not** a silver bullet. REST is still needed sometimes
 * +++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ **It's not limited** to HTTP
