@@ -1,5 +1,5 @@
-= +++<span style="color:#286b86;font-weight:bold;">Groovy</span>+++.+++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>+++ +++<br/>+++
-@marioggar
+= +++<span style="color:#286b86;font-weight:bold;">Groovy</span>+++&+++<span style="color:#e535ab;font-weight:bold;">GraphQL</span>++++++<br/>+++
+The peace pipe between front and back devs?
 2017-03-30
 :revnumber: {project-version}
 :example-caption!:

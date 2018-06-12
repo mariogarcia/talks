@@ -12,14 +12,7 @@ import gql.ratpack.GraphiQLHandler
 import graphql.schema.DataFetchingEnvironment
 
 // 1. LINK SCHEMA
-def Schema = DSL.mergeSchemas {
-    byURI(new File('Schema.graphql').toURI()){
-        mapType('Queries') {
-            link('winners', this.&getWinners)
-
-        }
-    }
-}
+def Schema = null
 
 // 2. CONFIGURE RATPACK
 ratpack {
