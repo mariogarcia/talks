@@ -38,22 +38,22 @@ include::{gorm}/grails-app/domain/greach/raffles/Contestant.groovy[indent=0]
 |Operation
 
 |Query
-|film(id: ..)
+|contestant(id: ..)
 
 |Query
-|filmList(max: .., sort: .., etc)
+|contestantList(max: .., sort: .., etc)
 
 |Query
-|filmCount
+|contestantCount
 
 |Mutation
-|filmCreate(film: {})
+|contestantCreate(film: {})
 
 |Mutation
-|filmUpdate(id: .., film: {})
+|contestantUpdate(id: .., film: {})
 
 |Mutation
-|filmDelete(id: ..)
+|contestantDelete(id: ..)
 |===
 
 === Custom Queries
