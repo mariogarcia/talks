@@ -1,0 +1,9 @@
+include 'slides'
+include 'annotations'
+
+rootProject.name = 'madridgug-10-2018'
+
+rootProject.children.each { project ->
+    project.buildFileName = "${project.name}.gradle"
+    assert project.buildFile.isFile()
+}

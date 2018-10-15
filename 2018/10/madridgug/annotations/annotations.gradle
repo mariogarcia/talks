@@ -1,0 +1,19 @@
+plugins {
+    id 'groovy'
+    id 'jacoco'
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy:2.5.3'
+    compile 'org.codehaus.groovy:groovy-datetime:2.5.3'
+
+    compile 'com.google.inject:guice:4.2.1'
+    compile 'org.slf4j:slf4j-api:1.7.25'
+
+    testCompile 'uk.org.lidalia:slf4j-test:1.1.0'
+    testCompile 'org.spockframework:spock-core:1.2-groovy-2.5'
+}
+
+repositories {
+    jcenter()
+}

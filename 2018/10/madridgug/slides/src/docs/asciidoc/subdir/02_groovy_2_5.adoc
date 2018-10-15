@@ -1,0 +1,175 @@
+== Hablemos de +++<span style="color:#6f9fc4;font-weight:bold;">Groovy</span>+++ 2.5
+
+== Annotations
+
+=== +++<span></span>+++
+
+[%notitle]
+image::annotations_groovy.png[background, size=cover]
+
+=== En general
+
+[%step]
+* **Flexibilidad** en antiguas anotaciones
+* **Conversion** en +++<u>Meta anotaciones</u>+++
+* **Validacion** de parametros
+* Ayuda en la **cobertura de codigo**
+
+=== Ejemplos
+
+- @Immutable
+- @TupleConstructor
+- @AutoImplement
+- @AutoFinal
+- @NamedXXX
+- @Generated
+
+=== @Immutable (OLD)
+
+[source, groovy]
+----
+include::{annotations}/src/main/groovy/madridgug/immutable/Car.groovy[indent=0]
+----
+<1> Debe ser immutable tambien o la compilacion fallara
+<2> Mapas y listas no se pueden modificar a partir de este punto
+
+=== @Immutable (NEW - java.time)
+
+[source, groovy]
+----
+include::{annotations}/src/main/groovy/madridgug/immutable/Brand.groovy[indent=0]
+----
+<1> Reconoce todas las clases immutables de **java.time**
+
+=== @Immutable (NEW - DI friendly)
+
+[source, groovy]
+----
+include::{annotations}/src/main/groovy/madridgug/immutable/SecurityConfig.groovy[indent=0]
+----
+
+=== @Immutable (DI friendly - II)
+
+[source, groovy]
+.+ 1 vez => Meta anotacion
+----
+include::{annotations}/src/main/groovy/madridgug/immutable/ImmutableDI.groovy[indent=0]
+----
+
+=== @Immutable (DI friendly - III)
+
+[source, groovy]
+.Annotated class
+----
+include::{annotations}/src/main/groovy/madridgug/immutable/SecurityConfig2.groovy[indent=0]
+----
+
+[source, groovy]
+.Google Guice Module
+----
+include::{annotations}/src/main/groovy/madridgug/immutable/GuiceModule.groovy[tags=guice_di,indent=0]
+----
+
+=== @Immutable (DI friendly - IV)
+
+[source, groovy]
+----
+include::{annotations}/src/test/groovy/madridgug/immutable/ImmutableSpec.groovy[tags=di_friendly,indent=0]
+----
+
+=== @AutoImplement
+
+[source, groovy]
+----
+include::{annotations}/src/main/groovy/madridgug/autoimplement/MessageSender.groovy[indent=0]
+----
+
+=== @AutoImplement
+
+[source, groovy]
+.Default
+----
+include::{annotations}/src/main/groovy/madridgug/autoimplement/PartialMessageSender.groovy[indent=0]
+----
+
+=== @AutoImplement
+
+[source, groovy]
+.Throw exceptions
+----
+include::{annotations}/src/main/groovy/madridgug/autoimplement/NoisyMessageSender.groovy[indent=0]
+----
+
+=== @AutoImplement
+
+[source, groovy]
+.Custom code
+----
+include::{annotations}/src/main/groovy/madridgug/autoimplement/VeryNoisyMessageSender.groovy[indent=0]
+----
+
+=== @AutoFinal
+
+[source, groovy]
+----
+include::{annotations}/src/main/groovy/madridgug/autofinal/WordProcessor.groovy[indent=0]
+----
+<1> La compilacion falla si quitamos los comentarios
+<2> Aqui, por desgracia, funcionara de manera incorrecta
+
+=== @Delegate enhancements
+
+[source, groovy]
+.Ahora @Delegate se puede usar en **getters**
+----
+include::{annotations}/src/main/groovy/madridgug/delegate/TennisPlayer.groovy[indent=0]
+----
+
+=== @Delegate enhancements
+
+[source, groovy]
+----
+include::{annotations}/src/test/groovy/madridgug/delegate/DelegateSpec.groovy[tags=delegate,indent=0]
+----
+
+=== @NamedVariant
+
+[source, groovy]
+----
+include::{annotations}/src/main/groovy/madridgug/namedvariant/Car.groovy[indent=0]
+----
+
+[source, groovy]
+----
+include::{annotations}/src/main/groovy/madridgug/namedvariant/CarProcessor.groovy[indent=0]
+----
+
+=== @NamedVariant
+
+[source, groovy]
+.Pasando una instancia
+----
+include::{annotations}/src/test/groovy/madridgug/namedvariant/NamedVariantSpec.groovy[tags=normal,indent=0]
+----
+
+[source, groovy]
+.Pasando propiedades
+----
+include::{annotations}/src/test/groovy/madridgug/namedvariant/NamedVariantSpec.groovy[tags=by_params,indent=0]
+----
+
+=== @NamedVariant
+
+[source, groovy]
+.NamedParam
+----
+include::{annotations}/src/main/groovy/madridgug/namedvariant/AnotherCarProcessor.groovy[indent=0]
+----
+
+=== @NamedVariant
+
+[source, groovy]
+.Invocacion
+----
+include::{annotations}/src/test/groovy/madridgug/namedvariant/NamedVariantSpec.groovy[tags=with_named_params, indent=0]
+----

@@ -1,0 +1,12 @@
+== Hablemos de +++<span style="color:#6f9fc4;font-weight:bold;">Groovy</span>+++ 3.x
+
+=== Trabajo de alineacion con JDK9/10
+
+=== Parrot
+
+[%step]
+- Renovacion del parser de Groovy
+- Groovy vuelve a ser un super conjunto de Java
+- Entre otras cosas... lambdas syntax
+
+=== Ejemplos

@@ -1,0 +1,24 @@
+= +++<span style="color:#6f9fc4;font-weight:bold;">Groovy</span>+++ 2.5+, 3.0
+...
+2018-10-16
+:revnumber: {project-version}
+:example-caption!:
+:source-autofit:
+:docinfo:
+:docinfodir: _shared
+ifndef::imagesdir[:imagesdir: images]
+ifndef::annotations[:annotations: ../../../../../annotations]
+
+include::subdir/00_me.adoc[]
+
+include::subdir/00_indice.adoc[]
+
+include::subdir/00_numbers.adoc[]
+
+include::subdir/00_roadmap.adoc[]
+
+include::subdir/02_groovy_2_5.adoc[]
+
+include::subdir/03_macros.adoc[]
+
+include::subdir/04_parrot.adoc[]

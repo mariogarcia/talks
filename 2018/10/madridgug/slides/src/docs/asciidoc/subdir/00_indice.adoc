@@ -1,0 +1,7 @@
+== Indice
+
+[%step]
+* +++<span style="color:#6f9fc4;font-weight:bold;">Groovy</span>+++ en numeros
+* +++<span style="color:#6f9fc4;font-weight:bold;">Groovy</span>+++ roadmap 2018 / 2019
+* Que nos ofrece la version **2.5+**
+* Que nos ofrece la version **3.0**

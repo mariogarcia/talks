@@ -1,0 +1,34 @@
+== Hey +++<span style="color:#6f9fc4;font-weight:bold;">Hi</span>+++
+
+[NOTE.speaker]
+--
+Actually things aren't that bad
+--
+
+[%notitle]
+image::me.png[background, size=cover]
+
+[%step]
+* **Name**
+** Mario Garcia
+* Currently working at **Kaleidos**
+** https://kaleidos.net
+
+=== Me
+
+[NOTE.speaker]
+--
+Actually things aren't that bad
+--
+
+[%notitle]
+image::me.png[background, size=cover]
+
+[%step]
+* **Usual suspect of:**
+** Madrid Groovy User Group
+* **You can find me**:
+** https://twitter.com/marioggar
+** https://github.com/mariogarcia
+* **Presentation and code**
+** https://github.com/mariogarcia/talks

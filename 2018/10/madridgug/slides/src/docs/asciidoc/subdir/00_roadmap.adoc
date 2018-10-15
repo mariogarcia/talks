@@ -1,0 +1,30 @@
+== Roadmap
+
+=== Groovy 2.5.x
+
+[%step]
+* La 2.5.x ya lleva con nosotros 5 meses (2018-05-30)
+* Actualizaciones a buen ritmo
+** 2.5.0: mayo
+** 2.5.1: julio
+** 2.5.2: agosto
+** 2.5.3: octubre
+
+=== Groovy 2.5.x (II)
+
+[%step]
+* Macros
+* JDK 7 es el minimo
+* Compatible con JDK9/10 con warnings
+
+=== Groovy 2.6, 3.0
+
+[%step]
+* Alphas de ambas desde mediados de 2018
+* Parrot parser (JDK8 syntax 1 - 1 y mucho mas)
+* **2.6**
+** JDK7 (min)
+** Corta esperanza de vida
+* **3.0**
+** JDK8 (min)
+** Se dedicara a alinearse con JDK9/10

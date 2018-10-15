@@ -1,0 +1,27 @@
+== Groovy en numeros
+
+=== Referencias
+
+- OCI Webminar 23, may 2018 by Paul King
+- Groovy distribution archive
+
+=== Contributors
+
+30+ nuevos contributors en los ultimos 16 meses
+
+=== Descargas
+
+[%step]
+* + 4 millones de descargas al mes y subiendo
+** 23 millones 2016
+** 50 millones 2017
+** 19 millones solo en el 1er Q de 2018
+
+=== Nuevas versiones
+
+[%step]
+* Groovy 2.4, 2.5, 2.6, y 3.0:
+** **2.4.15**: 2018-09-04
+** **2.5.3**: 2018-10-14
+** **2.6.0-alpha-4**: 2018-06-26
+** **3.0.0-alpha-3**: 2018-06-26

@@ -1,0 +1,17 @@
+== Macros
+
+=== Las utilidades de macros abstraen...
+
+[%step]
+- La **generacion** de nuevo codigo
+- El **filtrado** de codigo sobre el que quieres aplicar una transformacion
+- La **transformacion** de codigo
+
+=== Utilidades
+
+- `macro {}` (generacion)
+- `MacroClass {}` (generacion)
+- `@Macro` (transformacion)
+- `ASTMatcher` (filtrado)
+
+=== Ejemplos
