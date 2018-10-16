@@ -38,8 +38,6 @@ image::annotations_groovy.png[background, size=cover]
 ----
 include::{annotations}/src/main/groovy/madridgug/immutable/Car.groovy[indent=0]
 ----
-<1> Debe ser immutable tambien o la compilacion fallara
-<2> Mapas y listas no se pueden modificar a partir de este punto
 
 === @Immutable (NEW - java.time)
 
@@ -47,7 +45,6 @@ include::{annotations}/src/main/groovy/madridgug/immutable/Car.groovy[indent=0]
 ----
 include::{annotations}/src/main/groovy/madridgug/immutable/Brand.groovy[indent=0]
 ----
-<1> Reconoce todas las clases immutables de **java.time**
 
 === @Immutable (NEW - DI friendly)
 
@@ -142,8 +139,6 @@ include::{annotations}/src/main/groovy/madridgug/autoimplement/VeryNoisyMessageS
 ----
 include::{annotations}/src/main/groovy/madridgug/autofinal/WordProcessor.groovy[indent=0]
 ----
-<1> La compilacion falla si quitamos los comentarios
-<2> Aqui, por desgracia, funcionara de manera incorrecta
 
 === @Delegate enhancements
 

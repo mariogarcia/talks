@@ -26,6 +26,8 @@ include::subdir/03_macros.adoc[]
 
 include::subdir/04_parrot.adoc[]
 
+include::subdir/05_missing.adoc[]
+
 include::subdir/05_ecosystem.adoc[]
 
 include::subdir/06_qna.adoc[]

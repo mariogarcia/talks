@@ -57,3 +57,77 @@ Son las lambdas realmente lambdas ?
 [%step]
 - **Con** @CompileStatic => **lambdas**
 - **Sin** @CompileStatic => **closures**
+
+=== Loops
+
+[%step]
+- En general **todos los tipos** de loops que se puedan hacer en Java
+- Ahora se puede hacer un **do / while** por ejemplo
+
+=== Loops
+
+[source, groovy]
+.Multi asignacion
+----
+include::{parrot}/src/main/groovy/madridgug/parrot/Loops.groovy[tags=multi_assign, indent=0]
+----
+
+=== Nuevos operadores
+
+[%step]
+- Identidad
+- Elvis
+- Safe indexing
+
+=== Identidad
+
+[source, groovy]
+----
+include::{parrot}/src/main/groovy/madridgug/parrot/Identity.groovy[indent=0]
+----
+
+=== Elvis
+
+[source, groovy]
+----
+include::{parrot}/src/main/groovy/madridgug/parrot/Elvis.groovy[tags=new_elvis, indent=0]
+----
+
+=== Safe indexing
+
+[source, groovy]
+----
+include::{parrot}/src/main/groovy/madridgug/parrot/Elvis.groovy[tags=safe_indexing, indent=0]
+----
+
+=== Otros
+
+[%step]
+- **Default methods** en interfaces
+- **!in** y **!instanceof**
+
+=== @Groovydoc
+
+[%step]
+- Comentarios accesibles en tiempo de ejecucion
+
+=== @Groovydoc
+
+[source, groovy]
+----
+include::{parrot}/src/main/groovy/madridgug/parrot/Processor.groovy[indent=0]
+----
+
+=== @Groovydoc
+
+[source, groovy]
+.comments
+----
+include::{parrot}/src/test/groovy/madridgug/parrot/ProcessorTest.groovy[tags=from_comments, indent=0]
+----
+
+[source, groovy]
+.annotation
+----
+include::{parrot}/src/test/groovy/madridgug/parrot/ProcessorTest.groovy[tags=from_annotation, indent=0]
+----
