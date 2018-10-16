@@ -16,6 +16,12 @@
 
 === macro method
 
+[%step]
+- Nos permite crear **statements** y **expressions**
+- De manera mas facil y natural
+
+=== macro method
+
 [source, groovy]
 .Este codigo
 ----
@@ -61,4 +67,39 @@ include::{macros}/src/main/groovy/madridgug/macros/method/MakeParamSafeTransform
 <1> Las expressiones se interpolan
 <2> Dentro de codigo plano
 
+=== macro method
+
+[source, groovy]
+.Mejor caso de uso
+----
+include::{macros}/src/main/groovy/madridgug/macros/method/ToMD5Transformation.groovy[tags=longer_use_case, indent=0]
+----
+
 === MacroClass
+
+[%step]
+- Para crear clases y/o metodos con la misma tecnica que con el `macro {}` method
+
+=== MacroClass
+
+[source, groovy]
+.Creacion de clase
+----
+include::{macros}/src/main/groovy/madridgug/macros/method/StatisticsASTTransformation.groovy[tags=macroClass, indent=0]
+----
+
+=== MacroClass
+
+[source, groovy]
+.Creacion de clase
+----
+include::{macros-examples}/src/main/groovy/madridgug/macros/method/ProcessorWithStatistics.groovy[indent=0]
+----
+
+=== MacroClass
+
+[source, groovy]
+.Creacion de clase
+----
+include::{macros-examples}/src/test/groovy/madridgug/macros/method/ProcessorWithStatisticsSpec.groovy[tags=statistics, indent=0]
+----
