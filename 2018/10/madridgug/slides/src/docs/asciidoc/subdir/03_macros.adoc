@@ -103,3 +103,65 @@ include::{macros-examples}/src/main/groovy/madridgug/macros/method/ProcessorWith
 ----
 include::{macros-examples}/src/test/groovy/madridgug/macros/method/ProcessorWithStatisticsSpec.groovy[tags=statistics, indent=0]
 ----
+
+=== ASTMatcher
+
+[%step]
+- Clase de utilidad para filtrar, seleccionar nodos que transformar
+- Una vez que localizas lo que quieres modificar lo modificas
+
+=== ASTMatcher
+
+[source, groovy]
+----
+    @Override
+    Expression transform(Expression exp) {
+        Expression ref = macro { 1 + 1 }
+
+        if (ASTMatcher.matches(ref, exp)) {
+            return macro { 3 }
+        }
+
+        return super.transform(exp)
+    }
+----
+
+=== @Macro
+
+[%step]
+- Transforman aquellas invocaciones a metodos que tienen el nombre anotado
+- Parecido a las extensiones
+- No imports required
+
+=== @Macro
+
+[source, groovy]
+----
+public class ExampleMacroMethods {
+
+    @Macro
+    public static Expression safe(MacroContext macroContext, MethodCallExpression callExpression) {
+        return ternaryX(
+                notNullX(callExpression.getObjectExpression()),
+                callExpression,
+                constX(null)
+        );
+    }
+    ...
+}
+----
+
+=== @Macro
+
+[source, groovy]
+----
+def nullObject = null
+assert null == safe(safe(nullObject.hashcode()).toString())
+----
+
+=== @Macro
+
+[source, groovy]
+----
+nullObject?.hashcode()?.toString()
+----

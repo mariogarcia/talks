@@ -1,4 +1,12 @@
-== Que queda ?
+== Que queda por contar ?
 
 [%step]
-- Groovysh y **:grab**
+* Groovy 2.5
+** Repeated annotations
+** Anotaciones en mas sitios (JSR-308)
+** Mejoras en el CliBuilder
+** **with** vs **tap**
+** Groovysh y **:grab**
+** ...
+* Groovy 3.x
+** Mejora en try/resources
