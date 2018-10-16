@@ -24,6 +24,14 @@ image::annotations_groovy.png[background, size=cover]
 - @NamedXXX
 - @Generated
 
+=== @Immutable
+
+[%step]
+* No poder modificar los campos de una clase
+* Si los campos son otras clases...
+** Comprueba que sean immutables tambien
+** O que esten en una lista blanca de clases
+
 === @Immutable (OLD)
 
 [source, groovy]
@@ -77,6 +85,20 @@ include::{annotations}/src/main/groovy/madridgug/immutable/GuiceModule.groovy[ta
 include::{annotations}/src/test/groovy/madridgug/immutable/ImmutableSpec.groovy[tags=di_friendly,indent=0]
 ----
 
+=== @Immutable (Optional)
+
+[source, groovy]
+.Considerado immutable tambien
+----
+include::{annotations}/src/main/groovy/madridgug/immutable/Person.groovy[indent=0]
+----
+
+=== @AutoImplement
+
+[%step]
+- A veces tenemos que implementar un interface
+- Pero no queremos / podemos implementarlo entero
+
 === @AutoImplement
 
 [source, groovy]
@@ -110,12 +132,23 @@ include::{annotations}/src/main/groovy/madridgug/autoimplement/VeryNoisyMessageS
 
 === @AutoFinal
 
+[%step]
+- A veces cometemos errores re-asignando una variable
+- Deberia avisarnos en tiempo de compilacion
+
+=== @AutoFinal
+
 [source, groovy]
 ----
 include::{annotations}/src/main/groovy/madridgug/autofinal/WordProcessor.groovy[indent=0]
 ----
 <1> La compilacion falla si quitamos los comentarios
 <2> Aqui, por desgracia, funcionara de manera incorrecta
+
+=== @Delegate enhancements
+
+[%step]
+- Hasta ahora solo se podia utilizar sobre propiedades de la clase
 
 === @Delegate enhancements
 
@@ -131,6 +164,12 @@ include::{annotations}/src/main/groovy/madridgug/delegate/TennisPlayer.groovy[in
 ----
 include::{annotations}/src/test/groovy/madridgug/delegate/DelegateSpec.groovy[tags=delegate,indent=0]
 ----
+
+=== @NamedVariant
+
+[%step]
+- Posibilidad de llamar a un metodo con la instancia del tipo requerido o ...
+- Descomponiendo la instancia en sus diferentes attributos
 
 === @NamedVariant
 
@@ -151,6 +190,8 @@ include::{annotations}/src/main/groovy/madridgug/namedvariant/CarProcessor.groov
 ----
 include::{annotations}/src/test/groovy/madridgug/namedvariant/NamedVariantSpec.groovy[tags=normal,indent=0]
 ----
+
+=== @NamedVariant
 
 [source, groovy]
 .Pasando propiedades
@@ -173,3 +214,11 @@ include::{annotations}/src/main/groovy/madridgug/namedvariant/AnotherCarProcesso
 ----
 include::{annotations}/src/test/groovy/madridgug/namedvariant/NamedVariantSpec.groovy[tags=with_named_params, indent=0]
 ----
+
+=== @Generated
+
+[%step]
+* Concebido para los **autores de transformciones** AST
+* Ayuda a las herramientas de **cobertura de codigo**
+* Para saber **que codigo es generado** y cual no
+* Hasta ahora ni **JaCoCo** ni **Cobertura** lo tenian facil

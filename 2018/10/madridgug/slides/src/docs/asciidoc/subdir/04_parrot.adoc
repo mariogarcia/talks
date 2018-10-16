@@ -1,6 +1,9 @@
 == Hablemos de +++<span style="color:#6f9fc4;font-weight:bold;">Groovy</span>+++ 3.x
 
-=== Trabajo de alineacion con JDK9/10
+=== Alineacion con JDK9 / 10
+
+[%notitle]
+image::java_duke.png[300, 150, size=20%]
 
 === Parrot
 
@@ -9,4 +12,48 @@
 - Groovy vuelve a ser un super conjunto de Java
 - Entre otras cosas... lambdas syntax
 
-=== Ejemplos
+=== Lambdas
+
+[source, groovy]
+.Lambdas
+----
+include::{parrot}/src/main/groovy/madridgug/parrot/Functions.groovy[tags=lambdas_only, indent=0]
+----
+
+=== Lambdas
+
+[source, groovy]
+.Lambdas
+----
+include::{parrot}/src/main/groovy/madridgug/parrot/Functions.groovy[tags=lambdas_only2, indent=0]
+----
+
+=== Method references
+
+[source, groovy]
+----
+include::{parrot}/src/main/groovy/madridgug/parrot/Functions.groovy[tags=method_references, indent=0]
+----
+
+=== Lambdas + Closures + M. Ref.
+
+[source, groovy]
+.Todo junto
+----
+include::{parrot}/src/main/groovy/madridgug/parrot/Functions.groovy[tags=both, indent=0]
+----
+
+=== Lambdas others
+
+[source, groovy]
+----
+include::{parrot}/src/main/groovy/madridgug/parrot/Functions.groovy[tags=lambdas_others, indent=0]
+----
+
+=== Lambdas others
+
+Son las lambdas realmente lambdas ?
+
+[%step]
+- **Con** @CompileStatic => **lambdas**
+- **Sin** @CompileStatic => **closures**

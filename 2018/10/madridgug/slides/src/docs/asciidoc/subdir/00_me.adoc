@@ -1,4 +1,4 @@
-== Hey +++<span style="color:#6f9fc4;font-weight:bold;">Hi</span>+++
+== Hey +++<span style="color:#6f9fc4;font-weight:bold;">hola</span>+++
 
 [NOTE.speaker]
 --
@@ -11,24 +11,19 @@ image::me.png[background, size=cover]
 [%step]
 * **Name**
 ** Mario Garcia
-* Currently working at **Kaleidos**
+* Sigo trabajando en **Kaleidos**
 ** https://kaleidos.net
 
 === Me
-
-[NOTE.speaker]
---
-Actually things aren't that bad
---
 
 [%notitle]
 image::me.png[background, size=cover]
 
 [%step]
-* **Usual suspect of:**
+* **Sospechoso de pertenecer al:**
 ** Madrid Groovy User Group
-* **You can find me**:
+* **Social**:
 ** https://twitter.com/marioggar
 ** https://github.com/mariogarcia
-* **Presentation and code**
+* **Codigo y slides en:**
 ** https://github.com/mariogarcia/talks

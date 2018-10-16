@@ -14,4 +14,51 @@
 - `@Macro` (transformacion)
 - `ASTMatcher` (filtrado)
 
-=== Ejemplos
+=== macro method
+
+[source, groovy]
+.Este codigo
+----
+include::{macros-examples}/src/main/groovy/madridgug/macros/method/SafeCalls.groovy[indent=0]
+----
+
+[source, groovy]
+.Deberia contemplar este test
+----
+include::{macros-examples}/src/test/groovy/madridgug/macros/method/SafeCallsSpec.groovy[tags=unsafe_calls,indent=0]
+----
+
+=== macro method
+
+Como crear la guarda antes del codigo ?
+
+[%step]
+- API AST "A pelo"
+- GeneralUtils para reducirlo
+- macro {}
+
+=== macro method
+
+[source, groovy]
+.API ASTs
+----
+include::{macros}/src/main/groovy/madridgug/macros/method/MakeParamSafeTransformation.groovy[tags=longer, indent=0]
+----
+
+[source, groovy]
+.GeneralUtils
+----
+include::{macros}/src/main/groovy/madridgug/macros/method/MakeParamSafeTransformation.groovy[tags=shorter, indent=0]
+----
+
+=== macro method
+
+[source, groovy]
+.macro {}
+----
+include::{macros}/src/main/groovy/madridgug/macros/method/MakeParamSafeTransformation.groovy[tags=macro, indent=0]
+----
+<1> Las expressiones se interpolan
+<2> Dentro de codigo plano
+
+=== MacroClass

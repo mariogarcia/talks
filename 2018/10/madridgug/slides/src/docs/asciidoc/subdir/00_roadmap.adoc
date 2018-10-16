@@ -1,23 +1,25 @@
 == Roadmap
 
-=== Groovy 2.5.x
+image::roadmap.jpg[]
+
+=== +++<span style="color:#6f9fc4;font-weight:bold;">Groovy</span>+++ 2.5.x
 
 [%step]
-* La 2.5.x ya lleva con nosotros 5 meses (2018-05-30)
-* Actualizaciones a buen ritmo
-** 2.5.0: mayo
-** 2.5.1: julio
-** 2.5.2: agosto
-** 2.5.3: octubre
+* La **2.5.x** ya lleva con nosotros 5 meses (2018-05-30)
+* Actualizaciones a +++<u>buen ritmo</u>+++
+** **2.5.0**: mayo
+** **2.5.1**: julio
+** **2.5.2**: agosto
+** **2.5.3**: octubre
 
-=== Groovy 2.5.x (II)
+=== +++<span style="color:#6f9fc4;font-weight:bold;">Groovy</span>+++ 2.5.x (II)
 
 [%step]
 * Macros
 * JDK 7 es el minimo
 * Compatible con JDK9/10 con warnings
 
-=== Groovy 2.6, 3.0
+=== +++<span style="color:#6f9fc4;font-weight:bold;">Groovy</span>+++ 2.6, 3.0
 
 [%step]
 * Alphas de ambas desde mediados de 2018

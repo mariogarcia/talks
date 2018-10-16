@@ -1,0 +1,15 @@
+plugins {
+    id 'groovy'
+    id 'jacoco'
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy:3.0.0-alpha-3'
+    compile 'org.codehaus.groovy:groovy-macro:3.0.0-alpha-3'
+
+    testCompile 'junit:junit:4.12'
+}
+
+repositories {
+    jcenter()
+}

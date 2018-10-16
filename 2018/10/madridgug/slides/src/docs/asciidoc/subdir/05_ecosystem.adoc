@@ -1,0 +1,27 @@
+== Groovy +++<span style="color:#3eac53;font-weight:bold;">ecosystem</span>+++
+
+=== Bibliotecas y frameworks
+
+|===
+|Nombre | Version | Groovy
+
+|Spock
+|1.2-groovy-2.5
+|2.5.2
+
+|Micronaut
+|1.0.0-RC2
+|2.5.1
+
+|Geb
+|2.2
+|2.4.15
+
+|Grails
+|3.3.8
+|2.4.15
+
+|Griffon
+|2.15.0
+|2.4.15
+|===

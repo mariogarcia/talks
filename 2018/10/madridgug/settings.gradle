@@ -1,5 +1,8 @@
 include 'slides'
 include 'annotations'
+include 'macros'
+include 'macros-examples'
+include 'parrot'
 
 rootProject.name = 'madridgug-10-2018'
 
